@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Amazon Listing — KimiChan Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav><div class="ni">
+<a href="index.html" class="logo">KimiChan <span class="dot"></span></a>
+<div class="nl">
+<a href="index.html">Home</a>
+<a href="work.html" class="on">Work</a>
+<a href="gallery.html">Gallery</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+</div>
+<div class="na">
+<button class="tt" id="themeBtn">&#9728;</button>
+<a href="contact.html" class="btn bp">Let's talk</a>
+</div>
+</div></nav>
+
+<section class="ph">
+<div class="ct">
+<a href="work.html" class="back">← Back to Work</a>
+<div class="meta"><span class="tag">Graphic</span><span class="tag">E-commerce</span></div>
+<h1>Amazon Listing</h1>
+<p class="lead">Promotional materials and product listing graphics designed for Amazon. Clear hierarchy, strong product focus, and conversion-oriented layouts.</p>
+<div class="ph-img"><span>Amazon Listing Graphics</span></div>
+<div class="ph-body">
+<h2>Overview</h2>
+<p>Amazon is a major online retail platform. For this project I designed promotional materials and listing assets that help products stand out in a crowded marketplace — from main images to A+ content style layouts and promotional banners.</p>
+<h2>Role &amp; deliverables</h2>
+<ul>
+<li>Product listing main images and secondary images</li>
+<li>Promotional banners and sales graphics</li>
+<li>Visual hierarchy and typography for clarity at small sizes</li>
+<li>Consistent brand treatment across the set</li>
+</ul>
+<h2>Approach</h2>
+<p>E-commerce graphics need to work at thumbnail size and still communicate value. I focused on clean composition, accurate product representation, and a clear value message so shoppers can understand the offer quickly.</p>
+</div>
+<div class="ph-nav">
+<a href="project-glinet.html">← Previous: GL.iNet Promo</a>
+<a href="project-astrorelay.html">Next: AstroRelay →</a>
+</div>
+</div>
+</section>
+
+<footer>© 2026 KimiChan Studio · Hong Kong</footer>
+<script>
+const themeBtn=document.getElementById("themeBtn");
+let theme=localStorage.getItem("kc-theme")||"dark";
+document.documentElement.setAttribute("data-theme",theme);
+themeBtn.textContent=theme==="dark"?"☀":"☾";
+themeBtn.onclick=function(){theme=theme==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",theme);localStorage.setItem("kc-theme",theme);themeBtn.textContent=theme==="dark"?"☀":"☾"};
+</script>
+</body>
+</html>

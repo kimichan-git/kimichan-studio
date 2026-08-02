@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Urban Watcher — KimiChan Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav><div class="ni">
+<a href="index.html" class="logo">KimiChan <span class="dot"></span></a>
+<div class="nl">
+<a href="index.html">Home</a>
+<a href="work.html" class="on">Work</a>
+<a href="gallery.html">Gallery</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+</div>
+<div class="na">
+<button class="tt" id="themeBtn">&#9728;</button>
+<a href="contact.html" class="btn bp">Let's talk</a>
+</div>
+</div></nav>
+
+<section class="ph">
+<div class="ct">
+<a href="index.html#hScroll" class="back">← Back to projects</a>
+<div class="meta"><span class="tag">Graphic</span><span class="tag">VR</span><span class="tag">Interactive</span></div>
+<h1>Urban Watcher</h1>
+<p class="lead">An immersive virtual reality project that uses sound and imagery to encourage users to pause and re-observe the everyday surroundings they often overlook.</p>
+<div class="ph-img"><span>Urban Watcher</span></div>
+<div class="ph-body">
+<h2>Overview</h2>
+<p>Urban Watcher is an immersive virtual reality experience that invites people to slow down and notice the everyday city environments they usually pass by. Through layered image and sound, the project turns ordinary streets and spaces into a reflective visual journey.</p>
+<h2>Role &amp; deliverables</h2>
+<ul>
+<li>Concept and visual direction</li>
+<li>Image and sound integration for an immersive experience</li>
+<li>Exhibition and production support</li>
+<li>Interactive storytelling across digital media</li>
+</ul>
+<h2>Approach</h2>
+<p>The project balances the energy of the city with quieter, more abstract moments. Field documentation, exhibition setup, and iterative testing shaped a final experience that feels both authentic and contemplative.</p>
+</div>
+<div class="ph-nav">
+<a href="project-setup-video.html">← Previous: Setup Video</a>
+<a href="project-vixmini.html">Next: VIXMINI →</a>
+</div>
+</div>
+</section>
+
+<footer>© 2026 KimiChan Studio</footer>
+<script>
+(function(){
+  var themeBtn = document.getElementById("themeBtn");
+  var theme = localStorage.getItem("kc-theme") || "dark";
+  document.documentElement.setAttribute("data-theme", theme);
+  if (!themeBtn) return;
+  function setIcon(){
+    themeBtn.textContent = theme === "dark" ? "\u2600" : "\u263E";
+  }
+  setIcon();
+  themeBtn.addEventListener("click", function(){
+    theme = theme === "dark" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("kc-theme", theme);
+    setIcon();
+  });
+})();
+</script>
+</body>
+</html>

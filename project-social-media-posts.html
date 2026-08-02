@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Social Media Posts — KimiChan Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav><div class="ni">
+<a href="index.html" class="logo">KimiChan <span class="dot"></span></a>
+<div class="nl">
+<a href="index.html">Home</a>
+<a href="work.html" class="on">Work</a>
+<a href="gallery.html">Gallery</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+</div>
+<div class="na">
+<button class="tt" id="themeBtn">&#9728;</button>
+<a href="contact.html" class="btn bp">Let's talk</a>
+</div>
+</div></nav>
+
+<section class="ph">
+<div class="ct">
+<a href="index.html#hScroll" class="back">← Back to projects</a>
+<div class="meta"><span class="tag">Graphic</span><span class="tag">Social</span></div>
+<h1>Social Media Posts</h1>
+<p class="lead">A series of social posts designed for feed impact, brand consistency, and clear messaging across platforms.</p>
+<div class="ph-img"><span>Social Media Posts</span></div>
+<div class="ph-body">
+<h2>Overview</h2>
+<p>Social media post designs for campaigns and ongoing brand presence. Formats adapt to platform needs while keeping a coherent visual language and readable hierarchy.</p>
+<h2>Role &amp; deliverables</h2>
+<ul>
+<li>Post templates and campaign key visuals</li>
+<li>Typography and colour systems for feed use</li>
+<li>Multi-format adaptations (square, story, landscape)</li>
+<li>Asset handoff for scheduling and publishing</li>
+</ul>
+<h2>Approach</h2>
+<p>Strong focal points, limited text, and consistent margins keep posts legible on mobile while supporting a recognisable brand presence over time.</p>
+</div>
+<div class="ph-nav">
+<a href="project-product-listing.html">← Previous: Product Listing</a>
+<a href="project-campaign-video.html">Next: Campaign Video →</a>
+</div>
+</div>
+</section>
+
+<footer>© 2026 KimiChan Studio</footer>
+<script>
+(function(){
+  var themeBtn = document.getElementById("themeBtn");
+  var theme = localStorage.getItem("kc-theme") || "dark";
+  document.documentElement.setAttribute("data-theme", theme);
+  if (!themeBtn) return;
+  function setIcon(){
+    themeBtn.textContent = theme === "dark" ? "\u2600" : "\u263E";
+  }
+  setIcon();
+  themeBtn.addEventListener("click", function(){
+    theme = theme === "dark" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("kc-theme", theme);
+    setIcon();
+  });
+})();
+</script>
+</body>
+</html>

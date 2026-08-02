@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GL.iNet Parental Control — KimiChan Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav><div class="ni">
+<a href="index.html" class="logo">KimiChan <span class="dot"></span></a>
+<div class="nl">
+<a href="index.html">Home</a>
+<a href="work.html" class="on">Work</a>
+<a href="gallery.html">Gallery</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+</div>
+<div class="na">
+<button class="tt" id="themeBtn">&#9728;</button>
+<a href="contact.html" class="btn bp">Let's talk</a>
+</div>
+</div></nav>
+
+<section class="ph">
+<div class="ct">
+<a href="work.html" class="back">← Back to Work</a>
+<div class="meta"><span class="tag">Video</span><span class="tag">Motion</span></div>
+<h1>Parental Control Features</h1>
+<p class="lead">Promotional video unveiling parental control capabilities on GL.iNet routers — clear messaging and polished motion.</p>
+<div class="ph-img"><span>GL.iNet Promo Video</span></div>
+<div class="ph-body">
+<h2>Overview</h2>
+<p>This promotional video introduces parental control features on GL.iNet routers. The aim was to explain the benefits clearly and make the product feel approachable for families and network administrators.</p>
+<h2>Role &amp; deliverables</h2>
+<ul>
+<li>Storyboard and narrative structure</li>
+<li>Motion graphics and visual treatment</li>
+<li>On-screen typography and UI callouts</li>
+<li>Final promotional cut for product marketing</li>
+</ul>
+<h2>Approach</h2>
+<p>I kept the pacing steady and the message simple: what the feature does, why it matters, and how it fits into everyday use. Motion and graphics support the story without overpowering the product.</p>
+<p>Related work includes the OpenVPN setup tutorial and other GL.iNet product videos.</p>
+</div>
+<div class="ph-nav">
+<a href="project-astrorelay.html">← Previous: AstroRelay</a>
+<a href="project-amazon.html">Next: Amazon Listing →</a>
+</div>
+</div>
+</section>
+
+<footer>© 2026 KimiChan Studio · Hong Kong</footer>
+<script>
+const themeBtn=document.getElementById("themeBtn");
+let theme=localStorage.getItem("kc-theme")||"dark";
+document.documentElement.setAttribute("data-theme",theme);
+themeBtn.textContent=theme==="dark"?"☀":"☾";
+themeBtn.onclick=function(){theme=theme==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",theme);localStorage.setItem("kc-theme",theme);themeBtn.textContent=theme==="dark"?"☀":"☾"};
+</script>
+</body>
+</html>

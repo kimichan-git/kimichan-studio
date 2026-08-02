@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Reels Video — KimiChan Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav><div class="ni">
+<a href="index.html" class="logo">KimiChan <span class="dot"></span></a>
+<div class="nl">
+<a href="index.html">Home</a>
+<a href="work.html" class="on">Work</a>
+<a href="gallery.html">Gallery</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+</div>
+<div class="na">
+<button class="tt" id="themeBtn">&#9728;</button>
+<a href="contact.html" class="btn bp">Let's talk</a>
+</div>
+</div></nav>
+
+<section class="ph">
+<div class="ct">
+<a href="index.html#hScroll" class="back">← Back to projects</a>
+<div class="meta"><span class="tag">Video</span><span class="tag">Social</span></div>
+<h1>Reels Video</h1>
+<p class="lead">Short-form vertical video designed for Reels and similar platforms—fast hooks, clear visuals, and mobile-first framing.</p>
+<div class="ph-img"><span>Reels Video</span></div>
+<div class="ph-body">
+<h2>Overview</h2>
+<p>Vertical short-form video optimised for Reels and feed-based discovery. The focus is on immediate visual interest, concise messaging, and safe framing for mobile screens.</p>
+<h2>Role &amp; deliverables</h2>
+<ul>
+<li>Vertical shot planning and framing</li>
+<li>Editing for short attention spans</li>
+<li>On-screen text and motion accents</li>
+<li>Platform-ready exports</li>
+</ul>
+<h2>Approach</h2>
+<p>Strong opening frames, readable type, and tight cuts keep the content effective in a fast-scrolling environment without losing brand clarity.</p>
+</div>
+<div class="ph-nav">
+<a href="project-campaign-video.html">← Previous: Campaign Video</a>
+<a href="project-setup-video.html">Next: Setup Video →</a>
+</div>
+</div>
+</section>
+
+<footer>© 2026 KimiChan Studio</footer>
+<script>
+(function(){
+  var themeBtn = document.getElementById("themeBtn");
+  var theme = localStorage.getItem("kc-theme") || "dark";
+  document.documentElement.setAttribute("data-theme", theme);
+  if (!themeBtn) return;
+  function setIcon(){
+    themeBtn.textContent = theme === "dark" ? "\u2600" : "\u263E";
+  }
+  setIcon();
+  themeBtn.addEventListener("click", function(){
+    theme = theme === "dark" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("kc-theme", theme);
+    setIcon();
+  });
+})();
+</script>
+</body>
+</html>

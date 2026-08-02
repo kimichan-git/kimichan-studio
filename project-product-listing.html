@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Product Listing — KimiChan Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav><div class="ni">
+<a href="index.html" class="logo">KimiChan <span class="dot"></span></a>
+<div class="nl">
+<a href="index.html">Home</a>
+<a href="work.html" class="on">Work</a>
+<a href="gallery.html">Gallery</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+</div>
+<div class="na">
+<button class="tt" id="themeBtn">&#9728;</button>
+<a href="contact.html" class="btn bp">Let's talk</a>
+</div>
+</div></nav>
+
+<section class="ph">
+<div class="ct">
+<a href="index.html#hScroll" class="back">← Back to projects</a>
+<div class="meta"><span class="tag">Graphic</span><span class="tag">E-commerce</span></div>
+<h1>Product Listing</h1>
+<p class="lead">Sales banners and listing graphics for e-commerce, designed for clarity, product focus, and conversion.</p>
+<div class="ph-img"><span>Product Listing Graphics</span></div>
+<div class="ph-body">
+<h2>Overview</h2>
+<p>A set of product listing and promotional graphics for online retail. The work emphasises hierarchy, accurate product representation, and readable value messaging at thumbnail and full sizes.</p>
+<h2>Role &amp; deliverables</h2>
+<ul>
+<li>Main and secondary listing images</li>
+<li>Promotional banners and sales graphics</li>
+<li>Typography and layout for small-size clarity</li>
+<li>Consistent brand treatment across assets</li>
+</ul>
+<h2>Approach</h2>
+<p>E-commerce graphics must work at a glance. Composition, contrast, and a clear value line help shoppers understand the offer quickly in a crowded marketplace.</p>
+</div>
+<div class="ph-nav">
+<a href="project-stamp-by-me.html">← Previous: Stamp By Me</a>
+<a href="project-social-media-posts.html">Next: Social Media Posts →</a>
+</div>
+</div>
+</section>
+
+<footer>© 2026 KimiChan Studio</footer>
+<script>
+(function(){
+  var themeBtn = document.getElementById("themeBtn");
+  var theme = localStorage.getItem("kc-theme") || "dark";
+  document.documentElement.setAttribute("data-theme", theme);
+  if (!themeBtn) return;
+  function setIcon(){
+    themeBtn.textContent = theme === "dark" ? "\u2600" : "\u263E";
+  }
+  setIcon();
+  themeBtn.addEventListener("click", function(){
+    theme = theme === "dark" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("kc-theme", theme);
+    setIcon();
+  });
+})();
+</script>
+</body>
+</html>

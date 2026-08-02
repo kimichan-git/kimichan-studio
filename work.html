@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Work — KimiChan Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav><div class="ni">
+<a href="index.html" class="logo">KimiChan <span class="dot"></span></a>
+<div class="nl">
+<a href="index.html">Home</a>
+<a href="work.html" class="on">Work</a>
+<a href="gallery.html">Gallery</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+</div>
+<div class="na">
+<button class="tt" id="themeBtn">&#9728;</button>
+<a href="contact.html" class="btn bp">Let's talk</a>
+</div>
+</div></nav>
+
+<section class="ph">
+<div class="ct">
+<div class="sl">Portfolio</div>
+<h1>Selected work</h1>
+<p class="lead">Product interfaces, motion graphics, promotional videos and visual systems for tech and brand clients.</p>
+<div class="pg" style="margin-top:32px">
+<a href="project-astrorelay.html" class="pc"><div class="pt"><span>AstroRelay</span></div><div class="pb"><div class="tags"><span class="tag">UX/UI</span><span class="tag">Product</span></div><h3>AstroRelay Client</h3><p>Windows client for remote work and device access with clear, simple flows.</p><span class="pl">View case study →</span></div></a>
+<a href="project-glinet.html" class="pc"><div class="pt"><span>GL.iNet</span></div><div class="pb"><div class="tags"><span class="tag">Video</span><span class="tag">Motion</span></div><h3>Parental Control Promo</h3><p>Promotional video unveiling parental control features on GL.iNet routers.</p><span class="pl">View case study →</span></div></a>
+<a href="project-amazon.html" class="pc"><div class="pt"><span>Amazon</span></div><div class="pb"><div class="tags"><span class="tag">Graphic</span><span class="tag">E-com</span></div><h3>Amazon Listing</h3><p>Sales banners and listing graphics designed for Amazon product pages.</p><span class="pl">View case study →</span></div></a>
+<a href="project-astrorelay.html" class="pc"><div class="pt"><span>Admin</span></div><div class="pb"><div class="tags"><span class="tag">UX/UI</span><span class="tag">Dashboard</span></div><h3>AstroRelay Admin Console</h3><p>Technician-facing console for managing and monitoring user activity.</p><span class="pl">View case study →</span></div></a>
+<a href="project-glinet.html" class="pc"><div class="pt"><span>Tutorial</span></div><div class="pb"><div class="tags"><span class="tag">Video</span><span class="tag">Tutorial</span></div><h3>OpenVPN Setup</h3><p>Step-by-step tutorial for configuring OpenVPN on GL.iNet hardware.</p><span class="pl">View case study →</span></div></a>
+<a href="project-amazon.html" class="pc"><div class="pt"><span>AliExpress</span></div><div class="pb"><div class="tags"><span class="tag">Graphic</span><span class="tag">E-com</span></div><h3>AliExpress Sales Banner</h3><p>Promotional materials and banners for AliExpress campaigns.</p><span class="pl">View case study →</span></div></a>
+</div>
+<div style="margin-top:40px;display:flex;gap:12px;flex-wrap:wrap">
+<a href="https://www.kimichan-studio.com/_files/ugd/4f37c6_de1afc3781034d1d87b470d3c812d52c.pdf" class="btn bg" target="_blank" rel="noopener">Download Portfolio PDF</a>
+<a href="https://www.kimichan-studio.com/_files/ugd/4f37c6_50bb1227b91740fd9a1c811d8e0a0f06.pdf" class="btn bg" target="_blank" rel="noopener">Download CV</a>
+</div>
+</div>
+</section>
+
+<footer>© 2026 KimiChan Studio · Hong Kong</footer>
+<script>
+const themeBtn=document.getElementById("themeBtn");
+let theme=localStorage.getItem("kc-theme")||"dark";
+document.documentElement.setAttribute("data-theme",theme);
+themeBtn.textContent=theme==="dark"?"☀":"☾";
+themeBtn.onclick=function(){theme=theme==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",theme);localStorage.setItem("kc-theme",theme);themeBtn.textContent=theme==="dark"?"☀":"☾"};
+</script>
+</body>
+</html>

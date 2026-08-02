@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>About — KimiChan Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav><div class="ni">
+<a href="index.html" class="logo">KimiChan <span class="dot"></span></a>
+<div class="nl">
+<a href="index.html">Home</a>
+<a href="work.html">Work</a>
+<a href="gallery.html">Gallery</a>
+<a href="about.html" class="on">About</a>
+<a href="contact.html">Contact</a>
+</div>
+<div class="na">
+<button class="tt" id="themeBtn">&#9728;</button>
+<a href="contact.html" class="btn bp">Let's talk</a>
+</div>
+</div></nav>
+
+<section class="ph">
+<div class="ct">
+<div class="sl">About</div>
+<h1>I'm Kimi Chan</h1>
+<p class="lead">A senior Multimedia Designer with over 4 years of experience.</p>
+<div class="at">
+<p>Combining expertise in UX/UI, graphic design, video, and photography, I create multimedia experiences that engage audiences and drive real results. As a photographer, my work captures landscapes, cityscapes, and portraits through a serene, authentic lens—highlighting the dynamic interplay between city energy and quiet abstraction. Explore my recent shots and visual projects on <a href="https://www.instagram.com/kimic.foto/" target="_blank" rel="noopener" style="color:var(--a);font-weight:600">Instagram</a>.</p>
+<p style="margin-top:16px">I have a natural curiosity and love picking up new skills whenever I can. In the past two years alone, I’ve jumped into a diverse range of topics—learning how to craft interior spaces using AutoCAD, becoming a Gemini Certified Educator, and experimenting with vibe coding to build software using AI. I thrive on staying ahead of the curve and applying modern tools to solve problems. Feel free to follow up my latest state on <a href="https://www.linkedin.com/in/kimi-chan-3ab4ab211" target="_blank" rel="noopener" style="color:var(--a);font-weight:600">LinkedIn</a>.</p>
+<div class="dl-cards">
+  <div class="dl-card">
+    <div class="dl-preview dl-cv">
+      <img src="images/about/cv-cover.jpg" alt="CV preview" class="dl-img">
+    </div>
+    <div class="dl-meta">
+      <span class="dl-name">CV</span>
+      <a href="Chan_Wing_Shan_CV.pdf" download="Chan Wing Shan_CV-10012026.pdf" class="dl-btn" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download
+      </a>
+    </div>
+  </div>
+  <div class="dl-card">
+    <div class="dl-preview dl-portfolio">
+      <img src="images/about/portfolio-cover.jpg" alt="Portfolio preview" class="dl-img">
+    </div>
+    <div class="dl-meta">
+      <span class="dl-name">Portfolio</span>
+      <a href="Chan_Wing_Shan_Portfolio.pdf" download="Chan Wing Shan_Portfolio_11012026.pdf" class="dl-btn" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download
+      </a>
+    </div>
+  </div>
+</div>
+<style>
+.dl-cards{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+  margin-top:36px;
+  max-width:720px;
+  margin-left:0;
+  margin-right:auto;
+  width:100%;
+  box-sizing:border-box;
+}
+.dl-card{display:flex;flex-direction:column;gap:12px}
+.dl-preview{
+  border-radius:16px;
+  height:200px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid var(--b);
+  overflow:hidden;
+  position:relative;
+  background:var(--s);
+}
+.dl-img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center top;
+  display:block;
+  transition:transform .35s ease;
+}
+.dl-card:hover .dl-img{
+  transform:scale(1.03);
+}
+.dl-cv,.dl-portfolio{background:var(--c)}
+.dl-preview-label{
+  font-size:1.75rem;
+  font-weight:800;
+  letter-spacing:-.02em;
+  color:var(--t);
+  opacity:.85;
+}
+.dl-meta{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:0 2px;
+}
+.dl-name{font-size:1rem;font-weight:700;color:var(--t)}
+.dl-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:8px 16px;
+  border-radius:999px;
+  border:1px solid var(--b);
+  background:var(--c);
+  color:var(--t);
+  font-size:.875rem;
+  font-weight:600;
+  transition:.2s;
+  text-decoration:none;
+}
+.dl-btn:hover{
+  border-color:var(--a);
+  color:var(--a);
+  background:var(--s);
+}
+@media(max-width:600px){
+  .dl-cards{grid-template-columns:1fr}
+}
+</style>
+</div>
+
+<div class="milestones-section">
+<div class="sl">Milestones</div>
+<h2 class="st" style="margin-bottom:32px">Special moments</h2>
+
+<div class="timeline">
+  <div class="tl-item">
+    <time class="tl-date">Jul 2018</time>
+    <div class="tl-rail"><span class="tl-dot"></span></div>
+    <div class="tl-body">
+      <div class="tl-title">Publish a Photo Album “攝夢遊記”</div>
+      <div class="tl-content">“攝夢遊記” is a personal photographic album featuring 76 distinct images and stories that document a multi-year visual journey capturing the unique landscapes and cityscapes of Hong Kong.</div>
+    </div>
+  </div>
+  <div class="tl-item">
+    <time class="tl-date">Sep 2018</time>
+    <div class="tl-rail"><span class="tl-dot"></span></div>
+    <div class="tl-body">
+      <div class="tl-title">Nikon 2018 Calendar Photograph Solicitation</div>
+      <div class="tl-content">Shortlisted Work (October Edition)</div>
+    </div>
+  </div>
+  <div class="tl-item">
+    <time class="tl-date">Mar 2019</time>
+    <div class="tl-rail"><span class="tl-dot"></span></div>
+    <div class="tl-body">
+      <div class="tl-title">Featured in the HKDI Academic Social Photography Exhibition</div>
+      <div class="tl-content">A collection from Chun Yeung Street, highlighting authentic, candid moments of everyday community life.</div>
+    </div>
+  </div>
+  <div class="tl-item">
+    <time class="tl-date">Jul 2023</time>
+    <div class="tl-rail"><span class="tl-dot"></span></div>
+    <div class="tl-body">
+      <div class="tl-title">Featured in HONGKONGUIDE Facebook Page</div>
+      <div class="tl-content">Featured for a photography series capturing the peaceful, vibrant pink blossoms of the historic Cassia javanica tree at The Murray.</div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="qa-section">
+  <div class="sl">Quick Q&amp;A</div>
+  <h2 class="st" style="margin-bottom:28px">A quick look into how I think &amp; work</h2>
+  <div class="qa-list">
+    <div class="qa-item">
+      <button class="qa-q" type="button" aria-expanded="false">
+        <span>What’s your favorite project you’ve ever worked on?</span>
+        <span class="qa-icon" aria-hidden="true"></span>
+      </button>
+      <div class="qa-a">
+        <p>My favorite project is Urban Watcher, my graduation project. It connects me with people and helps me visit places I’d never explored before. It’s an immersive, interactive experience that lets guests browse Hong Kong through image and sound—from field trips and exhibition setup to new experiences I learned along the way. I’m grateful the final result matched my expectations. You can see more about the production progress here.</p>
+      </div>
+    </div>
+    <div class="qa-item">
+      <button class="qa-q" type="button" aria-expanded="false">
+        <span>Where do you get your best ideas or inspiration?</span>
+        <span class="qa-icon" aria-hidden="true"></span>
+      </button>
+      <div class="qa-a">
+        <p>On public transit. Sitting on a bus or train gives me space to reflect on my future—whether as a sharp career woman or a world traveller. These rides are where I map out my self-learning plans to grow step by step.</p>
+      </div>
+    </div>
+    <div class="qa-item">
+      <button class="qa-q" type="button" aria-expanded="false">
+        <span>What do you do when you get stuck on a problem?</span>
+        <span class="qa-icon" aria-hidden="true"></span>
+      </button>
+      <div class="qa-a">
+        <p>When I get stuck, I step away and take a short break. Solutions often come in unexpected ways. I rely on food and nature to help me reset and find clarity.</p>
+      </div>
+    </div>
+    <div class="qa-item">
+      <button class="qa-q" type="button" aria-expanded="false">
+        <span>How do you keep yourself motivated on long, repetitive tasks?</span>
+        <span class="qa-icon" aria-hidden="true"></span>
+      </button>
+      <div class="qa-a">
+        <p>Imagining the final result keeps me motivated. I rely on thorough planning, breaking the project into small, timed milestones to build confidence and steady progress every step of the way.</p>
+      </div>
+    </div>
+    <div class="qa-item">
+      <button class="qa-q" type="button" aria-expanded="false">
+        <span>What’s your favorite comfort food or go-to snack?</span>
+        <span class="qa-icon" aria-hidden="true"></span>
+      </button>
+      <div class="qa-a">
+        <p>It’s a tough choice, but I’d say melon when I need comfort, and cashews for quick snacking.</p>
+      </div>
+    </div>
+    <div class="qa-item">
+      <button class="qa-q" type="button" aria-expanded="false">
+        <span>What’s small things that instantly brightens your day?</span>
+        <span class="qa-icon" aria-hidden="true"></span>
+      </button>
+      <div class="qa-a">
+        <p>A morning matcha, a beautiful sunset, spotting a cute cat on my walk, or unexpectedly discovering a great new song!</p>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+.qa-section{
+  max-width:720px;
+  width:100%;
+  box-sizing:border-box;
+  margin-top:64px;
+  margin-left:0;
+  margin-right:auto;
+  padding-bottom:80px;
+}
+.at{
+  max-width:720px;
+  width:100%;
+  box-sizing:border-box;
+  margin-top:40px;
+}
+.dl-cards{
+  max-width:720px !important;
+  width:100%;
+  margin-left:0 !important;
+  margin-right:auto !important;
+  box-sizing:border-box;
+}
+.qa-list{display:flex;flex-direction:column;gap:12px}
+.qa-item{
+  background:var(--s);
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid transparent;
+  transition:border-color .2s;
+}
+.qa-item.open{border-color:var(--b)}
+.qa-q{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:18px 22px;
+  background:transparent;
+  border:none;
+  cursor:pointer;
+  text-align:left;
+  font-family:inherit;
+  font-size:1rem;
+  font-weight:600;
+  color:var(--t);
+  line-height:1.4;
+}
+.qa-q:hover{opacity:.9}
+.qa-icon{
+  flex-shrink:0;
+  width:20px;height:20px;
+  position:relative;
+}
+.qa-icon::before,
+.qa-icon::after{
+  content:"";
+  position:absolute;
+  background:var(--m);
+  border-radius:1px;
+  transition:transform .25s ease, opacity .25s;
+}
+.qa-icon::before{
+  width:12px;height:2px;
+  left:4px;top:9px;
+}
+.qa-icon::after{
+  width:2px;height:12px;
+  left:9px;top:4px;
+}
+.qa-item.open .qa-icon::after{opacity:0;transform:scaleY(0)}
+.qa-a{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .35s ease, padding .25s ease;
+  padding:0 22px;
+}
+.qa-item.open .qa-a{
+  max-height:320px;
+  padding:0 22px 20px;
+}
+.qa-a p{
+  margin:0;
+  font-size:.95rem;
+  line-height:1.65;
+  color:var(--m);
+  font-weight:400;
+}
+</style>
+<script>
+(function(){
+  document.querySelectorAll(".qa-q").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var item = btn.closest(".qa-item");
+      var open = item.classList.contains("open");
+      document.querySelectorAll(".qa-item.open").forEach(function(i){
+        i.classList.remove("open");
+        i.querySelector(".qa-q").setAttribute("aria-expanded","false");
+      });
+      if(!open){
+        item.classList.add("open");
+        btn.setAttribute("aria-expanded","true");
+      }
+    });
+  });
+})();
+</script>
+
+
+
+
+<style>
+
+/* Shared about-page column alignment */
+.at,
+.dl-cards,
+.milestones-section,
+.qa-section{
+  max-width:720px !important;
+  width:100% !important;
+  margin-left:0 !important;
+  margin-right:auto !important;
+  box-sizing:border-box !important;
+  padding-left:0 !important;
+  padding-right:0 !important;
+}
+.milestones-section{
+  padding-top:40px !important;
+  padding-bottom:16px !important;
+}
+
+.milestones-section{
+  max-width:720px;
+  width:100%;
+  box-sizing:border-box;
+  margin-top:64px;
+  margin-left:0;
+  margin-right:auto;
+  border-radius:16px;
+  padding:40px 0 16px;
+  border:1px solid transparent;
+}
+html[data-theme="light"] .milestones-section{
+  background:#f8fafc;
+  border-color:transparent;
+}
+html[data-theme="dark"] .milestones-section{
+  background:var(--bg);
+  border-color:var(--bg);
+}
+html[data-theme="dark"] .tl-dot{
+  border-color:var(--bg);
+}
+/* timeline rail / dots adapt to section bg */
+html[data-theme="light"] .tl-dot{
+  border-color:#f8fafc;
+}
+html[data-theme="dark"] .tl-item:not(:last-child) .tl-rail::before{
+  background:#475569;
+}
+.timeline{position:relative;margin-top:8px}
+.tl-item{
+  position:relative;
+  display:grid;
+  grid-template-columns:88px 24px 1fr;
+  gap:0 12px;
+  padding:20px 0;
+  align-items:start;
+}
+.tl-rail{
+  position:relative;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  padding-top:6px;
+  align-self:stretch;
+}
+/* vertical line from this item's dot to the next */
+.tl-item:not(:last-child) .tl-rail::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:18px;
+  bottom:-40px;
+  width:2px;
+  background:#94a3b8;
+  transform:translateX(-50%);
+  z-index:0;
+}
+.tl-dot{
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  background:var(--a);
+  border:3px solid #f8fafc;
+  box-sizing:border-box;
+  flex-shrink:0;
+  z-index:1;
+  position:relative;
+}
+.tl-date{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-size:.68rem;
+  font-weight:700;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  padding:5px 3px;
+  border-radius:999px;
+  color:var(--a);
+  background:var(--s);
+  white-space:nowrap;
+  width:100%;
+  text-align:center;
+  margin-top:2px;
+}
+.tl-body{min-width:0}
+.tl-title{font-size:1.15rem;font-weight:700;color:var(--t);line-height:1.35;margin-bottom:6px}
+.tl-content{font-size:.95rem;color:var(--m);line-height:1.65}
+@media(max-width:639px){
+  .tl-item{grid-template-columns:20px 1fr;gap:0 12px}
+  .tl-date{width:auto;justify-self:start;margin-bottom:8px;grid-column:2}
+  .tl-rail{grid-row:1 / span 3}
+  .tl-body{grid-column:2}
+  .tl-marker-row{display:contents}
+}
+</style>
+</div>
+</section>
+
+<footer>© 2026 KimiChan Studio</footer>
+<script>
+const themeBtn=document.getElementById("themeBtn");
+let theme=localStorage.getItem("kc-theme")||"dark";
+document.documentElement.setAttribute("data-theme",theme);
+themeBtn.textContent=theme==="dark"?"☀":"☾";
+themeBtn.onclick=function(){theme=theme==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",theme);localStorage.setItem("kc-theme",theme);themeBtn.textContent=theme==="dark"?"☀":"☾"};
+</script>
+</body>
+</html>
