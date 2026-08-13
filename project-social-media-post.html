@@ -2,7 +2,7 @@
 <html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Camping Day — Kimi Chan</title>
+<title>Social Media Post — Kimi Chan</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
@@ -28,6 +28,74 @@
 .cs-section { margin-bottom: 64px; scroll-margin-top: 96px; }
 .cs-section h2 { font-size: 1.5rem; font-weight: 700; letter-spacing: -.02em; margin: 0 0 16px; }
 .cs-section > p { color: var(--m); font-size: 1.02rem; line-height: 1.7; max-width: none; width: 100%; margin: 0 0 16px; }
+.cs-section > h3,
+.cs-section .cs-subhead {
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--m);
+  margin: 20px 0 12px;
+}
+.cs-section > ul {
+  color: var(--m);
+  font-size: 1.02rem;
+  line-height: 1.7;
+  margin: 0 0 16px;
+  padding-left: 1.25em;
+}
+.cs-section > ul li {
+  color: var(--m);
+  margin: 0 0 6px;
+}
+.cs-section > ul li::marker {
+  color: var(--m);
+}
+
+.cs-specs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin: 24px 0 8px;
+}
+.cs-spec-card {
+  background: var(--c);
+  border: 1px solid var(--b);
+  border-radius: 16px;
+  padding: 22px 20px;
+  transition: border-color .25s, transform .25s, box-shadow .25s;
+}
+.cs-spec-card:hover {
+  border-color: var(--a);
+  transform: translateY(-2px);
+  box-shadow: var(--sh);
+}
+.cs-spec-card.wide {
+  grid-column: span 2;
+}
+.cs-spec-label {
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--m);
+  margin-bottom: 8px;
+}
+.cs-spec-value {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--t);
+  line-height: 1.35;
+  letter-spacing: -.02em;
+}
+.cs-spec-value em {
+  font-style: normal;
+  color: var(--a);
+  font-size: 1.45rem;
+}
+@media (max-width: 700px) {
+  .cs-specs { grid-template-columns: 1fr; }
+  .cs-spec-card.wide { grid-column: span 1; }
+}
+
 .cs-focus { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
 .cs-focus-card { background: var(--c); border: 1px solid var(--b); border-radius: 14px; padding: 20px; transition: border-color .25s, transform .25s, box-shadow .25s; }
 .cs-focus-card:hover { border-color: var(--a); transform: translateY(-2px); box-shadow: var(--sh); }
@@ -61,32 +129,48 @@
 .cs-nav a { font-weight: 600; color: var(--a); font-size: .95rem; }
 .cs-reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s cubic-bezier(.22,1,.36,1), transform .6s cubic-bezier(.22,1,.36,1); }
 .cs-reveal.in { opacity: 1; transform: none; }
-
 .cs-slider { margin: 28px 0 32px; }
 .cs-slider-viewport {
-  border-radius: 16px; overflow: hidden; border: 1px solid var(--b);
-  background: #fff; aspect-ratio: 1 / 1; max-width: 560px; width: 100%;
-  margin: 0 auto; position: relative;
-}
-.cs-slider--wide .cs-slider-viewport {
-  aspect-ratio: 16 / 9;
-  max-width: 100%;
-}
-.cs-slider--wide .cs-slide img {
-  object-fit: cover;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--b);
+  background: var(--bg);
+  aspect-ratio: 16 / 10;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  position: relative;
 }
 .cs-slider-track {
-  display: flex; height: 100%; width: 100%;
-  transition: transform .45s cubic-bezier(.22,1,.36,1); will-change: transform;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  transition: transform .45s cubic-bezier(.22,1,.36,1);
+  will-change: transform;
 }
 .cs-slide {
-  flex: 0 0 100%; width: 100%; height: 100%;
-  min-width: 100%; max-width: 100%; box-sizing: border-box;
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
-.cs-slide img { width: 100%; height: 100%; object-fit: contain; display: block; background: #fff; }
+.cs-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 .cs-slider-nav {
-  display: flex; align-items: center; justify-content: center; gap: 12px;
-  margin-top: 16px; position: relative; z-index: 5; pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 16px;
+  position: relative;
+  z-index: 5;
+  pointer-events: auto;
 }
 .cs-slider-btn {
   width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--b);
@@ -119,47 +203,12 @@
   .cs-banner { aspect-ratio: 16 / 9; }
 }
 
-.cs-section > h3,
-.cs-section .cs-subhead {
-  font-size: 1.02rem;
-  font-weight: 600;
-  color: var(--m);
-  margin: 20px 0 12px;
+.cs-slider-viewport.square {
+  aspect-ratio: 1 / 1;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
 }
-.cs-section > ul {
-  color: var(--m);
-  font-size: 1.02rem;
-  line-height: 1.7;
-  margin: 0 0 16px;
-  padding-left: 1.25em;
-}
-.cs-section > ul li {
-  color: var(--m);
-  margin: 0 0 6px;
-}
-.cs-section > ul li::marker {
-  color: var(--m);
-}
-
-.cs-slider { margin: 28px 0 32px; }
-.cs-slider-viewport {
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid var(--b);
-  background: var(--bg);
-  aspect-ratio: 16 / 10;
-  width: 100%;
-  max-width: none;
-  margin: 0;
-  position: relative;
-}
-.cs-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
 
 .cs-specs {
   display: grid;
@@ -232,18 +281,18 @@
 
     <header class="cs-hero">
       <div>
-        <h1>Camping Day</h1>
-        <p class="cs-lead">A strategy board game and packaging design created during COVID-19 to bring the relaxing experience of outdoor camping into people's homes.</p>
+        <h1>Social Media Post</h1>
+        <p class="cs-lead">Engaging promotional graphics designed for Instagram and Facebook to highlight products, seasonal sales, and user tutorials.</p>
         <div class="cs-pills">
+          <span class="cs-pill">Instagram</span>
           <span class="cs-pill">Graphic Design</span>
-          <span class="cs-pill">Printing</span>
-          <span class="cs-pill">Product Design</span>
+          <span class="cs-pill">Marketing</span>
         </div>
       </div>
     </header>
 
     <div class="cs-banner cs-reveal">
-      <img src="images/project/camping-day-banner.jpg" alt="Camping Day — board game and packaging">
+      <img src="images/project/social-media-banner.jpg" alt="Social Media Post — Instagram &amp; Facebook campaigns">
     </div>
 
     <div class="cs-layout">
@@ -251,78 +300,76 @@
         <div class="cs-toc-label">On this page</div>
         <a href="#overview">Overview</a>
         <a href="#focus">Focus</a>
-        <a href="#gameplay">Gameplay</a>
-        <a href="#assets">Game assets</a>
-        <a href="#packaging">Packaging design</a>
-        <a href="#production">Production</a>
+        <a href="#campaigns">Campaign types</a>
+        <a href="#formats">Formats</a>
+        <a href="#process">Process</a>
         <a href="#outcome">Outcome</a>
       </nav>
 
       <div class="cs-main">
         <section class="cs-section cs-reveal" id="overview">
           <h2>Overview</h2>
-          <p>Conceived in Hong Kong during COVID-19 travel restrictions, this original board game design was created as a way to bring the experience of nature into the home. Camping serves as the central theme, delivering a relaxing, social atmosphere built around territory acquisition, skill cards, and clear win conditions.</p>
-          <p><b>Key Specifications</b></p>
-            <div class="cs-specs">
+          <p>Promotional graphics for Instagram and Facebook that highlight GL.iNet products, seasonal sales, and user tutorials. Each post is designed for feed and stories — clear hierarchy, product focus, and messaging that stops the scroll and drives engagement.</p>
+          <div class="cs-specs">
             <div class="cs-spec-card">
-              <div class="cs-spec-label">Year</div>
-              <div class="cs-spec-value">2021</div>
+              <div class="cs-spec-label">Client</div>
+              <div class="cs-spec-value">GL.iNet</div>
             </div>
             <div class="cs-spec-card">
               <div class="cs-spec-label">Category</div>
-              <div class="cs-spec-value">Product Design / Board Game</div>
+              <div class="cs-spec-value">Social Media / Campaign</div>
             </div>
             <div class="cs-spec-card">
-              <div class="cs-spec-label">Target Audience</div>
-              <div class="cs-spec-value">Ages 6 – 70 (Easy to learn)</div>
+              <div class="cs-spec-label">Platforms</div>
+              <div class="cs-spec-value">Instagram, Facebook</div>
             </div>
             <div class="cs-spec-card wide">
-              <div class="cs-spec-label">Development Time</div>
-              <div class="cs-spec-value">25 days (Original personal project; non-commercial)</div>
+              <div class="cs-spec-label">Deliverables</div>
+              <div class="cs-spec-value">Feed posts, stories, and advertisement</div>
             </div>
             <div class="cs-spec-card">
-              <div class="cs-spec-label">Retail Position</div>
-              <div class="cs-spec-value">$260 HKD gift-friendly boxed set</div>
+              <div class="cs-spec-label">Tools</div>
+              <div class="cs-spec-value">Photoshop, Illustrator, Lovart</div>
             </div>
           </div>
         </section>
 
         <section class="cs-section cs-reveal" id="focus">
           <h2>Focus</h2>
-          <p>Design a complete board-game system — rules, components, and packaging — that turns camping into competitive territory play without leaving home.</p>
+          <p>Make technical networking products feel approachable and desirable in a fast-scrolling social feed — while staying on-brand and conversion-minded.</p>
           <div class="cs-focus">
             <div class="cs-focus-card">
               <div class="cs-focus-num">01</div>
-              <h3>Theme &amp; emotion</h3>
-              <p>Bring outdoor calm and group energy indoors through camping as metaphor and mechanic.</p>
+              <h3>Product spotlight</h3>
+              <p>Hero product shots with short benefit lines so features read in under a second.</p>
             </div>
             <div class="cs-focus-card">
               <div class="cs-focus-num">02</div>
-              <h3>Clear rules</h3>
-              <p>Simple enough for mixed ages, deep enough for skill cards, function cards, and tent strategy.</p>
+              <h3>Seasonal sales</h3>
+              <p>Promo frames for launches, holidays, and limited offers without cluttering the layout.</p>
             </div>
             <div class="cs-focus-card">
               <div class="cs-focus-num">03</div>
-              <h3>Component craft</h3>
-              <p>Chess-piece tents, skill cards, function cards, and a bird’s-eye map of 32 strongholds.</p>
+              <h3>Tutorials</h3>
+              <p>Step or tip cards that teach setup and features and invite saves and shares.</p>
             </div>
             <div class="cs-focus-card">
               <div class="cs-focus-num">04</div>
-              <h3>Packaging</h3>
-              <p>Hong Kong–themed cover and a durable postal box that holds cards and pieces cleanly.</p>
+              <h3>Feed &amp; advertisement</h3>
+              <p>Formats tuned for different size so the same campaign works across placements.</p>
             </div>
           </div>
         </section>
 
-        <section class="cs-section cs-reveal" id="gameplay">
-          <h2>Gameplay</h2>
-          <p>Set in the suburbs, players build tents, expand territory, and collect tools. Each round, draw skill cards to construct tents. After four tents, players may draw function cards to protect their camp or demolish others. The winner is who builds the most tents — scored by points.</p>
-          <p>The map shows 32 strongholds in a bird’s-eye view. Four corners are starting points; each player picks a color (red, yellow, green, or blue). Small tents need two skill cards; big tents need three. A big tent is worth two points, a small tent one. Play runs clockwise or counterclockwise; two to four cards may be used per round.</p>
-          <div class="cs-slider cs-slider--wide">
-            <div class="cs-slider-viewport">
+        <section class="cs-section cs-reveal" id="campaigns">
+          <h2>Campaign types</h2>
+          <p>Three recurring series: product launches and feature callouts, promotional sales, customer reviews, look for beta testers and announcement posts that support marketing teams.</p>
+          <div class="cs-slider">
+            <div class="cs-slider-viewport square">
               <div class="cs-slider-track">
-                <div class="cs-slide is-active"><img src="images/project/camping-day-board-1.jpg" alt="Game board 1"></div>
-                <div class="cs-slide"><img src="images/project/camping-day-board-2.jpg" alt="Game board 2"></div>
+                <div class="cs-slide is-active"><img src="images/project/social-media-type-1.jpg" alt="Product spotlight type 1"></div>
+                <div class="cs-slide"><img src="images/project/social-media-type-2.jpg" alt="Seasonal sale type 2"></div>
+                <div class="cs-slide"><img src="images/project/social-media-type-3.jpg" alt="Tutorial type 3"></div>
               </div>
             </div>
             <div class="cs-slider-nav">
@@ -333,64 +380,47 @@
           </div>
         </section>
 
-        <section class="cs-section cs-reveal" id="assets">
-          <h2>Game assets</h2>
-          <p>Full component set: 64 chess pieces (triangular tent shapes, 16 per color), 84 skill cards (camping tools for redeeming tents), and 82 function cards (attack or defend with specific use conditions). Plus a user manual for rules and setup.</p>
+        <section class="cs-section cs-reveal" id="formats">
+          <h2>Formats</h2>
+          <p>Assets are built for both static feed posts and online ad, with consistent type, color, and product treatment so the brand stays recognizable across the grid.</p>
           <div class="cs-media-grid">
             <div class="cs-media-card">
-              <div class="thumb"><img src="images/project/camping-day-skill-cards.jpg" alt="Skill cards"></div>
-              <div class="label">Skill cards — 84 pcs</div>
+              <div class="thumb"><img src="images/project/social-media-ads-1.jpg" alt="Online ad 1"></div>
+              <div class="label">Advertisement of GL-E5800</div>
             </div>
             <div class="cs-media-card">
-              <div class="thumb"><img src="images/project/camping-day-function-cards.jpg" alt="Function cards"></div>
-              <div class="label">Function cards — 82 pcs</div>
-            </div>
-            <div class="cs-media-card">
-              <div class="thumb"><img src="images/project/camping-day-chess.jpg" alt="Chess pieces"></div>
-              <div class="label">Chess pieces — 64 pcs</div>
-            </div>
-            <div class="cs-media-card">
-              <div class="thumb"><img src="images/project/camping-day-manual.jpg" alt="User manual"></div>
-              <div class="label">User manual</div>
+              <div class="thumb"><img src="images/project/social-media-ads-2.jpg" alt="Online ad 2"></div>
+              <div class="label">Advertisement of GL-E5800</div>
             </div>
           </div>
         </section>
 
-        <section class="cs-section cs-reveal" id="packaging">
-          <h2>Packaging design</h2>
-          <p>The cover uses an iconic Hong Kong background and public estates to ground the camping theme locally. The reverse carries instructional content. A durable postal box stores the many cards and small pieces, with a sleek surface suited to the graphic system.</p>
-          <figure class="cs-img">
-            <img src="images/project/camping-day-packaging.jpg" alt="Camping Day packaging">
-            <figcaption class="cs-img-caption">Cover and postal box — Hong Kong context, practical storage</figcaption>
-          </figure>
-        </section>
-
-        <section class="cs-section cs-reveal" id="production">
-          <h2>Production</h2>
-          <p>Paper cards were printed in Mong Kok, then cropped by hand. The full set was assembled as a finished prototype over the 25-day production.</p>
+        <section class="cs-section cs-reveal" id="process">
+          <h2>Process</h2>
+          <p>From brief to publish: align on message and offer, design for feed and stories, then hand off export-ready files to marketing.</p>
           <div class="cs-scope">
             <div class="cs-scope-col">
-              <h3>Concept</h3>
+              <h3>Brief</h3>
               <ul>
-                <li>COVID-era outdoor longing</li>
-                <li>Camping as game theme</li>
-                <li>Ages 6–70, gift pricing</li>
+                <li>Product / offer focus</li>
+                <li>Audience &amp; CTA</li>
+                <li>Platforms &amp; sizes</li>
               </ul>
             </div>
             <div class="cs-scope-col">
               <h3>Design</h3>
               <ul>
-                <li>Board, cards, pieces</li>
-                <li>Rules &amp; scoring</li>
-                <li>Cover &amp; postal box</li>
+                <li>Layout &amp; hierarchy</li>
+                <li>Product photography</li>
+                <li>Copy &amp; icons</li>
               </ul>
             </div>
             <div class="cs-scope-col">
-              <h3>Make</h3>
+              <h3>Deliver</h3>
               <ul>
-                <li>Print in Mong Kok</li>
-                <li>Hand crop cards</li>
-                <li>Assemble prototype</li>
+                <li>Feed &amp; story exports</li>
+                <li>Variants for A/B</li>
+                <li>Ready for schedule</li>
               </ul>
             </div>
           </div>
@@ -399,20 +429,23 @@
         <section class="cs-section cs-reveal" id="outcome">
           <div class="cs-outcome">
             <h2>Outcome</h2>
-            <p>A complete personal board-game prototype — rules, assets, packaging, and print — that turns homebound days into a competitive camping experience.</p>
+            <p>A library of Instagram and Facebook graphics that support product launches, seasonal campaigns, and how-to content — consistent with GL.iNet’s brand and optimized for social placements.</p>
 
             <div class="cs-slider">
-              <div class="cs-slider-viewport">
+              <div class="cs-slider-viewport square">
                 <div class="cs-slider-track">
-                  <div class="cs-slide is-active"><img src="images/project/camping-day-outcome-1.jpg" alt="Camping Day 1"></div>
-                  <div class="cs-slide"><img src="images/project/camping-day-outcome-2.jpg" alt="Camping Day 2"></div>
-                  <div class="cs-slide"><img src="images/project/camping-day-outcome-3.jpg" alt="Camping Day 3"></div>
-                  <div class="cs-slide"><img src="images/project/camping-day-outcome-4.jpg" alt="Camping Day 4"></div>
-                  <div class="cs-slide"><img src="images/project/camping-day-outcome-5.jpg" alt="Camping Day 5"></div>
-                  <div class="cs-slide"><img src="images/project/camping-day-outcome-6.jpg" alt="Camping Day 6"></div>
+                  <div class="cs-slide is-active"><img src="images/project/social-media-outcome-1.jpg" alt="Outcome 1"></div>
+                  <div class="cs-slide"><img src="images/project/social-media-outcome-2.jpg" alt="Outcome 2"></div>
+                  <div class="cs-slide"><img src="images/project/social-media-outcome-3.jpg" alt="Outcome 3"></div>
+                  <div class="cs-slide"><img src="images/project/social-media-outcome-4.jpg" alt="Outcome 4"></div>
+                  <div class="cs-slide"><img src="images/project/social-media-outcome-5.jpg" alt="Outcome 5"></div>
+                  <div class="cs-slide"><img src="images/project/social-media-outcome-6.jpg" alt="Outcome 6"></div>
+                  <div class="cs-slide"><img src="images/project/social-media-outcome-7.jpg" alt="Outcome 7"></div>
+                  <div class="cs-slide"><img src="images/project/social-media-outcome-8.jpg" alt="Outcome 8"></div>
+                  <div class="cs-slide"><img src="images/project/social-media-outcome-9.jpg" alt="Outcome 9"></div>
+                  <div class="cs-slide"><img src="images/project/social-media-outcome-10.jpg" alt="Outcome 10"></div>
                 </div>
               </div>
-              
               <div class="cs-slider-nav">
                 <button type="button" class="cs-slider-btn" data-dir="-1" aria-label="Previous">←</button>
                 <div class="cs-slider-thumbs" role="tablist"></div>
@@ -421,18 +454,19 @@
             </div>
 
             <div class="cs-stats">
-              <div class="cs-stat"><strong>25 days</strong><span>Concept to prototype</span></div>
-              <div class="cs-stat"><strong>230+</strong><span>Cards &amp; pieces designed</span></div>
-              <div class="cs-stat"><strong>$260 HKD</strong><span>Concept retail price</span></div>
+              <div class="cs-stat"><strong>IG + FB</strong><span>Feed &amp; advertisement</span></div>
+              <div class="cs-stat"><strong>3 series</strong><span>Product, sales, announcement</span></div>
+              <div class="cs-stat"><strong>GL.iNet</strong><span>Brand campaigns</span></div>
             </div>
           </div>
         </section>
+
       </div>
     </div>
 
     <nav class="cs-nav">
-      <a href="project-unboxing-video.html">← Previous: Unboxing Video</a>
-      <a href="project-stamp-by-me.html">Next: Stamp By Me →</a>
+      <a href="project-product-listing.html">← Previous: Product Listing</a>
+      <a href="project-campaign-video.html">Next: Campaign Video →</a>
     </nav>
   </div>
 </article>
@@ -490,7 +524,6 @@
 })();
 </script>
 <script>
-/* Multi-slider: pixel translate, rebuild thumbs, all .cs-slider instances */
 (function(){
   function initSlider(root){
     var viewport = root.querySelector(".cs-slider-viewport");

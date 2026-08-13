@@ -168,6 +168,72 @@
   transform: translateY(-1px);
 }
 
+.cs-slider { margin: 28px 0 32px; }
+.cs-slider-viewport {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--b);
+  background: var(--bg);
+  aspect-ratio: 16 / 10;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  position: relative;
+}
+.cs-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cs-specs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin: 24px 0 8px;
+}
+.cs-spec-card {
+  background: var(--c);
+  border: 1px solid var(--b);
+  border-radius: 16px;
+  padding: 22px 20px;
+  transition: border-color .25s, transform .25s, box-shadow .25s;
+}
+.cs-spec-card:hover {
+  border-color: var(--a);
+  transform: translateY(-2px);
+  box-shadow: var(--sh);
+}
+.cs-spec-card.wide {
+  grid-column: span 2;
+}
+
+.cs-spec-label {
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--m);
+  margin-bottom: 8px;
+}
+.cs-spec-value {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--t);
+  line-height: 1.35;
+  letter-spacing: -.02em;
+}
+.cs-spec-value em {
+  font-style: normal;
+  color: var(--a);
+  font-size: 1.45rem;
+}
+@media (max-width: 700px) {
+  .cs-specs { grid-template-columns: 1fr; }
+  .cs-spec-card.wide { grid-column: span 1; }
+}
+
 </style>
 </head>
 <body>
@@ -290,10 +356,23 @@
         <section class="cs-section cs-reveal" id="editing">
           <h2>Video editing</h2>
           <p>After filming, the strongest takes are selected. Color and exposure are balanced, then subtitles, background music, and transitions (dissolve, stabilizer, and other effects) are added for a polished final cut.</p>
-          <figure class="cs-img">
-            <img src="images/project/unboxing-video-thumbnail-design.jpg" alt="Video editing timeline">
-            <figcaption class="cs-img-caption">Editing — color, subtitles, music, and transitions</figcaption>
-          </figure>
+            <div class="cs-slider">
+              <div class="cs-slider-viewport">
+                <div class="cs-slider-track">
+                  <div class="cs-slide is-active"><img src="images/project/unboxing-video-editing-1.jpg" alt="Video editing 1"></div>
+                  <div class="cs-slide"><img src="images/project/unboxing-video-editing-2.jpg" alt="Video editing 2"></div>
+                  <div class="cs-slide"><img src="images/project/unboxing-video-editing-3.jpg" alt="Video editing 3"></div>
+                  <div class="cs-slide"><img src="images/project/unboxing-video-editing-4.jpg" alt="Video editing 4"></div>
+                  <div class="cs-slide"><img src="images/project/unboxing-video-editing-5.jpg" alt="Video editing 5"></div>
+                </div>
+              </div>
+              
+              <div class="cs-slider-nav">
+                <button type="button" class="cs-slider-btn" data-dir="-1" aria-label="Previous">←</button>
+                <div class="cs-slider-thumbs" role="tablist"></div>
+                <button type="button" class="cs-slider-btn" data-dir="1" aria-label="Next">→</button>
+              </div>
+            </div>
         </section>
 
         <section class="cs-section cs-reveal" id="thumbnail">
