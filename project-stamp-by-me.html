@@ -1,8 +1,30 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
+<script>if("scrollRestoration"in history)history.scrollRestoration="manual";</script>
+<style id="boot-top">html{scroll-behavior:auto!important}html.boot-top body{visibility:hidden}</style>
+<script>
+(function(){
+  document.documentElement.classList.add("boot-top");
+  function show(){
+    window.scrollTo(0,0);
+    document.documentElement.classList.remove("boot-top");
+    var s=document.getElementById("boot-top");
+    if(s)s.remove();
+  }
+  if(location.hash) history.replaceState(null,"",location.pathname+location.search);
+  window.scrollTo(0,0);
+  if(document.readyState==="loading"){
+    document.addEventListener("DOMContentLoaded", show);
+  } else {
+    show();
+  }
+  window.addEventListener("pageshow", function(){ window.scrollTo(0,0); });
+})();
+</script>
+
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Stamp By Me — Kimi Chan</title>
+<title>Stamp By Me — Kimi Chan Studio</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
@@ -71,7 +93,6 @@
 .cs-media-card .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s ease; }
 .cs-media-card:hover .thumb img { transform: scale(1.04); }
 .cs-media-card .label { padding: 14px 16px; font-size: .95rem; font-weight: 600; }
-.cs-outcome { background: var(--c); border: 1px solid var(--b); border-radius: 20px; padding: 36px 32px; margin-top: 12px; box-shadow: var(--sh); }
 .cs-outcome h2 { margin-bottom: 12px; }
 .cs-outcome > p { color: var(--m); max-width: none; width: 100%; margin-bottom: 28px; }
 .cs-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
@@ -169,11 +190,7 @@
   padding: 22px 20px;
   transition: border-color .25s, transform .25s, box-shadow .25s;
 }
-.cs-spec-card:hover {
-  border-color: var(--a);
-  transform: translateY(-2px);
-  box-shadow: var(--sh);
-}
+
 .cs-spec-card.wide {
   grid-column: span 2;
 }
@@ -202,14 +219,105 @@
   .cs-specs { grid-template-columns: 1fr; }
   .cs-spec-card.wide { grid-column: span 1; }
 }
+
+/* Slider */
+.cs-video {
+  margin: 28px 0 8px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--b);
+  background: #000;
+  aspect-ratio: 16 / 9;
+  max-width: 100%;
+}
+.cs-video iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+</style>
+<style>
+
+/* Mobile alignment + stable slider controls */
+@media (max-width: 900px) {
+  .cs {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  .cs .ct {
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .cs-nav {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .cs-slider-nav {
+    flex-wrap: nowrap;
+    gap: 10px;
+  }
+  .cs-slider-thumbs {
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    max-width: min(100%, 280px);
+    justify-content: flex-start;
+  }
+  .cs-slider-btn {
+    transform: none !important; /* no scale transform on mobile */
+    flex-shrink: 0;
+  }
+  .cs-slider-btn:hover,
+  .cs-slider-btn:active {
+    transform: none !important;
+  }
+}
+@media (max-width: 520px) {
+  .cs {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
+
+
+/* same-action mobile column */
+
+@media (max-width: 900px) {
+  .cs-hero, .cs-banner, .cs-top, .cs-section, .cs-layout, .cs-main,
+  .ph-body, .ph-img, .lead, .meta {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .ph {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  .ph .ct {
+    max-width: 100%;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+@media (max-width: 520px) {
+  .ph {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
 </style>
 </head>
 <body>
 <nav><div class="ni">
-<a href="index.html" class="logo">KimiChan <span class="dot"></span></a>
+<a href="index.html" class="logo">Kimi Chan</a>
 <div class="nl">
 <a href="index.html">Home</a>
-<a href="work.html" class="on">Work</a>
 <a href="gallery.html">Gallery</a>
 <a href="about.html">About</a>
 </div>
@@ -246,8 +354,8 @@
         <div class="cs-toc-label">On this page</div>
         <a href="#overview">Overview</a>
         <a href="#focus">Focus</a>
-        <a href="#app">The app</a>
         <a href="#storyboard">Storyboard</a>
+        <a href="#app">The app</a>
         <a href="#shooting">Photo shooting</a>
         <a href="#challenges">On-site challenges</a>
         <a href="#outcome">Outcome</a>
@@ -256,24 +364,24 @@
       <div class="cs-main">
         <section class="cs-section cs-reveal" id="overview">
           <h2>Overview</h2>
-          <p>This video introduces the “Stamp By Me” app, developed by Animae Technologies Limited for the Hong Kong Museum of Art (HKMoA). As designer, I filmed and edited the piece so visitors understand how to use the app on site — and how completing the journey unlocks a special gift.</p>
-          <h3 class="cs-subhead">Key Specifications</h3>
+          <p>“Stamp by Me” was part of the HKMoA Museum Visitor Experience Programme (2019–2020), a joint effort with the Hong Kong Society for Education in Art that offered visitors quick access to museum learning through the HKMoA and Stamp by Me apps.</p>
+          <p>This video introduces the “Stamp By Me” app, developed by Animae Technologies Limited for the HKMoA. As designer, I filmed and edited the piece so visitors understand how to use the app on site — and how completing the journey unlocks a special gift.</p>
             <div class="cs-specs">
             <div class="cs-spec-card">
               <div class="cs-spec-label">Year</div>
               <div class="cs-spec-value">2020</div>
             </div>
             <div class="cs-spec-card">
-              <div class="cs-spec-label">Production Period:</div>
+              <div class="cs-spec-label">Production Period</div>
               <div class="cs-spec-value">23 days</div>
             </div>
             <div class="cs-spec-card">
               <div class="cs-spec-label">Category</div>
-              <div class="cs-spec-value">Animae Technologies Limited, HKMoA</div>
+              <div class="cs-spec-value">Videography</div>
             </div>
             <div class="cs-spec-card wide">
               <div class="cs-spec-label">Client</div>
-              <div class="cs-spec-value">Feed posts, stories, and advertisement</div>
+              <div class="cs-spec-value">Animae Technologies Limited, HKMoA</div>
             </div>
             <div class="cs-spec-card">
               <div class="cs-spec-label">Role</div>
@@ -284,7 +392,7 @@
 
         <section class="cs-section cs-reveal" id="focus">
           <h2>Focus</h2>
-          <p>Explain a location-aware museum experience clearly on camera — floor detection, stamp stations, and the reward loop — without disrupting the gallery.</p>
+          <p>Explain a location, aware museum experience clearly on camera — floor detection, stamp stations, and the reward loop without disrupting the gallery.</p>
           <div class="cs-focus">
             <div class="cs-focus-card">
               <div class="cs-focus-num">01</div>
@@ -309,15 +417,6 @@
           </div>
         </section>
 
-        <section class="cs-section cs-reveal" id="app">
-          <h2>The app</h2>
-          <p>“Stamp By Me” uses low-power Bluetooth and iBeacon to detect which floor the visitor is on. Users answer floor-specific questions, then collect a unique stamp at the designated station. After all six stamps are collected, they can redeem a gashapon with a special gift from the vending machine.</p>
-          <figure class="cs-img">
-            <img src="images/project/stamp-by-me-app.jpg" alt="Stamp By Me app flow">
-            <figcaption class="cs-img-caption">Floor detection → questions → stamp station → six stamps → gift</figcaption>
-          </figure>
-        </section>
-
         <section class="cs-section cs-reveal" id="storyboard">
           <h2>Storyboard</h2>
           <p>Before filming, a detailed storyboard mapped shots, angles, and the subtitles needed for each beat so the final video stays clear and informative.</p>
@@ -338,16 +437,29 @@
           </div>
         </section>
 
+        <section class="cs-section cs-reveal" id="app">
+          <h2>The app</h2>
+          <p>“Stamp By Me” uses low-power Bluetooth and iBeacon to detect which floor the visitor is on. Users answer floor-specific questions, then collect a unique stamp at the designated station. After all six stamps are collected, they can redeem a gashapon with a special gift from the vending machine.</p>
+          <figure class="cs-img">
+            <img src="images/project/stamp-by-me-app-flow.jpg" alt="Stamp By Me app flow">
+            <figcaption class="cs-img-caption">Find the station → Answer questions → Collect stamp → Collect all stamps → Scan the QR code  → Redeem a gift</figcaption>
+          </figure>
+            <figure class="cs-img">
+            <img src="images/project/stamp-by-me-app-ui.mp4" alt="Stamp By Me app ui">
+            <figcaption class="cs-img-caption">The Stamp by me app logo and user interface</figcaption>
+          </figure>
+        </section>
+
         <section class="cs-section cs-reveal" id="shooting">
           <h2>Photo shooting</h2>
           <p>On location, each floor’s stamp station was photographed — circular stamps with abstract surfaces on embedded screens. Visitors place their phone on the stamp controller to receive the stamp.</p>
           <div class="cs-media-grid">
             <div class="cs-media-card">
-              <div class="thumb"><img src="images/project/stamp-by-me-station-1.jpg" alt="Stamp station"></div>
+              <div class="thumb"><img src="images/project/stamp-by-me-station.jpg" alt="Stamp Station"></div>
               <div class="label">Stamp station</div>
             </div>
             <div class="cs-media-card">
-              <div class="thumb"><img src="images/project/stamp-by-me-station-2.jpg" alt="Stamp controller"></div>
+              <div class="thumb"><img src="images/project/stamp-by-me-vending-machine.jpg" alt="Vending Machine"></div>
               <div class="label">Stamp controller</div>
             </div>
           </div>
@@ -389,29 +501,9 @@
             <h2>Outcome</h2>
             <p>A clear promotional film for HKMoA visitors — how to use Stamp By Me from first open to collecting all six stamps and redeeming a gift.</p>
 
-            <div class="cs-slider">
-              <div class="cs-slider-viewport">
-                <div class="cs-slider-track">
-                  <div class="cs-slide is-active"><img src="images/project/stamp-by-me-01.jpg" alt="Stamp By Me 1"></div>
-                  <div class="cs-slide"><img src="images/project/stamp-by-me-02.jpg" alt="Stamp By Me 2"></div>
-                  <div class="cs-slide"><img src="images/project/stamp-by-me-03.jpg" alt="Stamp By Me 3"></div>
-                  <div class="cs-slide"><img src="images/project/stamp-by-me-04.jpg" alt="Stamp By Me 4"></div>
-                  <div class="cs-slide"><img src="images/project/stamp-by-me-05.jpg" alt="Stamp By Me 5"></div>
-                  <div class="cs-slide"><img src="images/project/stamp-by-me-06.jpg" alt="Stamp By Me 6"></div>
-                </div>
-              </div>
-              <div class="cs-slider-nav">
-                <button type="button" class="cs-slider-btn" data-dir="-1" aria-label="Previous">←</button>
-                <div class="cs-slider-thumbs" role="tablist"></div>
-                <button type="button" class="cs-slider-btn" data-dir="1" aria-label="Next">→</button>
-              </div>
-            </div>
-
-            <div class="cs-stats">
-              <div class="cs-stat"><strong>HKMoA</strong><span>Hong Kong Museum of Art</span></div>
-              <div class="cs-stat"><strong>23 days</strong><span>Storyboard to final cut</span></div>
-              <div class="cs-stat"><strong>6 stamps</strong><span>Floor challenges to gift</span></div>
-            </div>
+          <div class="cs-video">
+            <iframe src="https://www.youtube.com/embed/e1z6leQqIDI?si=1CvFz019b-fwGHXc" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
           </div>
         </section>
       </div>

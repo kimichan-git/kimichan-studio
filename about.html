@@ -3,41 +3,46 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>About — KimiChan Studio</title>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <nav><div class="ni">
-<a href="index.html" class="logo">KimiChan <span class="dot"></span></a>
+<a href="index.html" class="logo">Kimi Chan</a>
 <div class="nl">
 <a href="index.html">Home</a>
-<a href="work.html">Work</a>
 <a href="gallery.html">Gallery</a>
 <a href="about.html" class="on">About</a>
-<a href="contact.html">Contact</a>
 </div>
 <div class="na">
 <button class="tt" id="themeBtn">&#9728;</button>
-<a href="contact.html" class="btn bp">Let's talk</a>
+<a href="mailto:kimic329@gmail.com?subject=Hello%20from%20your%20website" class="btn bp" style="color:#0f172a">Get in touch</a>
 </div>
 </div></nav>
 
 <section class="ph">
 <div class="ct">
 <div class="sl">About</div>
-<h1>I'm Kimi Chan</h1>
-<p class="lead">A senior Multimedia Designer with over 4 years of experience.</p>
+<div class="about-hero">
+<div class="about-copy">
+<h1>Kimi Chan</h1>
+<p class="lead">A senior Multimedia Designer with over 5 years of experience.</p>
 <div class="at">
-<p>Combining expertise in UX/UI, graphic design, video, and photography, I create multimedia experiences that engage audiences and drive real results. As a photographer, my work captures landscapes, cityscapes, and portraits through a serene, authentic lens—highlighting the dynamic interplay between city energy and quiet abstraction. Explore my recent shots and visual projects on <a href="https://www.instagram.com/kimic.foto/" target="_blank" rel="noopener" style="color:var(--a);font-weight:600">Instagram</a>.</p>
-<p style="margin-top:16px">I have a natural curiosity and love picking up new skills whenever I can. In the past two years alone, I’ve jumped into a diverse range of topics—learning how to craft interior spaces using AutoCAD, becoming a Gemini Certified Educator, and experimenting with vibe coding to build software using AI. I thrive on staying ahead of the curve and applying modern tools to solve problems. Feel free to follow up my latest state on <a href="https://www.linkedin.com/in/kimi-chan-3ab4ab211" target="_blank" rel="noopener" style="color:var(--a);font-weight:600">LinkedIn</a>.</p>
-<div class="dl-cards">
+<p>Combining expertise in UX/UI, graphic design, video, and photography, I create multimedia experiences that engage audiences and drive real results. As a photographer, my work captures landscapes, cityscapes, and portraits through a serene, authentic lens, highlighting the dynamic interplay between city energy and quiet abstraction. Explore my recent shots and visual projects on <a href="https://www.instagram.com/kimic.foto/" target="_blank" rel="noopener" style="color:var(--a);font-weight:600">Instagram</a>.</p>
+<p style="margin-top:16px">I have a natural curiosity and love picking up new skills whenever I can. In the past two years alone, I’ve jumped into a diverse range of topics, learning how to craft interior spaces using AutoCAD, becoming a Gemini Certified Educator, and experimenting with vibe coding to build software using AI. I thrive on staying ahead of the curve and applying modern tools to solve problems. Feel free to follow up my latest state on <a href="https://www.linkedin.com/in/kimi-chan-3ab4ab211" target="_blank" rel="noopener" style="color:var(--a);font-weight:600">LinkedIn</a>.</p>
+<div style="display: none;" class="dl-cards">
   <div class="dl-card">
     <div class="dl-preview dl-cv">
       <img src="images/about/cv-cover.jpg" alt="CV preview" class="dl-img">
     </div>
     <div class="dl-meta">
       <span class="dl-name">CV</span>
-      <a href="Chan_Wing_Shan_CV.pdf" download="Chan Wing Shan_CV-10012026.pdf" class="dl-btn" target="_blank" rel="noopener">
+      <a href="https://drive.google.com/file/d/1uTexTaSHV8gVAqKVt-NF63azdXe2sEiO/view?usp=share_link" download="Chan Wing Shan_CV-10012026.pdf" class="dl-btn" target="_blank" rel="noopener">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         Download
       </a>
@@ -49,7 +54,7 @@
     </div>
     <div class="dl-meta">
       <span class="dl-name">Portfolio</span>
-      <a href="Chan_Wing_Shan_Portfolio.pdf" download="Chan Wing Shan_Portfolio_11012026.pdf" class="dl-btn" target="_blank" rel="noopener">
+      <a href="https://drive.google.com/file/d/1_-mJYHnHbMxvtpFgkJff2GZ0e0EgRBms/view?usp=share_link" download="Chan Wing Shan_Portfolio_11012026.pdf" class="dl-btn" target="_blank" rel="noopener">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         Download
       </a>
@@ -131,6 +136,15 @@
 }
 </style>
 </div>
+</div>
+<aside class="about-photo" id="aboutTilt">
+  <div class="about-photo-frame">
+    <img src="images/about/about-icon.jpg" alt="Kimi Chan">
+    <span class="about-photo-veil"></span>
+    <span class="about-photo-glare" aria-hidden="true"></span>
+  </div>
+</aside>
+</div>
 
 <div class="milestones-section">
 <div class="sl">Milestones</div>
@@ -141,7 +155,7 @@
     <time class="tl-date">Jul 2018</time>
     <div class="tl-rail"><span class="tl-dot"></span></div>
     <div class="tl-body">
-      <div class="tl-title">Publish a Photo Album “攝夢遊記”</div>
+      <div class="tl-title tl-hover" data-preview="images/about/milestone-album.jpg">Publish a Photo Album “攝夢遊記”</div>
       <div class="tl-content">“攝夢遊記” is a personal photographic album featuring 76 distinct images and stories that document a multi-year visual journey capturing the unique landscapes and cityscapes of Hong Kong.</div>
     </div>
   </div>
@@ -149,7 +163,7 @@
     <time class="tl-date">Sep 2018</time>
     <div class="tl-rail"><span class="tl-dot"></span></div>
     <div class="tl-body">
-      <div class="tl-title">Nikon 2018 Calendar Photograph Solicitation</div>
+      <div class="tl-title tl-hover" data-preview="images/about/milestone-nikon.jpg">Nikon 2018 Calendar Photograph Solicitation</div>
       <div class="tl-content">Shortlisted Work (October Edition)</div>
     </div>
   </div>
@@ -157,7 +171,7 @@
     <time class="tl-date">Mar 2019</time>
     <div class="tl-rail"><span class="tl-dot"></span></div>
     <div class="tl-body">
-      <div class="tl-title">Featured in the HKDI Academic Social Photography Exhibition</div>
+      <div class="tl-title tl-hover" data-preview="images/about/milestone-hkdi.jpg">Featured in the HKDI Academic Social Photography Exhibition</div>
       <div class="tl-content">A collection from Chun Yeung Street, highlighting authentic, candid moments of everyday community life.</div>
     </div>
   </div>
@@ -165,11 +179,14 @@
     <time class="tl-date">Jul 2023</time>
     <div class="tl-rail"><span class="tl-dot"></span></div>
     <div class="tl-body">
-      <div class="tl-title">Featured in HONGKONGUIDE Facebook Page</div>
+      <div class="tl-title tl-hover" data-preview="images/about/milestone-murray.jpg">Featured in HONGKONGUIDE Facebook Page</div>
       <div class="tl-content">Featured for a photography series capturing the peaceful, vibrant pink blossoms of the historic Cassia javanica tree at The Murray.</div>
     </div>
   </div>
 </div>
+</div>
+<div class="tl-cursor" id="tlCursor" aria-hidden="true">
+  <img id="tlCursorImg" alt="">
 </div>
 <div class="qa-section">
   <div class="sl">Quick Q&amp;A</div>
@@ -231,6 +248,25 @@
     </div>
   </div>
 </div>
+
+<div class="fit-section">
+  <div class="fit-card">
+    <p class="fit-title">Tell me what you're building.<br>Let's see if it's a fit.</p>
+    <div class="fit-row">
+      <div class="fit-email" id="fitEmail">
+        <span>kimic329@gmail.com</span>
+        <button type="button" class="fit-copy" id="copyEmailBtn" aria-label="Copy email address" title="Copy email">
+          <svg class="fit-copy-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          <svg class="fit-check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        </button>
+      </div>
+      <a href="https://drive.google.com/file/d/1uTexTaSHV8gVAqKVt-NF63azdXe2sEiO/view?usp=share_link" download="Chan Wing Shan_CV-10012026.pdf" class="btn bp fit-resume" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download resume
+      </a>
+    </div>
+  </div>
+</div>
 <style>
 .qa-section{
   max-width:720px;
@@ -239,7 +275,7 @@
   margin-top:64px;
   margin-left:0;
   margin-right:auto;
-  padding-bottom:80px;
+  padding-bottom:32px;
 }
 .at{
   max-width:720px;
@@ -347,9 +383,7 @@
 
 /* Shared about-page column alignment */
 .at,
-.dl-cards,
-.milestones-section,
-.qa-section{
+.dl-cards{
   max-width:720px !important;
   width:100% !important;
   margin-left:0 !important;
@@ -358,24 +392,21 @@
   padding-left:0 !important;
   padding-right:0 !important;
 }
-.milestones-section{
-  padding-top:40px !important;
-  padding-bottom:16px !important;
+/* Center Milestones + Quick Q&A */
+.milestones-section,
+.qa-section{
+  max-width:720px !important;
+  width:100% !important;
+  margin-top: 100px;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  box-sizing:border-box !important;
+  padding-left:0 !important;
+  padding-right:0 !important;
 }
 
-.milestones-section{
-  max-width:720px;
-  width:100%;
-  box-sizing:border-box;
-  margin-top:64px;
-  margin-left:0;
-  margin-right:auto;
-  border-radius:16px;
-  padding:40px 0 16px;
-  border:1px solid transparent;
-}
 html[data-theme="light"] .milestones-section{
-  background:#f8fafc;
+  background:#FEFCFB;
   border-color:transparent;
 }
 html[data-theme="dark"] .milestones-section{
@@ -440,25 +471,359 @@ html[data-theme="dark"] .tl-item:not(:last-child) .tl-rail::before{
   font-weight:700;
   letter-spacing:.04em;
   text-transform:uppercase;
-  padding:5px 3px;
+  padding:6px 12px;
   border-radius:999px;
   color:var(--a);
   background:var(--s);
   white-space:nowrap;
-  width:100%;
+  width:auto;
+  max-width:100%;
   text-align:center;
   margin-top:2px;
+  box-sizing:border-box;
 }
 .tl-body{min-width:0}
 .tl-title{font-size:1.15rem;font-weight:700;color:var(--t);line-height:1.35;margin-bottom:6px}
+.tl-title.tl-hover{
+  display:inline;
+  cursor:none;
+  position:relative;
+  z-index:2;
+}
+.tl-cursor{
+  position:fixed;
+  top:0;left:0;
+  width:320px;
+  height:180px; /* 16:9 */
+  margin:0;
+  pointer-events:none;
+  z-index:80;
+  opacity:0;
+  visibility:hidden;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 18px 40px rgba(15,23,42,.28);
+  transform:translate3d(-50%,-60%,0) scale(.92);
+  will-change:transform,opacity;
+}
+.tl-cursor.is-on{
+  opacity:1;
+  visibility:visible;
+}
+.tl-cursor img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
 .tl-content{font-size:.95rem;color:var(--m);line-height:1.65}
 @media(max-width:639px){
-  .tl-item{grid-template-columns:20px 1fr;gap:0 12px}
-  .tl-date{width:auto;justify-self:start;margin-bottom:8px;grid-column:2}
+  .tl-item{grid-template-columns:20px 1fr;gap:0 14px}
+  .tl-date{
+    width:auto;
+    justify-self:start;
+    margin-bottom:10px;
+    grid-column:2;
+    padding:6px 14px;
+  }
   .tl-rail{grid-row:1 / span 3}
   .tl-body{grid-column:2}
   .tl-marker-row{display:contents}
 }
+
+/* Match nav .ni: max-width 1100px + 24px inset (styles.css sets .ph .ct to 900px) */
+.ph{
+  padding-left:24px;
+  padding-right:24px;
+}
+.ph > .ct{
+  max-width:1100px !important; /* was 900px in styles.css — caused misalignment with logo */
+  width:100%;
+  margin-left:auto;
+  margin-right:auto;
+  padding-left:0;  /* horizontal inset already on .ph */
+  padding-right:0;
+  box-sizing:border-box;
+}
+.about-hero{
+  margin-left:0;
+  margin-right:0;
+}
+.about-copy,
+.about-copy h1,
+.about-copy .lead,
+.about-copy .at,
+.ph > .ct > .sl{
+  margin-left:0;
+  padding-left:0;
+}
+
+/* About hero: text + portrait */
+.about-hero{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 320px;
+  gap:28px 120px;
+  align-items:start;
+  max-width:none;
+  width:100%;
+  margin:8px 0 8px;
+  position:relative;
+}
+.about-copy{
+  min-width:0;
+  max-width:none; /* use full left column — text stays left */
+}
+.about-copy .at{margin-top:24px;max-width:42rem !important}
+.about-photo{
+  position:relative;
+  width:320px;
+  height:420px;
+  justify-self:end; /* pin image to the right edge */
+  margin-top:8px;
+  margin-left:0;
+  flex-shrink:0;
+  transform-style:preserve-3d;
+  will-change:transform;
+  cursor:pointer;
+  transform:perspective(1000px) rotateX(0deg) rotateY(0deg);
+}
+.about-photo-frame{
+  position:absolute;
+  inset:0;
+  border-radius:28px;
+  overflow:hidden;
+  background:transparent;
+  border:none;
+  box-shadow:0 22px 44px rgba(15,23,42,.16);
+  z-index:1;
+  transform-style:preserve-3d;
+  isolation:isolate;
+}
+.about-photo-glare{
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  pointer-events:none;
+  z-index:4;
+  opacity:0;
+  mix-blend-mode:overlay;
+  background:radial-gradient(circle at 50% 50%, rgba(255,255,255,.7), transparent 50%);
+  transition:opacity .25s ease;
+}
+.about-photo.is-tilting .about-photo-glare{opacity:.35}
+.about-photo-frame img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 20%;
+  display:block;
+  filter:saturate(.95) contrast(.95) brightness(1.02);
+}
+.about-photo-veil{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:linear-gradient(180deg,rgba(255,255,255,.12) 0%,rgba(255,255,255,.05) 45%,rgba(255,255,255,.22) 100%);
+}
+html[data-theme="dark"] .about-photo-veil{
+  background:linear-gradient(180deg,rgba(15,23,42,.1) 0%,rgba(15,23,42,.04) 45%,rgba(15,23,42,.28) 100%);
+}
+html[data-theme="dark"] .about-photo-frame{
+  box-shadow:0 22px 44px rgba(0,0,0,.38);
+}
+
+
+/* Fit / contact card */
+.fit-section{
+  width:100vw !important;
+  max-width:none !important;
+  margin-left:calc(50% - 50vw) !important;
+  margin-right:calc(50% - 50vw) !important;
+  margin-top:48px;
+  margin-bottom:0;
+  display:flex;
+  justify-content:center;
+  box-sizing:border-box;
+  padding:64px 24px;
+  background:transparent;
+}
+html[data-theme="dark"] .fit-section{
+  background:transparent;
+}
+.fit-card{
+  width:100%;
+  max-width:560px;
+  background:transparent;
+  border:none;
+  border-radius:0;
+  padding:0;
+  box-sizing:border-box;
+  text-align:center;
+}
+html[data-theme="dark"] .fit-card{
+  background:transparent;
+  border:none;
+}
+.fit-title{
+  margin:0 auto 22px;
+  font-size:clamp(1.45rem, 2.4vw, 1.85rem);
+  font-weight:700;
+  color:var(--t);
+  letter-spacing:-.02em;
+  line-height:1.35;
+  text-align:center;
+  width:100%;
+}
+.fit-row{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.fit-email{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  min-width:min(100%,270px);
+  flex:1;
+  padding:6px 6px 6px 16px;
+  border-radius:10px;
+  background:var(--c);
+  border:1px solid var(--b);
+  color:var(--t);
+  font-size:.95rem;
+  font-weight:500;
+}
+html[data-theme="dark"] .fit-email{
+  background:var(--c);
+  border-color:var(--b);
+}
+.fit-copy{
+  width:36px;
+  height:36px;
+  border-radius:10px;
+  border:1px solid var(--b);
+  background:var(--c);
+  color:var(--t);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  flex-shrink:0;
+  transition:.2s;
+}
+html[data-theme="dark"] .fit-copy{
+  background:var(--s);
+  border-color:var(--b);
+  color:var(--m);
+}
+.fit-copy:hover{
+  border-color:var(--a);
+  color:var(--a);
+}
+.fit-resume{
+  color:#1d1d1d !important;
+  height:48px;
+  padding:10px 20px;
+  white-space:nowrap;
+  flex-shrink:0;
+}
+.fit-copy.copied{
+  color:#16a34a;
+  border-color:#16a34a;
+}
+.fit-copy .fit-check-icon{display:none}
+.fit-copy.copied .fit-copy-icon{display:none}
+.fit-copy.copied .fit-check-icon{display:block}
+
+@media(max-width:860px){
+  .about-hero{
+    grid-template-columns:1fr;
+    gap:28px;
+  }
+  .about-copy .at{max-width:100% !important}
+  .about-photo{
+    justify-self:center; /* center image on mobile */
+    width:220px;
+    height:360px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  /* Fit card: stack email then download */
+  .fit-row{
+    flex-direction:column;
+    align-items:center;
+    gap:12px;
+  }
+  .fit-email{
+    min-width:0;
+    width:100%;
+    flex:none;
+  }
+  .fit-row .dl-btn{
+    width:auto;
+    justify-content:center;
+    align-self:center;
+  }
+  .fit-title{
+    line-height:1.45;
+    text-align:center !important;
+    width:100%;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .fit-card{
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center !important;
+  }
+  .fit-section{
+    margin-left:calc(50% - 50vw) !important;
+    margin-right:calc(50% - 50vw) !important;
+    margin-top:28px !important;
+    margin-bottom:0 !important;
+    padding:40px 20px;
+    justify-self:center;
+  }
+}
+@media(max-width:520px){
+  .about-photo{
+    width:min(240px,72vw);
+    height:340px;
+    margin-left:auto;
+    margin-right:auto;
+    justify-self:center;
+  }
+  .fit-card{padding:0;border-radius:0}
+  .fit-email{min-width:0;width:100%}
+}
+
+/* Mobile: align about content with nav logo */
+@media (max-width: 860px) {
+  .ph {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  .ph > .ct {
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .milestones-section,
+  .qa-section,
+  .fit-section {
+    max-width: 100% !important;
+  }
+}
+@media (max-width: 520px) {
+  .ph {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
+
 </style>
 </div>
 </section>
@@ -470,6 +835,102 @@ let theme=localStorage.getItem("kc-theme")||"dark";
 document.documentElement.setAttribute("data-theme",theme);
 themeBtn.textContent=theme==="dark"?"☀":"☾";
 themeBtn.onclick=function(){theme=theme==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",theme);localStorage.setItem("kc-theme",theme);themeBtn.textContent=theme==="dark"?"☀":"☾"};
+(function(){
+  var btn=document.getElementById("copyEmailBtn");
+  if(!btn) return;
+  btn.addEventListener("click",function(){
+    var email="kimic329@gmail.com";
+    function ok(){
+      btn.classList.add("copied");
+      btn.setAttribute("aria-label","Email copied");
+      setTimeout(function(){
+        btn.classList.remove("copied");
+        btn.setAttribute("aria-label","Copy email address");
+      },1600);
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(email).then(ok).catch(function(){
+        window.prompt("Copy email address",email);
+      });
+    }else{
+      window.prompt("Copy email address",email);
+    }
+  });
+})();
+(function(){
+  var card=document.getElementById("aboutTilt");
+  if(!card) return;
+  var glare=card.querySelector(".about-photo-glare");
+  var reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var canHover=window.matchMedia&&window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  if(reduce||!canHover) return;
+  var max=14;
+  var rx=0,ry=0,tx=0,ty=0,gx=50,gy=50,tgx=50,tgy=50;
+  card.addEventListener("mousemove",function(e){
+    var rect=card.getBoundingClientRect();
+    var px=(e.clientX-rect.left)/rect.width;
+    var py=(e.clientY-rect.top)/rect.height;
+    ty=(px-0.5)*max;
+    tx=(0.5-py)*max;
+    tgx=px*100;
+    tgy=py*100;
+    card.classList.add("is-tilting");
+  });
+  card.addEventListener("mouseleave",function(){
+    tx=0;ty=0;tgx=50;tgy=50;
+    card.classList.remove("is-tilting");
+  });
+  function tick(){
+    rx+=(tx-rx)*0.14;
+    ry+=(ty-ry)*0.14;
+    gx+=(tgx-gx)*0.16;
+    gy+=(tgy-gy)*0.16;
+    card.style.transform="perspective(1000px) rotateX("+rx.toFixed(3)+"deg) rotateY("+ry.toFixed(3)+"deg)";
+    if(glare){
+      glare.style.background="radial-gradient(circle at "+gx.toFixed(2)+"% "+gy.toFixed(2)+"%, rgba(255,255,255,.75), transparent 52%)";
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+})();
+(function(){
+  var titles=document.querySelectorAll(".tl-hover");
+  var cursor=document.getElementById("tlCursor");
+  var img=document.getElementById("tlCursorImg");
+  if(!titles.length||!cursor||!img) return;
+  var reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var canHover=window.matchMedia&&window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  if(!canHover) return;
+  var tx=0,ty=0,x=0,y=0,active=false,shown=false;
+  function onEnter(src){
+    if(img.getAttribute("src")!==src) img.src=src;
+    active=true;
+    cursor.classList.add("is-on");
+    shown=true;
+  }
+  function onLeave(){
+    active=false;
+    cursor.classList.remove("is-on");
+  }
+  titles.forEach(function(el){
+    el.addEventListener("mouseenter",function(){ onEnter(el.getAttribute("data-preview")); });
+    el.addEventListener("mouseleave",onLeave);
+    el.addEventListener("mousemove",function(e){
+      tx=e.clientX;
+      ty=e.clientY;
+    });
+  });
+  function tick(){
+    var k=reduce?1:0.18;
+    x+=(tx-x)*k;
+    y+=(ty-y)*k;
+    if(shown){
+      cursor.style.transform="translate3d("+x+"px,"+y+"px,0) translate(-50%,-62%) scale("+(active?1:0.92)+")";
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+})();
 </script>
 </body>
 </html>

@@ -3,15 +3,38 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Kimi Chan — Multimedia Designer</title>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+
+<style>
+.hero-bg-img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  display:block;z-index:0;pointer-events:none;
+}
+.hero .hb{
+  z-index:2;
+  background:linear-gradient(180deg, rgba(4,2,1,.22) 0%, rgba(4,2,1,.32) 100%);
+}
+html[data-theme="light"] .hero .hb{
+  background:linear-gradient(180deg, rgba(254,252,251,.16) 0%, rgba(254,252,251,.34) 100%);
+}
+.hero .hi{ z-index:3; position:relative; }
+.hero h1, .hero .gt, .hero p, .hero .hl, .hero .btn{
+  text-shadow: 0 2px 18px rgba(0,0,0,.35);
+}
+</style>
 </head>
 <body>
 <nav><div class="ni">
-<a href="index.html" class="logo">KimiChan <span class="dot"></span></a>
+<a href="index.html" class="logo">Kimi Chan</a>
 <div class="nl">
 <a href="index.html" class="on">Home</a>
-<a href="work.html">Work</a>
 <a href="gallery.html">Gallery</a>
 <a href="about.html">About</a>
 </div>
@@ -22,15 +45,16 @@
 </div></nav>
 
 <section class="hero">
+<img class="hero-bg-img" src="images/index/hero-bg.png" alt="bg">
 <div class="hb"></div>
 <div class="hi">
 <div>
 <div class="hl fu"><i></i> Available for work — HK</div>
-<h1 class="fu d1">Hello! I am<br><span class="gt">Kimi Chan</span></h1>
-<p class="fu d2">A multimedia designer and photographer creating serene, authentic visual experiences across digital and creative media.</p>
-
+<h1 class="fu d1"><span class="gt">Kimi Chan</span></h1>
+<p class="fu d2">Multimedia designer and photographer creating serene, authentic visual experiences across digital and creative media.</p>
+<a href="about.html" class="btn bp fu d2" style="color:#0f172a;">Learn more</a>
 </div>
-<div class="hv fu d2">
+<div style="display: none;" class="hv fu d2">
 <div class="ring"></div><div class="orb"></div>
 <div class="vl"><span>UX · Motion · Brand</span><span style="color:var(--a)">● Available</span></div>
 </div>
@@ -43,12 +67,12 @@
 <h2 class="st">My Skillset &amp; Expertise</h2>
 
 <div class="sg">
-<div class="sc" onclick="this.classList.toggle('open')"><div class="sn">01</div><h3>UX / UI Design</h3><p>User research, wireframes and high-fidelity interfaces for SaaS.</p><div class="sx"><ul><li>User flows</li><li>Prototypes</li><li>Design systems</li></ul></div></div>
-<div class="sc" onclick="this.classList.toggle('open')"><div class="sn">02</div><h3>Graphic Design</h3><p>Campaign concepts and promotional materials that strengthen brands.</p><div class="sx"><ul><li>Social campaigns</li><li>Brand visuals</li><li>Print & digital</li></ul></div></div>
-<div class="sc" onclick="this.classList.toggle('open')"><div class="sn">03</div><h3>Product Interfaces</h3><p>Clean interfaces with HTML/SCSS/JS and SaaS experience.</p><div class="sx"><ul><li>Dashboards</li><li>Admin consoles</li><li>Responsive UI</li></ul></div></div>
-<div class="sc" onclick="this.classList.toggle('open')"><div class="sn">04</div><h3>Video & Motion</h3><p>Storyboarding and animation for demos, tutorials and promo films.</p><div class="sx"><ul><li>Product demos</li><li>Tutorials</li><li>Promo films</li></ul></div></div>
-<div class="sc" onclick="this.classList.toggle('open')"><div class="sn">05</div><h3>Photo & Editing</h3><p>Visual planning and professional retouching for product imagery.</p><div class="sx"><ul><li>Product photos</li><li>Retouching</li><li>Visual direction</li></ul></div></div>
-<div class="sc" onclick="this.classList.toggle('open')"><div class="sn">06</div><h3>Motion Graphics</h3><p>Purposeful animation for video, social and product experiences.</p><div class="sx"><ul><li>Social motion</li><li>UI animation</li><li>Explainers</li></ul></div></div>
+<div class="sc" onclick="this.classList.toggle('open')"><div class="sn">01</div><h3>Photo & Editing</h3><p>Visual planning and professional retouching for product imagery.</p><div class="sx"><ul><li>Product photos</li><li>Retouching</li><li>Visual direction</li></ul></div></div>
+<div class="sc" onclick="this.classList.toggle('open')"><div class="sn">02</div><h3>Video & Motion</h3><p>Storyboarding and animation for demos, tutorials and promo films.</p><div class="sx"><ul><li>Product demos</li><li>Tutorials</li><li>Promo films</li></ul></div></div>
+<div class="sc" onclick="this.classList.toggle('open')"><div class="sn">03</div><h3>Website Design</h3><p>Clean interfaces with HTML/SCSS/JS and utilize AI development tools.</p><div class="sx"><ul><li>Dashboards</li><li>Admin consoles</li><li>Responsive UI</li></ul></div></div>
+<div class="sc" onclick="this.classList.toggle('open')"><div class="sn">04</div><h3>Graphic Design</h3><p>Campaign concepts and promotional materials that strengthen brands.</p><div class="sx"><ul><li>Social campaigns</li><li>Brand visuals</li><li>Print & digital</li></ul></div></div>
+<div class="sc" onclick="this.classList.toggle('open')"><div class="sn">05</div><h3>UX / UI Design</h3><p>User research, wireframes and high-fidelity interfaces for website or app.</p><div class="sx"><ul><li>User flows</li><li>Prototypes</li><li>Design systems</li></ul></div></div>
+<div class="sc" onclick="this.classList.toggle('open')"><div class="sn">06</div><h3>Motion Graphics</h3><p>Purposeful animation for video, social media and product experiences.</p><div class="sx"><ul><li>Social motion</li><li>UI animation</li><li>Explainers</li></ul></div></div>
 </div>
 </div>
 </section>
@@ -63,7 +87,7 @@
     <a href="project-urban-watcher.html" class="sw-flagship">
       <div class="sw-flag-media" data-hue="1">
         <span class="sw-num">01</span>
-        <img src="images/project/urban-watcher-outcome-1.jpg" alt="Urban Watcher" class="sw-flag-img">
+        <img src="images/project/urban-watcher-banner.jpg" alt="Urban Watcher" class="sw-flag-img">
       </div>
       <div class="sw-flag-body">
         <div class="sw-label">Graduation project</div>
@@ -145,7 +169,7 @@
         <div class="sw-card-body">
           <h3>Stamp By Me</h3>
           
-          <p class="sw-desc">A promotional video demonstrating how visitors to the Hong Kong Museum of Art can use a Bluetooth-based app to complete floor challenges and claim prizes.</p>
+          <p class="sw-desc">A promotional video demonstrating how visitors to the Hong Kong Museum of Art can use a Bluetooth-based app to complete floor challenges and claim gift.</p>
           <div class="sw-tags">
             <span>Video</span>
             <span>App</span>
@@ -163,7 +187,7 @@
         <div class="sw-card-body">
           <h3>Product Listing</h3>
           
-          <p class="sw-desc">Visual content and promotional graphic design tailored to highlight key features, specifications, and selling points for GL.iNet products on Amazon.</p>
+          <p class="sw-desc">Visual content and promotional graphic design tailored to highlight key features, selling points, and specifications for GL.iNet products on Amazon.</p>
           <div class="sw-tags">
             <span>Graphic Design</span>
             <span>Retouching</span>
@@ -183,8 +207,8 @@
           
           <p class="sw-desc">Engaging promotional graphics designed for Instagram and Facebook to highlight products, seasonal sales, and user tutorials.</p>
           <div class="sw-tags">
-            <span>Instagram</span>
             <span>Graphic Design</span>
+            <span>Instagram</span>
             <span>Marketing</span>
           </div>
           <span class="sw-link">Learn more <span aria-hidden="true">↗</span></span>
@@ -194,7 +218,7 @@
       <a href="project-campaign-video.html" class="sw-card">
         <div class="sw-card-media" data-hue="8">
           <span class="sw-num">08</span>
-          <img src="images/project/campaign-video.jpg" alt="Campaign Video" class="sw-card-img">
+          <img src="images/project/campaign-video-banner.jpg" alt="Campaign Video" class="sw-card-img">
         </div>
         <div class="sw-card-body">
           <h3>Campaign Video</h3>
@@ -212,14 +236,14 @@
       <a href="project-reels-video.html" class="sw-card">
         <div class="sw-card-media" data-hue="9">
           <span class="sw-num">09</span>
-          <img src="images/project/reels-video.jpg" alt="Reels Video" class="sw-card-img">
+          <img src="images/project/reels-video-banner.jpg" alt="Reels Video" class="sw-card-img">
         </div>
         <div class="sw-card-body">
           <h3>Reels Video</h3>
           
           <p class="sw-desc">Demonstrates products in real-world scenarios, emphasizing core features to attract potential buyers.</p>
           <div class="sw-tags">
-            <span>Reels</span>
+            <span>Video</span>
             <span>Instagram</span>
             <span>Marketing</span>
           </div>
@@ -230,7 +254,7 @@
       <a href="project-setup-video.html" class="sw-card">
         <div class="sw-card-media" data-hue="10">
           <span class="sw-num">10</span>
-          <img src="images/project/setup-video.jpg" alt="Setup Video" class="sw-card-img">
+          <img src="images/project/setup-video-banner.jpg" alt="Setup Video" class="sw-card-img">
         </div>
         <div class="sw-card-body">
           <h3>Setup Video</h3>
@@ -250,7 +274,7 @@
 
 <style>
 .sw-section {
-  background: var(--bg2);
+  background: var(--bg1);
   padding: 80px 24px 100px;
 }
 .sw-section .ct {
@@ -341,7 +365,7 @@
   color: var(--t);
 }
 [data-theme="dark"] .sw-flag-body {
-  background: #0b1120;
+  background: #1F1F1F;
   color: #f1f5f9;
 }
 .sw-label {
@@ -349,7 +373,7 @@
   font-weight: 600;
   letter-spacing: .12em;
   text-transform: uppercase;
-  color: #2dd4bf;
+  color: #A1824A;
   margin-bottom: 12px;
 }
 .sw-flag-body h3 {
@@ -403,13 +427,13 @@
 .sw-link {
   font-size: .92rem;
   font-weight: 600;
-  color: #2dd4bf;
+  color: #A1824A;
   display: inline-flex;
   align-items: center;
   gap: 6px;
 }
 .sw-flagship:hover .sw-link {
-  color: #5eead4;
+  color: #B8985D;
 }
 
 /* Grid cards */
@@ -469,7 +493,7 @@
   flex-direction: column;
 }
 [data-theme="dark"] .sw-card-body {
-  background: #0b1120;
+  background: #1F1F1F;
   color: #f1f5f9;
 }
 .sw-card-body h3 {
@@ -502,7 +526,7 @@
   margin-top: auto;
 }
 .sw-card:hover .sw-link {
-  color: #5eead4;
+  color: #B8985D;
 }
 
 @media (max-width: 900px) {
@@ -619,7 +643,7 @@
 .bd-card {
   flex-shrink: 0;
   width: 200px;
-  height: 260px;
+  height: 320px;
   text-decoration: none;
   color: inherit;
   transform-style: preserve-3d;
@@ -726,7 +750,7 @@
 <div class="ct" style="text-align:center;max-width:520px;margin:0 auto">
 <div class="sl">Contact</div>
 <h2 class="st">Have a project in mind?</h2>
-<p class="sd" style="margin:0 auto 24px">I'm always open to new collaborations. Tell me what you're building — I'd love to help shape it.</p>
+<p class="sd" style="margin:0 auto 24px">I'm always open to new collaborations. <br>Tell me what you're building, I'd love to help shape it.</br></p>
 <a href="mailto:kimic329@gmail.com?subject=Hello%20from%20your%20website" class="btn bp" style="color:#0f172a">Get in touch</a>
 </div>
 </section>
@@ -735,7 +759,7 @@
 <style>
 /* Contact: theme-aware (not forced white in dark mode) */
 .contact-section {
-  background: var(--bg2);
+  background: var(--bg1);
   color: var(--t);
 }
 .contact-section .sl { color: var(--a); }
@@ -745,10 +769,10 @@
 
 /* Footer: white in light mode, keep dark-theme surface in dark mode */
 footer {
-  background: #ffffff;
+  background: #FEFCFB;
 }
 [data-theme="dark"] footer {
-  background: var(--bg2);
+  background: var(--bg1);
 }
 </style>
 
@@ -799,5 +823,7 @@ if(themeBtn){
   });
 })();
 </script>
+
+
 </body>
 </html>

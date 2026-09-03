@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
+<script>if("scrollRestoration"in history)history.scrollRestoration="manual";</script>
+
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>VIXMINI — Kimi Chan</title>
+<title>VIXMINI — KimiChan Studio</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
@@ -50,7 +52,6 @@
 .cs-media-card .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s ease; }
 .cs-media-card:hover .thumb img { transform: scale(1.04); }
 .cs-media-card .label { padding: 14px 16px; font-size: .95rem; font-weight: 600; }
-.cs-outcome { background: var(--c); border: 1px solid var(--b); border-radius: 20px; padding: 36px 32px; margin-top: 12px; box-shadow: var(--sh); }
 .cs-outcome h2 { margin-bottom: 12px; }
 .cs-outcome > p { color: var(--m); max-width: none; width: 100%; margin-bottom: 28px; }
 .cs-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
@@ -134,14 +135,151 @@
   .cs-focus, .cs-scope, .cs-media-grid, .cs-stats { grid-template-columns: 1fr; }
   .cs-banner { aspect-ratio: 16 / 9; }
 }
+
+.cs-specs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin: 24px 0 8px;
+}
+.cs-spec-card {
+  background: var(--c);
+  border: 1px solid var(--b);
+  border-radius: 16px;
+  padding: 22px 20px;
+  transition: border-color .25s, transform .25s, box-shadow .25s;
+}
+
+.cs-spec-card.wide {
+  grid-column: span 2;
+}
+
+.cs-spec-label {
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--m);
+  margin-bottom: 8px;
+}
+.cs-spec-value {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--t);
+  line-height: 1.35;
+  letter-spacing: -.02em;
+}
+.cs-spec-value em {
+  font-style: normal;
+  color: var(--a);
+  font-size: 1.45rem;
+}
+@media (max-width: 700px) {
+  .cs-specs { grid-template-columns: 1fr; }
+  .cs-spec-card.wide { grid-column: span 1; }
+}
+</style>
+<style id="boot-top">html{scroll-behavior:auto!important}html.boot-top body{visibility:hidden}</style>
+<script>
+(function(){
+  document.documentElement.classList.add("boot-top");
+  function show(){
+    window.scrollTo(0,0);
+    document.documentElement.classList.remove("boot-top");
+    var s=document.getElementById("boot-top");
+    if(s)s.remove();
+  }
+  if(location.hash) history.replaceState(null,"",location.pathname+location.search);
+  window.scrollTo(0,0);
+  if(document.readyState==="loading"){
+    document.addEventListener("DOMContentLoaded", show);
+  } else {
+    show();
+  }
+  window.addEventListener("pageshow", function(){ window.scrollTo(0,0); });
+})();
+</script>
+<style>
+
+/* Mobile alignment + stable slider controls */
+@media (max-width: 900px) {
+  .cs {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  .cs .ct {
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .cs-nav {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .cs-slider-nav {
+    flex-wrap: nowrap;
+    gap: 10px;
+  }
+  .cs-slider-thumbs {
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    max-width: min(100%, 280px);
+    justify-content: flex-start;
+  }
+  .cs-slider-btn {
+    transform: none !important; /* no scale transform on mobile */
+    flex-shrink: 0;
+  }
+  .cs-slider-btn:hover,
+  .cs-slider-btn:active {
+    transform: none !important;
+  }
+}
+@media (max-width: 520px) {
+  .cs {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
+
+
+/* same-action mobile column */
+
+@media (max-width: 900px) {
+  .cs-hero, .cs-banner, .cs-top, .cs-section, .cs-layout, .cs-main,
+  .ph-body, .ph-img, .lead, .meta {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .ph {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  .ph .ct {
+    max-width: 100%;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+@media (max-width: 520px) {
+  .ph {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
 </style>
 </head>
 <body>
 <nav><div class="ni">
-<a href="index.html" class="logo">KimiChan <span class="dot"></span></a>
+<a href="index.html" class="logo">Kimi Chan</a>
 <div class="nl">
 <a href="index.html">Home</a>
-<a href="work.html" class="on">Work</a>
 <a href="gallery.html">Gallery</a>
 <a href="about.html">About</a>
 </div>
@@ -191,15 +329,37 @@
           <h2>Overview</h2>
           <p>VIXMINI is a hair care enterprise specializing in hair straighteners and curlers. Operative since 2022, it is a sub-brand of GL.iNet. Its goal is to give customers confidence and contentment through superior products. Amazon is the primary sales platform.</p>
           <p>I was responsible for designing listing images and editing demo videos — inviting models for shoots, producing premium listing photography, and crafting video content that is visually captivating and effective in promoting the brand.</p>
+            <div class="cs-specs">
+            <div class="cs-spec-card">
+              <div class="cs-spec-label">Client</div>
+              <div class="cs-spec-value">VIXMINI</div>
+            </div>
+            <div class="cs-spec-card">
+              <div class="cs-spec-label">Category</div>
+              <div class="cs-spec-value">Videography</div>
+            </div>
+            <div class="cs-spec-card">
+              <div class="cs-spec-label">Tools</div>
+              <div class="cs-spec-value">Photoshop, Premiere</div>
+            </div>
+            <div class="cs-spec-card wide">
+              <div class="cs-spec-label">Deliverables</div>
+              <div class="cs-spec-value">Amazon listing visuals, social media content, demonstration videos</div>
+            </div>
+            <div class="cs-spec-card">
+              <div class="cs-spec-label">Platform</div>
+              <div class="cs-spec-value">Amazon, YouTube</div>
+            </div>
+          </div>
         </section>
 
         <section class="cs-section cs-reveal" id="focus">
           <h2>Focus</h2>
           <p>The work spans product photography, video, and Amazon-ready graphic design — turning a new hair tool into a clear, trustworthy listing experience.</p>
           <div class="cs-focus">
-            <div class="cs-focus-card"><div class="cs-focus-num">01</div><h3>Listing clarity</h3><p>Show functionality and features at a glance — lock button, lights, floating plate — so shoppers understand the product fast.</p></div>
+            <div class="cs-focus-card"><div class="cs-focus-num">01</div><h3>Listing clarity</h3><p>Show functionality and features at a glance: lock button, lights, floating plate — so shoppers understand the product fast.</p></div>
             <div class="cs-focus-card"><div class="cs-focus-num">02</div><h3>Demo video</h3><p>Opening and reels video that demonstrate real use, and setup.</p></div>
-            <div class="cs-focus-card"><div class="cs-focus-num">03</div><h3>Retouching craft</h3><p>Precise masks and selective color so texture, hair strands, and product finish read accurately on Amazon.</p></div>
+            <div class="cs-focus-card"><div class="cs-focus-num">03</div><h3>Retouching image</h3><p>Precise masks and selective color so texture, hair strands, and product finish read accurately on Amazon.</p></div>
             <div class="cs-focus-card"><div class="cs-focus-num">04</div><h3>Brand confidence</h3><p>Cohesive visuals and music that position VIXMINI as a premium sub-brand customers can trust.</p></div>
           </div>
         </section>
@@ -233,7 +393,7 @@
           <p>The brand logo and background music are added last so the final cuts feel cohesive and on-brand across formats.</p>
           <figure class="cs-img">
             <img src="images/project/vixmini-edit-video.jpg" alt="VIXMINI edit video">
-            <figcaption class="cs-img-caption">Edit video in Adobe Premiere Pro</figcaption>
+            <figcaption class="cs-img-caption">Editing video in Adobe Premiere Pro</figcaption>
           </figure>
         </section>
 
@@ -295,12 +455,6 @@
                 <div class="cs-slider-thumbs" role="tablist"></div>
                 <button type="button" class="cs-slider-btn" data-dir="1" aria-label="Next">→</button>
               </div>
-            </div>
-
-            <div class="cs-stats">
-              <div class="cs-stat"><strong>Amazon</strong><span>Primary sales platform listings</span></div>
-              <div class="cs-stat"><strong>3 months</strong><span>End-to-end production window</span></div>
-              <div class="cs-stat"><strong>Video + images</strong><span>Opening, demos, and listing set</span></div>
             </div>
           </div>
         </section>

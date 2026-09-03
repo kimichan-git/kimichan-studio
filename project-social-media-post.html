@@ -1,8 +1,30 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
+<script>if("scrollRestoration"in history)history.scrollRestoration="manual";</script>
+<style id="boot-top">html{scroll-behavior:auto!important}html.boot-top body{visibility:hidden}</style>
+<script>
+(function(){
+  document.documentElement.classList.add("boot-top");
+  function show(){
+    window.scrollTo(0,0);
+    document.documentElement.classList.remove("boot-top");
+    var s=document.getElementById("boot-top");
+    if(s)s.remove();
+  }
+  if(location.hash) history.replaceState(null,"",location.pathname+location.search);
+  window.scrollTo(0,0);
+  if(document.readyState==="loading"){
+    document.addEventListener("DOMContentLoaded", show);
+  } else {
+    show();
+  }
+  window.addEventListener("pageshow", function(){ window.scrollTo(0,0); });
+})();
+</script>
+
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Social Media Post — Kimi Chan</title>
+<title>Social Media Post — KimiChan Studio</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
@@ -49,7 +71,6 @@
 .cs-section > ul li::marker {
   color: var(--m);
 }
-
 .cs-specs {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -63,11 +84,7 @@
   padding: 22px 20px;
   transition: border-color .25s, transform .25s, box-shadow .25s;
 }
-.cs-spec-card:hover {
-  border-color: var(--a);
-  transform: translateY(-2px);
-  box-shadow: var(--sh);
-}
+
 .cs-spec-card.wide {
   grid-column: span 2;
 }
@@ -118,7 +135,6 @@
 .cs-media-card .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s ease; }
 .cs-media-card:hover .thumb img { transform: scale(1.04); }
 .cs-media-card .label { padding: 14px 16px; font-size: .95rem; font-weight: 600; }
-.cs-outcome { background: var(--c); border: 1px solid var(--b); border-radius: 20px; padding: 36px 32px; margin-top: 12px; box-shadow: var(--sh); }
 .cs-outcome h2 { margin-bottom: 12px; }
 .cs-outcome > p { color: var(--m); max-width: none; width: 100%; margin-bottom: 28px; }
 .cs-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
@@ -257,13 +273,87 @@
   .cs-spec-card.wide { grid-column: span 1; }
 }
 </style>
+<style>
+
+/* Mobile alignment + stable slider controls */
+@media (max-width: 900px) {
+  .cs {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  .cs .ct {
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .cs-nav {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .cs-slider-nav {
+    flex-wrap: nowrap;
+    gap: 10px;
+  }
+  .cs-slider-thumbs {
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    max-width: min(100%, 280px);
+    justify-content: flex-start;
+  }
+  .cs-slider-btn {
+    transform: none !important; /* no scale transform on mobile */
+    flex-shrink: 0;
+  }
+  .cs-slider-btn:hover,
+  .cs-slider-btn:active {
+    transform: none !important;
+  }
+}
+@media (max-width: 520px) {
+  .cs {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
+
+
+/* same-action mobile column */
+
+@media (max-width: 900px) {
+  .cs-hero, .cs-banner, .cs-top, .cs-section, .cs-layout, .cs-main,
+  .ph-body, .ph-img, .lead, .meta {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .ph {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  .ph .ct {
+    max-width: 100%;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+@media (max-width: 520px) {
+  .ph {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
+</style>
 </head>
 <body>
 <nav><div class="ni">
-<a href="index.html" class="logo">KimiChan <span class="dot"></span></a>
+<a href="index.html" class="logo">Kimi Chan</a>
 <div class="nl">
 <a href="index.html">Home</a>
-<a href="work.html" class="on">Work</a>
 <a href="gallery.html">Gallery</a>
 <a href="about.html">About</a>
 </div>
@@ -284,8 +374,8 @@
         <h1>Social Media Post</h1>
         <p class="cs-lead">Engaging promotional graphics designed for Instagram and Facebook to highlight products, seasonal sales, and user tutorials.</p>
         <div class="cs-pills">
-          <span class="cs-pill">Instagram</span>
           <span class="cs-pill">Graphic Design</span>
+          <span class="cs-pill">Instagram</span>
           <span class="cs-pill">Marketing</span>
         </div>
       </div>
@@ -320,16 +410,16 @@
               <div class="cs-spec-value">Social Media / Campaign</div>
             </div>
             <div class="cs-spec-card">
-              <div class="cs-spec-label">Platforms</div>
-              <div class="cs-spec-value">Instagram, Facebook</div>
+              <div class="cs-spec-label">Tools</div>
+              <div class="cs-spec-value">Photoshop, Illustrator, Lovart</div>
             </div>
             <div class="cs-spec-card wide">
               <div class="cs-spec-label">Deliverables</div>
               <div class="cs-spec-value">Feed posts, stories, and advertisement</div>
             </div>
             <div class="cs-spec-card">
-              <div class="cs-spec-label">Tools</div>
-              <div class="cs-spec-value">Photoshop, Illustrator, Lovart</div>
+              <div class="cs-spec-label">Platforms</div>
+              <div class="cs-spec-value">Instagram, Facebook</div>
             </div>
           </div>
         </section>
@@ -451,12 +541,6 @@
                 <div class="cs-slider-thumbs" role="tablist"></div>
                 <button type="button" class="cs-slider-btn" data-dir="1" aria-label="Next">→</button>
               </div>
-            </div>
-
-            <div class="cs-stats">
-              <div class="cs-stat"><strong>IG + FB</strong><span>Feed &amp; advertisement</span></div>
-              <div class="cs-stat"><strong>3 series</strong><span>Product, sales, announcement</span></div>
-              <div class="cs-stat"><strong>GL.iNet</strong><span>Brand campaigns</span></div>
             </div>
           </div>
         </section>

@@ -3,61 +3,106 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Gallery — KimiChan Studio</title>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 
 <style>
-/* Masonry: 3 columns, natural image heights */
+.ph-gallery {
+  padding-top: 120px;
+}
+.ph-gallery .ct { max-width: 1100px; }
+
+/* Three equal-width columns; JS packs items so tops and bottoms line up */
 .gal-grid {
-  column-count: 3;
-  column-gap: 16px;
-  column-fill: balance;
-  display: block !important;
+  display: flex !important;
+  align-items: stretch;
+  gap: 18px;
+  padding-top: 8px;
+  margin-top: 32px;
+}
+.gal-col {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 .gal-item {
   display: block;
   width: 100%;
-  margin: 0 0 16px 0 !important;
-  height: auto !important;
-  min-height: 0 !important;
+  margin: 0 !important;
+  height: auto;
+  min-height: 0;
   background: transparent !important;
   border: none !important;
   line-height: 0;
-  break-inside: avoid;
-  -webkit-column-break-inside: avoid;
+  overflow: hidden;
+  border-radius: 16px;
+  isolation: isolate;
+  position: relative;
+  transform: translateZ(0) !important;
+  -webkit-transform: translateZ(0) !important;
+  z-index: auto;
+  flex: 0 0 auto;
+  /* Keeps 16px corners while the image scales on hover */
+  clip-path: inset(0 round 16px);
+  -webkit-clip-path: inset(0 round 16px);
+}
+.gal-item.gal-fill {
+  flex: 1 1 auto;
+}
+.gal-item.gal-fill img.gi-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.gal-item:hover {
+  transform: translateZ(0) !important;
+  -webkit-transform: translateZ(0) !important;
+  box-shadow: none;
 }
 .gal-item img.gi-img {
   width: 100%;
-  height: auto !important;
+  height: auto;
   display: block;
   object-fit: cover;
   border-radius: 16px;
-  vertical-align: top;
+  transition: transform .35s ease;
+  transform-origin: center center;
+  will-change: transform;
+}
+.gal-item:hover img.gi-img {
+  transform: scale(1.04);
 }
 @media (max-width: 850px) {
-  .gal-grid { column-count: 2; }
+  .gal-grid { gap: 16px; }
+  .gal-col { gap: 16px; }
 }
 @media (max-width: 520px) {
-  .gal-grid { column-count: 1; }
+  .gal-grid { gap: 14px; }
+  .gal-col { gap: 14px; }
 }
-
-.ph-gallery .ct { max-width: 1100px; }
 .gal-ig { text-align: left; margin-left: 0; padding-left: 0; }
 </style>
 </head>
 <body>
 <nav><div class="ni">
-<a href="index.html" class="logo">KimiChan <span class="dot"></span></a>
+<a href="index.html" class="logo">Kimi Chan</a>
 <div class="nl">
 <a href="index.html">Home</a>
-<a href="work.html">Work</a>
 <a href="gallery.html" class="on">Gallery</a>
 <a href="about.html">About</a>
-<a href="contact.html">Contact</a>
 </div>
 <div class="na">
 <button class="tt" id="themeBtn">&#9728;</button>
-<a href="contact.html" class="btn bp">Let's talk</a>
+<a href="mailto:kimic329@gmail.com?subject=Hello%20from%20your%20website" class="btn bp" style="color:#0f172a">Get in touch</a>
 </div>
 </div></nav>
 
@@ -65,8 +110,9 @@
 <div class="ct">
 <div class="sl">Photography</div>
 <h1>My Journey</h1>
-<p class="lead">Discover the world through my lens—a visual journey across Hong Kong and beyond, capturing the serene interplay of cityscapes, landscapes, and human stories.</p>
-<div class="gal-grid" style="margin-top:32px">
+<p class="lead">Discover the world through my lens. A visual journey across Hong Kong and beyond, capturing the serene interplay of cityscapes, landscapes, and human stories.</p>
+<p class="gal-ig" style="margin-top:36px;color:var(--m);font-size:.95rem;text-align:left">More work on <a href="https://www.instagram.com/kimic.foto/" style="color:var(--a);font-weight:600" target="_blank" rel="noopener">Instagram: @kimic.foto</a></p>
+<div class="gal-grid" id="galGrid">
 <div class="gal-item"><img src="images/gallery/026244.jpg" alt="Gallery photo 1" class="gi-img" loading="lazy"></div>
 <div class="gal-item"><img src="images/gallery/030627.jpg" alt="Gallery photo 2" class="gi-img" loading="lazy"></div>
 <div class="gal-item"><img src="images/gallery/051819.jpg" alt="Gallery photo 3" class="gi-img" loading="lazy"></div>
@@ -117,32 +163,155 @@
 <div class="gal-item"><img src="images/gallery/924303.jpg" alt="Gallery photo 48" class="gi-img" loading="lazy"></div>
 <div class="gal-item"><img src="images/gallery/966613.jpg" alt="Gallery photo 49" class="gi-img" loading="lazy"></div>
 <div class="gal-item"><img src="images/gallery/988486.jpg" alt="Gallery photo 50" class="gi-img" loading="lazy"></div>
+<div class="gal-item"><img src="images/gallery/624785.jpg" alt="Gallery photo 49" class="gi-img" loading="lazy"></div>
+<div class="gal-item"><img src="images/gallery/330593.jpg" alt="Gallery photo 50" class="gi-img" loading="lazy"></div>
 </div>
-<p class="gal-ig" style="margin-top:36px;color:var(--m);font-size:.95rem;text-align:left">More work on <a href="https://www.instagram.com/kimic.foto/" style="color:var(--a);font-weight:600" target="_blank" rel="noopener">Instagram · @kimic.foto</a></p>
 </div>
 </section>
 
 <footer>© 2026 KimiChan Studio</footer>
 <script>
-const themeBtn=document.getElementById("themeBtn");
-let theme=localStorage.getItem("kc-theme")||"dark";
-document.documentElement.setAttribute("data-theme",theme);
-themeBtn.textContent=theme==="dark"?"☀":"☾";
-themeBtn.onclick=function(){theme=theme==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",theme);localStorage.setItem("kc-theme",theme);themeBtn.textContent=theme==="dark"?"☀":"☾"};
+(function(){
+  var themeBtn=document.getElementById("themeBtn");
+  function getTheme(){ try{ return localStorage.getItem("kc-theme"); }catch(e){ return null; } }
+  function setTheme(v){ try{ localStorage.setItem("kc-theme", v); }catch(e){} }
+  var theme=getTheme()||"dark";
+  document.documentElement.setAttribute("data-theme",theme);
+  if(themeBtn){
+    themeBtn.textContent=theme==="dark"?"☀":"☾";
+    themeBtn.onclick=function(){
+      theme=theme==="dark"?"light":"dark";
+      document.documentElement.setAttribute("data-theme",theme);
+      setTheme(theme);
+      themeBtn.textContent=theme==="dark"?"☀":"☾";
+    };
+  }
+})();
 </script>
 
 <script>
 (function(){
+  var grid = document.getElementById("galGrid");
+  if(!grid) return;
+
+  var items = Array.prototype.slice.call(grid.querySelectorAll(".gal-item"));
+  var GAP = 18;
+
+  function colCount(){
+    var w = window.innerWidth;
+    if(w <= 520) return 1;
+    if(w <= 850) return 2;
+    return 3;
+  }
+
+  function gapSize(){
+    var w = window.innerWidth;
+    if(w <= 520) return 14;
+    if(w <= 850) return 16;
+    return 18;
+  }
+
+  function colWidth(n){
+    var cs = window.getComputedStyle(grid);
+    var gap = parseFloat(cs.columnGap || cs.gap) || gapSize();
+    return Math.max(1, (grid.clientWidth - gap * (n - 1)) / n);
+  }
+
+  function itemHeight(item, width){
+    var img = item.querySelector("img.gi-img");
+    if(img && img.naturalWidth && img.naturalHeight){
+      return width * (img.naturalHeight / img.naturalWidth);
+    }
+    return item.offsetHeight || width * 0.75;
+  }
+
+  function clearFill(item){
+    item.classList.remove("gal-fill");
+    item.style.height = "";
+  }
+
+  function pack(){
+    var n = colCount();
+    var gap = gapSize();
+    var w = colWidth(n);
+    var cols = [];
+    var heights = [];
+    var i;
+
+    items.forEach(clearFill);
+    grid.innerHTML = "";
+
+    for(i = 0; i < n; i++){
+      var col = document.createElement("div");
+      col.className = "gal-col";
+      grid.appendChild(col);
+      cols.push(col);
+      heights.push(0);
+    }
+
+    items.forEach(function(item){
+      var shortest = 0;
+      for(i = 1; i < n; i++){
+        if(heights[i] < heights[shortest]) shortest = i;
+      }
+      cols[shortest].appendChild(item);
+      heights[shortest] += itemHeight(item, w) + gap;
+    });
+
+    equalize(cols, n);
+  }
+
+  function equalize(cols, n){
+    if(n < 2) return;
+
+    requestAnimationFrame(function(){
+      var measured = [];
+      var maxH = 0;
+      var i;
+      for(i = 0; i < cols.length; i++){
+        var h = cols[i].offsetHeight;
+        measured.push(h);
+        if(h > maxH) maxH = h;
+      }
+      if(maxH < 1) return;
+
+      for(i = 0; i < cols.length; i++){
+        var extra = maxH - measured[i];
+        var last = cols[i].lastElementChild;
+        if(!last || extra < 2) continue;
+        last.classList.add("gal-fill");
+        last.style.height = (last.offsetHeight + extra) + "px";
+      }
+    });
+  }
+
   function setOrient(img){
     var item = img.closest(".gal-item");
     if(!item || !img.naturalWidth) return;
     item.classList.remove("gal-landscape","gal-portrait");
     item.classList.add(img.naturalWidth >= img.naturalHeight ? "gal-landscape" : "gal-portrait");
   }
-  document.querySelectorAll(".gal-item img.gi-img").forEach(function(img){
+
+  var packTimer;
+  function schedulePack(){
+    clearTimeout(packTimer);
+    packTimer = setTimeout(pack, 60);
+  }
+
+  items.forEach(function(item){
+    var img = item.querySelector("img.gi-img");
+    if(!img) return;
+    img.loading = "eager";
     if(img.complete && img.naturalWidth) setOrient(img);
-    else img.addEventListener("load", function(){ setOrient(img); });
+    else {
+      img.addEventListener("load", function(){ setOrient(img); schedulePack(); });
+      img.addEventListener("error", schedulePack);
+    }
   });
+
+  pack();
+  window.addEventListener("load", pack);
+  window.addEventListener("resize", schedulePack);
 })();
 </script>
 </body>
