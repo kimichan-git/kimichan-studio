@@ -17,7 +17,6 @@
 }
 .ph-gallery .ct { max-width: 1100px; }
 
-/* Three equal-width columns; JS packs items so tops and bottoms line up */
 .gal-grid {
   display: flex !important;
   align-items: stretch;
@@ -49,7 +48,6 @@
   -webkit-transform: translateZ(0) !important;
   z-index: auto;
   flex: 0 0 auto;
-  /* Keeps 16px corners while the image scales on hover */
   clip-path: inset(0 round 16px);
   -webkit-clip-path: inset(0 round 16px);
 }
@@ -178,12 +176,12 @@
   var theme=getTheme()||"dark";
   document.documentElement.setAttribute("data-theme",theme);
   if(themeBtn){
-    themeBtn.textContent=theme==="dark"?"☀":"☾";
+    themeBtn.textContent=theme==="dark"?"\u2600":"\u263E";
     themeBtn.onclick=function(){
       theme=theme==="dark"?"light":"dark";
       document.documentElement.setAttribute("data-theme",theme);
       setTheme(theme);
-      themeBtn.textContent=theme==="dark"?"☀":"☾";
+      themeBtn.textContent=theme==="dark"?"\u2600":"\u263E";
     };
   }
 })();
@@ -311,7 +309,12 @@
 
   pack();
   window.addEventListener("load", pack);
-  window.addEventListener("resize", schedulePack);
+  var lastW = window.innerWidth;
+  window.addEventListener("resize", function(){
+    if (window.innerWidth === lastW) return;
+    lastW = window.innerWidth;
+    schedulePack();
+  }, { passive: true });
 })();
 </script>
 </body>
