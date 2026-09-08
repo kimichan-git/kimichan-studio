@@ -309,12 +309,7 @@
 
   pack();
   window.addEventListener("load", pack);
-  var lastW = window.innerWidth;
-  window.addEventListener("resize", function(){
-    if (window.innerWidth === lastW) return;
-    lastW = window.innerWidth;
-    schedulePack();
-  }, { passive: true });
+  window.addEventListener("resize", schedulePack);
 })();
 </script>
 </body>
