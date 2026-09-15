@@ -10,7 +10,6 @@
 <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-
 <style>
 .hero-bg-img{
   position:absolute;inset:0;width:100%;height:100%;
@@ -19,69 +18,452 @@
 }
 .hero .hb{
   z-index:2;
-  background:linear-gradient(180deg, rgba(4,2,1,.22) 0%, rgba(4,2,1,.32) 100%);
-}
-html[data-theme="light"] .hero .hb{
-  background:linear-gradient(180deg, rgba(254,252,251,.16) 0%, rgba(254,252,251,.34) 100%);
+  background: none;
 }
 .hero .hi{ z-index:3; position:relative; }
-.hero h1, .hero .gt, .hero p, .hero .hl, .hero .btn{
-  text-shadow: 0 2px 18px rgba(0,0,0,.35);
+
+.sw-section {
+  background: var(--bg1);
+  padding: 80px 24px 100px;
+}
+.sw-section .ct {
+  max-width: 1100px;
+}
+
+/* Flagship card */
+.sw-flagship {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--b);
+  background: var(--c);
+  text-decoration: none;
+  color: inherit;
+  margin-bottom: 28px;
+  transition: border-color .25s, box-shadow .25s;
+}
+.sw-flagship:hover {
+  border-color: var(--a);
+  box-shadow: var(--sh);
+}
+.sw-flag-media {
+  position: relative;
+  min-height: 420px;
+  background: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.sw-flag-img,
+.sw-card-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  z-index: 0;
+}
+.sw-flag-media .sw-num,
+.sw-card-media .sw-num {
+  z-index: 2;
+}
+
+.sw-flag-media[data-hue="1"] {
+  background:
+    linear-gradient(160deg, rgba(20,184,166,.35), transparent 55%),
+    linear-gradient(to bottom, #0f766e 0%, #134e4a 45%, #0f172a 100%);
+}
+.sw-flag-placeholder {
+  width: min(220px, 55%);
+  aspect-ratio: 9/19;
+  border-radius: 28px;
+  border: 3px solid rgba(255,255,255,.15);
+  background: rgba(0,0,0,.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 20px 50px rgba(0,0,0,.4);
+}
+.sw-flag-placeholder span {
+  font-size: .85rem;
+  font-weight: 600;
+  color: rgba(255,255,255,.7);
+  letter-spacing: .02em;
+}
+.sw-num {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  color: rgba(255,255,255,.55);
+  z-index: 2;
+}
+.sw-flag-body {
+  padding: 40px 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--c);
+  color: var(--t);
+}
+[data-theme="dark"] .sw-flag-body {
+  background: #1F1F1F;
+  color: #f1f5f9;
+}
+
+.sw-label {
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #A1824A;
+  margin-bottom: 12px;
+}
+.sw-flag-body h3 {
+  font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+  font-weight: 700;
+  letter-spacing: -.02em;
+  margin: 0 0 10px;
+  color: var(--t);
+}
+[data-theme="dark"] .sw-flag-body h3 { color: #fff; }
+.sw-meta {
+  font-size: .9rem;
+  color: var(--m);
+  margin-bottom: 16px;
+}
+.sw-desc {
+  font-size: .95rem;
+  line-height: 1.65;
+  color: var(--m);
+  margin-bottom: 18px;
+  max-width: 420px;
+}
+.sw-stat {
+  font-size: .9rem;
+  color: var(--t);
+  margin-bottom: 20px;
+}
+.sw-stat strong {
+  color: #2dd4bf;
+  font-weight: 600;
+}
+.sw-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.sw-tags span {
+  font-size: .75rem;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--b);
+  color: var(--m);
+  background: transparent;
+}
+[data-theme="dark"] .sw-tags span {
+  border-color: rgba(148,163,184,.35);
+  color: #cbd5e1;
+}
+.sw-link {
+  font-size: .92rem;
+  font-weight: 600;
+  color: #A1824A;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.sw-flagship:hover .sw-link {
+  color: #B8985D;
+}
+
+/* Grid cards */
+.sw-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.sw-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--b);
+  background: var(--c);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color .25s, box-shadow .25s, transform .25s;
+}
+.sw-card:hover {
+  border-color: var(--a);
+  box-shadow: var(--sh);
+  transform: translateY(-3px);
+}
+.sw-card-media {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+.sw-card-media[data-hue="2"] { background: linear-gradient(160deg, rgba(139,92,246,.4), transparent 50%), linear-gradient(to bottom, #5b21b6 0%, #4c1d95 40%, #0f172a 100%); }
+.sw-card-media[data-hue="3"] { background: linear-gradient(160deg, rgba(14,165,233,.4), transparent 50%), linear-gradient(to bottom, #0369a1 0%, #0c4a6e 40%, #0f172a 100%); }
+.sw-card-media[data-hue="4"] { background: linear-gradient(160deg, rgba(245,158,11,.4), transparent 50%), linear-gradient(to bottom, #b45309 0%, #78350f 40%, #0f172a 100%); }
+.sw-card-media[data-hue="5"] { background: linear-gradient(160deg, rgba(236,72,153,.35), transparent 50%), linear-gradient(to bottom, #9d174d 0%, #831843 40%, #0f172a 100%); }
+.sw-card-media[data-hue="6"] { background: linear-gradient(160deg, rgba(34,197,94,.35), transparent 50%), linear-gradient(to bottom, #15803d 0%, #14532d 40%, #0f172a 100%); }
+.sw-card-media[data-hue="7"] { background: linear-gradient(160deg, rgba(99,102,241,.4), transparent 50%), linear-gradient(to bottom, #4338ca 0%, #312e81 40%, #0f172a 100%); }
+.sw-card-media[data-hue="8"] { background: linear-gradient(160deg, rgba(239,68,68,.35), transparent 50%), linear-gradient(to bottom, #b91c1c 0%, #7f1d1d 40%, #0f172a 100%); }
+.sw-card-media[data-hue="9"] { background: linear-gradient(160deg, rgba(6,182,212,.4), transparent 50%), linear-gradient(to bottom, #0e7490 0%, #164e63 40%, #0f172a 100%); }
+.sw-card-media[data-hue="10"] { background: linear-gradient(160deg, rgba(168,85,247,.35), transparent 50%), linear-gradient(to bottom, #7e22ce 0%, #581c87 40%, #0f172a 100%); }
+.sw-card-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sw-card-placeholder span {
+  font-size: .9rem;
+  font-weight: 600;
+  color: rgba(255,255,255,.65);
+}
+.sw-card-body {
+  padding: 20px 18px 22px;
+  background: var(--c);
+  color: var(--t);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+[data-theme="dark"] .sw-card-body {
+  background: #1F1F1F;
+  color: #f1f5f9;
+}
+.sw-card-body h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0 0 6px;
+  color: var(--t);
+}
+[data-theme="dark"] .sw-card-body h3 { color: #fff; }
+.sw-card-body .sw-meta {
+  font-size: .82rem;
+  margin-bottom: 10px;
+}
+.sw-card-body .sw-desc {
+  font-size: .88rem;
+  color: var(--m);
+  margin-bottom: 14px;
+  flex: 1;
+  max-width: none;
+}
+.sw-card-body .sw-tags {
+  margin-bottom: 14px;
+}
+.sw-card-body .sw-tags span {
+  font-size: .7rem;
+  padding: 4px 10px;
+}
+.sw-card-body .sw-link {
+  font-size: .85rem;
+  margin-top: auto;
+}
+.sw-card:hover .sw-link {
+  color: #B8985D;
+}
+
+@media (max-width: 900px) {
+  .sw-flagship {
+    grid-template-columns: 1fr;
+  }
+  .sw-flag-media {
+    min-height: 280px;
+  }
+  .sw-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 560px) {
+  .sw-grid {
+    grid-template-columns: 1fr;
+  }
+  .sw-flag-body {
+    padding: 28px 22px;
+  }
+}
+
+.bd-section {
+  background: var(--bg);
+  padding: 80px 0 100px;
+  overflow: hidden;
+}
+.bd-intro {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 48px;
+  padding: 0 24px;
+}
+.bd-intro .sd {
+  margin-left: auto;
+  margin-right: auto;
+}
+.bd-cta {
+  /* inherits .btn.bp — keep compact */
+  margin-top: 4px;
+}
+
+/* Stage: concave cylinder look via perspective + per-card transforms */
+.bd-stage {
+  position: relative;
+  height: 380px;
+  perspective: 900px;
+  perspective-origin: 50% 45%;
+  overflow: hidden;
+  pointer-events: auto;
+  mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+}
+.bd-track {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  width: max-content;
+  height: 100%;
+  padding: 0 10vw;
+  animation: bd-marquee 50s linear infinite;
+  transform-style: preserve-3d;
+  will-change: transform;
+  pointer-events: auto;
+}
+@keyframes bd-marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+
+.bd-card {
+  flex-shrink: 0;
+  width: 200px;
+  height: 320px;
+  text-decoration: none;
+  color: inherit;
+  transform-style: preserve-3d;
+  transition: none;
+  /* default mid pose — JS will refine based on viewport position */
+  transform: rotateY(0deg) translateZ(0) scale(1);
+  filter: brightness(.92);
+  pointer-events: none;
+  cursor: default;
+  position: relative;
+}
+.bd-card-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: none;
+  background: #0f172a;
+}
+.bd-card-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+@media (max-width: 800px) {
+  .bd-stage { height: 300px; }
+  .bd-card {
+    width: 160px;
+    height: 210px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bd-track {
+    animation: none;
+    overflow-x: auto;
+    width: 100%;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+/* Contact: theme-aware (not forced white in dark mode) */
+.contact-section {
+  background: var(--bg1);
+  color: var(--t);
+}
+.contact-section .sl { color: var(--a); }
+.contact-section .st { color: var(--t); }
+.contact-section .sd { color: var(--m); }
+.contact-section .btn.bp { color: #0f172a; }
+
+/* Footer: white in light mode, keep dark-theme surface in dark mode */
+footer {
+  background: #FEFCFB;
+}
+[data-theme="dark"] footer {
+  background: var(--bg1);
 }
 </style>
 </head>
 <body>
-<nav><div class="ni">
-<a href="index.html" class="logo">Kimi Chan</a>
-<div class="nl">
-<a href="index.html" class="on">Home</a>
-<a href="gallery.html">Gallery</a>
-<a href="about.html">About</a>
-</div>
-<div class="na">
-<button class="tt" id="themeBtn">&#9728;</button>
-<a href="mailto:kimic329@gmail.com?subject=Hello%20from%20your%20website" class="btn bp" style="color:#0f172a">Get in touch</a>
-</div>
-</div></nav>
+<nav>
+  <div class="ni">
+    <a href="index.html" class="logo">Kimi Chan</a>
+    <div class="nl">
+      <a href="index.html" class="on">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="na">
+      <button class="tt" id="themeBtn" type="button" aria-label="Toggle color theme"></button>
+      <a href="mailto:kimic329@gmail.com?subject=Hello%20from%20your%20website" class="btn bp" style="color:#0f172a">Get in touch</a>
+    </div>
+  </div>
+</nav>
 
 <section class="hero">
-<img class="hero-bg-img" src="images/index/hero-bg.png" alt="bg">
-<div class="hb"></div>
-<div class="hi">
-<div>
-<div class="hl fu"><i></i> Available for work — HK</div>
-<h1 class="fu d1"><span class="gt">Kimi Chan</span></h1>
-<p class="fu d2">Multimedia designer and photographer creating serene, authentic visual experiences across digital and creative media.</p>
-<a href="about.html" class="btn bp fu d2" style="color:#0f172a;">Learn more</a>
-</div>
-<div style="display: none;" class="hv fu d2">
-<div class="ring"></div><div class="orb"></div>
-<div class="vl"><span>UX · Motion · Brand</span><span style="color:var(--a)">● Available</span></div>
-</div>
-</div>
+  <div class="hi">
+    <div>
+      <div class="hl fu" style="padding-bottom: 20px;"><i></i> Available for work</div>
+      <h1 class="fu d1"><span class="gt">Kimi Chan</span></h1>
+      <p class="fu d2">Multimedia designer and photographer creating serene, authentic visual experiences across digital and creative media.</p>
+      <a href="about.html" class="btn bp fu d2" style="color:#0f172a;">About me</a>
+    </div>
+    <div style="display: none;" class="hv fu d2">
+      <div class="ring"></div><div class="orb"></div>
+      <div class="vl"><span>UX · Motion · Brand</span><span style="color:var(--a)">● Available</span></div>
+    </div>
+  </div>
 </section>
 
 <section>
-<div class="ct">
-<div class="sl">Capabilities</div>
-<h2 class="st">My Skillset &amp; Expertise</h2>
-
-<div class="sg">
-<div class="sc" onclick="this.classList.toggle('open')"><div class="sn">01</div><h3>Photo & Editing</h3><p>Visual planning and professional retouching for product imagery.</p><div class="sx"><ul><li>Product photos</li><li>Retouching</li><li>Visual direction</li></ul></div></div>
-<div class="sc" onclick="this.classList.toggle('open')"><div class="sn">02</div><h3>Video & Motion</h3><p>Storyboarding and animation for demos, tutorials and promo films.</p><div class="sx"><ul><li>Product demos</li><li>Tutorials</li><li>Promo films</li></ul></div></div>
-<div class="sc" onclick="this.classList.toggle('open')"><div class="sn">03</div><h3>Website Design</h3><p>Clean interfaces with HTML/SCSS/JS and utilize AI development tools.</p><div class="sx"><ul><li>Dashboards</li><li>Admin consoles</li><li>Responsive UI</li></ul></div></div>
-<div class="sc" onclick="this.classList.toggle('open')"><div class="sn">04</div><h3>Graphic Design</h3><p>Campaign concepts and promotional materials that strengthen brands.</p><div class="sx"><ul><li>Social campaigns</li><li>Brand visuals</li><li>Print & digital</li></ul></div></div>
-<div class="sc" onclick="this.classList.toggle('open')"><div class="sn">05</div><h3>UX / UI Design</h3><p>User research, wireframes and high-fidelity interfaces for website or app.</p><div class="sx"><ul><li>User flows</li><li>Prototypes</li><li>Design systems</li></ul></div></div>
-<div class="sc" onclick="this.classList.toggle('open')"><div class="sn">06</div><h3>Motion Graphics</h3><p>Purposeful animation for video, social media and product experiences.</p><div class="sx"><ul><li>Social motion</li><li>UI animation</li><li>Explainers</li></ul></div></div>
-</div>
-</div>
+  <div class="ct">
+    <div class="sl">Capabilities</div>
+    <h2 class="st">My Skillset &amp; Expertise</h2>
+    <div class="sg">
+      <div class="sc" onclick="this.classList.toggle('open')"><div class="sn">01</div><h3>Photo & Editing</h3><p>Visual planning and professional retouching for product imagery.</p><div class="sx"><ul><li>Product photos</li><li>Retouching</li><li>Visual direction</li></ul></div></div>
+      <div class="sc" onclick="this.classList.toggle('open')"><div class="sn">02</div><h3>Video & Motion</h3><p>Storyboarding and animation for demos, tutorials and promo films.</p><div class="sx"><ul><li>Product demos</li><li>Tutorials</li><li>Promo films</li></ul></div></div>
+      <div class="sc" onclick="this.classList.toggle('open')"><div class="sn">03</div><h3>Website Design</h3><p>Clean interfaces with HTML/SCSS/JS and utilize AI development tools.</p><div class="sx"><ul><li>Dashboards</li><li>Admin consoles</li><li>Responsive UI</li></ul></div></div>
+      <div class="sc" onclick="this.classList.toggle('open')"><div class="sn">04</div><h3>Graphic Design</h3><p>Campaign concepts and promotional materials that strengthen brands.</p><div class="sx"><ul><li>Social campaigns</li><li>Brand visuals</li><li>Print & digital</li></ul></div></div>
+      <div class="sc" onclick="this.classList.toggle('open')"><div class="sn">05</div><h3>UX / UI Design</h3><p>User research, wireframes and high-fidelity interfaces for website or app.</p><div class="sx"><ul><li>User flows</li><li>Prototypes</li><li>Design systems</li></ul></div></div>
+      <div class="sc" onclick="this.classList.toggle('open')"><div class="sn">06</div><h3>Motion Graphics</h3><p>Purposeful animation for video, social media and product experiences.</p><div class="sx"><ul><li>Social motion</li><li>UI animation</li><li>Explainers</li></ul></div></div>
+    </div>
+  </div>
 </section>
 
 <section class="sw-section">
   <div class="ct">
     <div class="sl">Selected Work</div>
     <h2 class="st">Recent projects</h2>
-    
 
     <!-- Flagship: 01 Urban Watcher -->
     <a href="project-urban-watcher.html" class="sw-flagship">
@@ -272,295 +654,12 @@ html[data-theme="light"] .hero .hb{
   </div>
 </section>
 
-<style>
-.sw-section {
-  background: var(--bg1);
-  padding: 80px 24px 100px;
-}
-.sw-section .ct {
-  max-width: 1100px;
-}
-
-/* Flagship card */
-.sw-flagship {
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 0;
-  border-radius: 20px;
-  overflow: hidden;
-  border: 1px solid var(--b);
-  background: var(--c);
-  text-decoration: none;
-  color: inherit;
-  margin-bottom: 28px;
-  transition: border-color .25s, box-shadow .25s;
-}
-.sw-flagship:hover {
-  border-color: var(--a);
-  box-shadow: var(--sh);
-}
-.sw-flag-media {
-  position: relative;
-  min-height: 420px;
-  background: #0f172a;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.sw-flag-img,
-.sw-card-img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  z-index: 0;
-}
-.sw-flag-media .sw-num,
-.sw-card-media .sw-num {
-  z-index: 2;
-}
-
-.sw-flag-media[data-hue="1"] {
-  background:
-    linear-gradient(160deg, rgba(20,184,166,.35), transparent 55%),
-    linear-gradient(to bottom, #0f766e 0%, #134e4a 45%, #0f172a 100%);
-}
-.sw-flag-placeholder {
-  width: min(220px, 55%);
-  aspect-ratio: 9/19;
-  border-radius: 28px;
-  border: 3px solid rgba(255,255,255,.15);
-  background: rgba(0,0,0,.35);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 20px 50px rgba(0,0,0,.4);
-}
-.sw-flag-placeholder span {
-  font-size: .85rem;
-  font-weight: 600;
-  color: rgba(255,255,255,.7);
-  letter-spacing: .02em;
-}
-.sw-num {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: .8rem;
-  font-weight: 600;
-  letter-spacing: .08em;
-  color: rgba(255,255,255,.55);
-  z-index: 2;
-}
-.sw-flag-body {
-  padding: 40px 36px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background: var(--c);
-  color: var(--t);
-}
-[data-theme="dark"] .sw-flag-body {
-  background: #1F1F1F;
-  color: #f1f5f9;
-}
-.sw-label {
-  font-size: .72rem;
-  font-weight: 600;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: #A1824A;
-  margin-bottom: 12px;
-}
-.sw-flag-body h3 {
-  font-size: clamp(1.6rem, 2.5vw, 2.1rem);
-  font-weight: 700;
-  letter-spacing: -.02em;
-  margin: 0 0 10px;
-  color: var(--t);
-}
-[data-theme="dark"] .sw-flag-body h3 { color: #fff; }
-.sw-meta {
-  font-size: .9rem;
-  color: var(--m);
-  margin-bottom: 16px;
-}
-.sw-desc {
-  font-size: .95rem;
-  line-height: 1.65;
-  color: var(--m);
-  margin-bottom: 18px;
-  max-width: 420px;
-}
-.sw-stat {
-  font-size: .9rem;
-  color: var(--t);
-  margin-bottom: 20px;
-}
-.sw-stat strong {
-  color: #2dd4bf;
-  font-weight: 600;
-}
-.sw-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 24px;
-}
-.sw-tags span {
-  font-size: .75rem;
-  font-weight: 500;
-  padding: 5px 12px;
-  border-radius: 999px;
-  border: 1px solid var(--b);
-  color: var(--m);
-  background: transparent;
-}
-[data-theme="dark"] .sw-tags span {
-  border-color: rgba(148,163,184,.35);
-  color: #cbd5e1;
-}
-.sw-link {
-  font-size: .92rem;
-  font-weight: 600;
-  color: #A1824A;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-.sw-flagship:hover .sw-link {
-  color: #B8985D;
-}
-
-/* Grid cards */
-.sw-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-.sw-card {
-  display: flex;
-  flex-direction: column;
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid var(--b);
-  background: var(--c);
-  text-decoration: none;
-  color: inherit;
-  transition: border-color .25s, box-shadow .25s, transform .25s;
-}
-.sw-card:hover {
-  border-color: var(--a);
-  box-shadow: var(--sh);
-  transform: translateY(-3px);
-}
-.sw-card-media {
-  position: relative;
-  height: 200px;
-  overflow: hidden;
-}
-.sw-card-media[data-hue="2"] { background: linear-gradient(160deg, rgba(139,92,246,.4), transparent 50%), linear-gradient(to bottom, #5b21b6 0%, #4c1d95 40%, #0f172a 100%); }
-.sw-card-media[data-hue="3"] { background: linear-gradient(160deg, rgba(14,165,233,.4), transparent 50%), linear-gradient(to bottom, #0369a1 0%, #0c4a6e 40%, #0f172a 100%); }
-.sw-card-media[data-hue="4"] { background: linear-gradient(160deg, rgba(245,158,11,.4), transparent 50%), linear-gradient(to bottom, #b45309 0%, #78350f 40%, #0f172a 100%); }
-.sw-card-media[data-hue="5"] { background: linear-gradient(160deg, rgba(236,72,153,.35), transparent 50%), linear-gradient(to bottom, #9d174d 0%, #831843 40%, #0f172a 100%); }
-.sw-card-media[data-hue="6"] { background: linear-gradient(160deg, rgba(34,197,94,.35), transparent 50%), linear-gradient(to bottom, #15803d 0%, #14532d 40%, #0f172a 100%); }
-.sw-card-media[data-hue="7"] { background: linear-gradient(160deg, rgba(99,102,241,.4), transparent 50%), linear-gradient(to bottom, #4338ca 0%, #312e81 40%, #0f172a 100%); }
-.sw-card-media[data-hue="8"] { background: linear-gradient(160deg, rgba(239,68,68,.35), transparent 50%), linear-gradient(to bottom, #b91c1c 0%, #7f1d1d 40%, #0f172a 100%); }
-.sw-card-media[data-hue="9"] { background: linear-gradient(160deg, rgba(6,182,212,.4), transparent 50%), linear-gradient(to bottom, #0e7490 0%, #164e63 40%, #0f172a 100%); }
-.sw-card-media[data-hue="10"] { background: linear-gradient(160deg, rgba(168,85,247,.35), transparent 50%), linear-gradient(to bottom, #7e22ce 0%, #581c87 40%, #0f172a 100%); }
-.sw-card-placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.sw-card-placeholder span {
-  font-size: .9rem;
-  font-weight: 600;
-  color: rgba(255,255,255,.65);
-}
-.sw-card-body {
-  padding: 20px 18px 22px;
-  background: var(--c);
-  color: var(--t);
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-[data-theme="dark"] .sw-card-body {
-  background: #1F1F1F;
-  color: #f1f5f9;
-}
-.sw-card-body h3 {
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin: 0 0 6px;
-  color: var(--t);
-}
-[data-theme="dark"] .sw-card-body h3 { color: #fff; }
-.sw-card-body .sw-meta {
-  font-size: .82rem;
-  margin-bottom: 10px;
-}
-.sw-card-body .sw-desc {
-  font-size: .88rem;
-  color: var(--m);
-  margin-bottom: 14px;
-  flex: 1;
-  max-width: none;
-}
-.sw-card-body .sw-tags {
-  margin-bottom: 14px;
-}
-.sw-card-body .sw-tags span {
-  font-size: .7rem;
-  padding: 4px 10px;
-}
-.sw-card-body .sw-link {
-  font-size: .85rem;
-  margin-top: auto;
-}
-.sw-card:hover .sw-link {
-  color: #B8985D;
-}
-
-@media (max-width: 900px) {
-  .sw-flagship {
-    grid-template-columns: 1fr;
-  }
-  .sw-flag-media {
-    min-height: 280px;
-  }
-  .sw-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media (max-width: 560px) {
-  .sw-grid {
-    grid-template-columns: 1fr;
-  }
-  .sw-flag-body {
-    padding: 28px 22px;
-  }
-}
-</style>
-
-
-
-
 <section class="bd-section">
   <div class="ct bd-intro">
     <div class="sl">Capture the Moment</div>
     <h2 class="st">Gallery</h2>
     <p class="sd" style="margin-bottom:28px">Explore more images captured through my lens.</p>
-    <a href="gallery.html" class="btn bp bd-cta" style="color:#0f172a">
-      Learn more
-    </a>
+    <a href="gallery.html" class="btn bp bd-cta" style="color:#0f172a">Learn more</a>
   </div>
 
   <div class="bd-stage">
@@ -591,103 +690,16 @@ html[data-theme="light"] .hero .hb{
   </div>
 </section>
 
-<style>
-.bd-section {
-  background: var(--bg);
-  padding: 80px 0 100px;
-  overflow: hidden;
-}
-.bd-intro {
-  text-align: center;
-  max-width: 640px;
-  margin: 0 auto 48px;
-  padding: 0 24px;
-}
-.bd-intro .sd {
-  margin-left: auto;
-  margin-right: auto;
-}
-.bd-cta {
-  /* inherits .btn.bp — keep compact */
-  margin-top: 4px;
-}
+<section class="contact-section">
+  <div class="ct" style="text-align:center;max-width:520px;margin:0 auto">
+    <div class="sl">Contact</div>
+    <h2 class="st">Have a project in mind?</h2>
+    <p class="sd" style="margin:0 auto 24px">I'm always open to new collaborations. <br>Tell me what you're building, I'd love to help shape it.</br></p>
+    <a href="mailto:kimic329@gmail.com?subject=Hello%20from%20your%20website" class="btn bp" style="color:#0f172a">Get in touch</a>
+  </div>
+</section>
 
-/* Stage: concave cylinder look via perspective + per-card transforms */
-.bd-stage {
-  position: relative;
-  height: 380px;
-  perspective: 900px;
-  perspective-origin: 50% 45%;
-  overflow: hidden;
-  pointer-events: auto;
-  mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
-  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
-}
-.bd-track {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-  width: max-content;
-  height: 100%;
-  padding: 0 10vw;
-  animation: bd-marquee 50s linear infinite;
-  transform-style: preserve-3d;
-  will-change: transform;
-  pointer-events: auto;
-}
-@keyframes bd-marquee {
-  from { transform: translate3d(0, 0, 0); }
-  to   { transform: translate3d(-50%, 0, 0); }
-}
-
-.bd-card {
-  flex-shrink: 0;
-  width: 200px;
-  height: 320px;
-  text-decoration: none;
-  color: inherit;
-  transform-style: preserve-3d;
-  transition: none;
-  /* default mid pose — JS will refine based on viewport position */
-  transform: rotateY(0deg) translateZ(0) scale(1);
-  filter: brightness(.92);
-  pointer-events: none;
-  cursor: default;
-  position: relative;
-}
-.bd-card-inner {
-  width: 100%;
-  height: 100%;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: none;
-  background: #0f172a;
-}
-.bd-card-inner img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  pointer-events: none;
-}
-
-@media (max-width: 800px) {
-  .bd-stage { height: 300px; }
-  .bd-card {
-    width: 160px;
-    height: 210px;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .bd-track {
-    animation: none;
-    overflow-x: auto;
-    width: 100%;
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-}
-</style>
+<footer>© 2027 Kimi Chan</footer>
 
 <script>
 (function () {
@@ -730,75 +742,45 @@ html[data-theme="light"] .hero .hb{
     }
   }
 
-  // Keep updating while marquee moves
-  if (!reduce) {
+  // Phone / reduced-motion: CSS marquee only. Per-card 3D paint causes iOS section jumps.
+  var coarse = window.matchMedia("(pointer: coarse)").matches || window.matchMedia("(hover: none)").matches || window.innerWidth <= 850;
+  if (!reduce && !coarse) {
     var raf;
     function loop() {
       paint();
       raf = requestAnimationFrame(loop);
     }
     loop();
-  } else {
-    paint();
-    window.addEventListener("scroll", onFrame, { passive: true });
   }
-  window.addEventListener("resize", onFrame, { passive: true });
+  window.addEventListener("resize", function(){
+    if (window.innerWidth <= 850) return;
+    onFrame();
+  }, { passive: true });
 })();
-</script>
 
-<section class="contact-section">
-<div class="ct" style="text-align:center;max-width:520px;margin:0 auto">
-<div class="sl">Contact</div>
-<h2 class="st">Have a project in mind?</h2>
-<p class="sd" style="margin:0 auto 24px">I'm always open to new collaborations. <br>Tell me what you're building, I'd love to help shape it.</br></p>
-<a href="mailto:kimic329@gmail.com?subject=Hello%20from%20your%20website" class="btn bp" style="color:#0f172a">Get in touch</a>
-</div>
-</section>
+(function(){
+  var themeBtn=document.getElementById("themeBtn");
+  var SUN='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>';
+  var MOON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+  function getTheme(){ try{ return localStorage.getItem("kc-theme"); }catch(e){ return null; } }
+  function setTheme(v){ try{ localStorage.setItem("kc-theme", v); }catch(e){} }
+  function paint(theme){
+    document.documentElement.setAttribute("data-theme", theme);
+    if(!themeBtn) return;
+    themeBtn.innerHTML = theme==="dark" ? SUN : MOON;
+    themeBtn.setAttribute("aria-label", theme==="dark" ? "Switch to light mode" : "Switch to dark mode");
+  }
+  var theme=getTheme()||"dark";
+  paint(theme);
+  if(themeBtn){
+    themeBtn.addEventListener("click", function(){
+      theme = theme==="dark" ? "light" : "dark";
+      setTheme(theme);
+      paint(theme);
+    });
+  }
+})();
 
-
-<style>
-/* Contact: theme-aware (not forced white in dark mode) */
-.contact-section {
-  background: var(--bg1);
-  color: var(--t);
-}
-.contact-section .sl { color: var(--a); }
-.contact-section .st { color: var(--t); }
-.contact-section .sd { color: var(--m); }
-.contact-section .btn.bp { color: #0f172a; }
-
-/* Footer: white in light mode, keep dark-theme surface in dark mode */
-footer {
-  background: #FEFCFB;
-}
-[data-theme="dark"] footer {
-  background: var(--bg1);
-}
-</style>
-
-<footer>© 2026 KimiChan Studio</footer>
-<script>
-const themeBtn=document.getElementById("themeBtn");
-function getStoredTheme(){
-  try{return localStorage.getItem("kc-theme");}catch(e){return null;}
-}
-function setStoredTheme(v){
-  try{localStorage.setItem("kc-theme",v);}catch(e){}
-}
-let theme=getStoredTheme()||"dark";
-document.documentElement.setAttribute("data-theme",theme);
-if(themeBtn){
-  themeBtn.textContent=theme==="dark"?"☀":"☾";
-  themeBtn.onclick=function(){
-    theme=theme==="dark"?"light":"dark";
-    document.documentElement.setAttribute("data-theme",theme);
-    setStoredTheme(theme);
-    themeBtn.textContent=theme==="dark"?"☀":"☾";
-  };
-}
-</script>
-
-<script>
 (function(){
   document.querySelectorAll(".sc").forEach(function(el){
     var frame = null;
@@ -823,7 +805,5 @@ if(themeBtn){
   });
 })();
 </script>
-
-
 </body>
 </html>

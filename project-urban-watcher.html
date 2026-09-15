@@ -2,7 +2,6 @@
 <html lang="en" data-theme="dark">
 <head>
 <script>if("scrollRestoration"in history)history.scrollRestoration="manual";</script>
-<style id="boot-top">html{scroll-behavior:auto!important}html.boot-top body{visibility:hidden}</style>
 <script>
 (function(){
   document.documentElement.classList.add("boot-top");
@@ -19,13 +18,14 @@
   } else {
     show();
   }
-  window.addEventListener("pageshow", function(){ window.scrollTo(0,0); });
 })();
 </script>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Urban Watcher — KimiChan Studio</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<style id="boot-top">html{scroll-behavior:auto!important}html.boot-top body{visibility:hidden}</style>
 <style>
 /* —— Project case study layout —— */
 .cs {
@@ -402,7 +402,6 @@
   transform: none;
 }
 
-
 /* Image slider (Outcome) */
 .cs-slider {
   margin: 28px 0 32px;
@@ -505,47 +504,70 @@
   .cs-banner { aspect-ratio: 16 / 9; }
 }
 
-.cs-specs {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-  margin: 24px 0 8px;
+.cs-specs,
+.cs-kv{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:0;
+  margin:24px 0 8px;
+  background:var(--c);
+  border:1px solid var(--b);
+  border-radius:18px;
+  overflow:hidden;
 }
-.cs-spec-card {
-  background: var(--c);
-  border: 1px solid var(--b);
-  border-radius: 16px;
-  padding: 22px 20px;
-  transition: border-color .25s, transform .25s, box-shadow .25s;
+.cs-spec-card,
+.cs-kv-row{
+  display:grid;
+  grid-template-columns:140px 1fr;
+  gap:16px;
+  align-items:baseline;
+  padding:16px 22px;
+  border-bottom:1px solid var(--b);
+  background:transparent;
+  border-radius:0;
+  box-shadow:none;
+  transform:none;
 }
-
-.cs-spec-card.wide {
-  grid-column: span 2;
+.cs-spec-card:last-child,
+.cs-kv-row:last-child{ border-bottom:none; }
+.cs-spec-card.wide{ grid-column:auto; }
+.cs-spec-card:hover{
+  border-color:var(--b);
+  transform:none;
+  box-shadow:none;
+  background:var(--s);
 }
-
-.cs-spec-label {
-  font-size: .72rem;
-  font-weight: 600;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  color: var(--m);
-  margin-bottom: 8px;
+.cs-spec-label,
+.cs-kv-row dt{
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--a);
+  margin:0;
 }
-.cs-spec-value {
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--t);
-  line-height: 1.35;
-  letter-spacing: -.02em;
+.cs-spec-value,
+.cs-kv-row dd{
+  font-size:1.02rem;
+  font-weight:600;
+  color:var(--t);
+  line-height:1.45;
+  letter-spacing:-.015em;
+  margin:0;
 }
-.cs-spec-value em {
-  font-style: normal;
-  color: var(--a);
-  font-size: 1.45rem;
+.cs-spec-value em{
+  font-style:normal;
+  color:var(--a);
+  font-size:inherit;
 }
-@media (max-width: 700px) {
-  .cs-specs { grid-template-columns: 1fr; }
-  .cs-spec-card.wide { grid-column: span 1; }
+@media (max-width:700px){
+  .cs-specs, .cs-kv{ grid-template-columns:1fr; }
+  .cs-spec-card, .cs-kv-row{
+    grid-template-columns:1fr;
+    gap:6px;
+    padding:14px 18px;
+  }
+  .cs-spec-card.wide{ grid-column:span 1; }
 }
 
 /* —— Stacking cards (sticky stack) —— */
@@ -663,9 +685,6 @@ html[data-theme="dark"] .cs-stack-card{
   .cs-section { margin-bottom: 40px !important; }
 }
 
-</style>
-<style>
-
 /* Mobile alignment + stable slider controls */
 @media (max-width: 900px) {
   .cs {
@@ -708,7 +727,6 @@ html[data-theme="dark"] .cs-stack-card{
   }
 }
 
-
 @media (max-width: 900px) {
   .cs-hero, .cs-banner, .cs-top, .cs-section, .cs-layout, .cs-main {
     padding-left: 0 !important;
@@ -720,10 +738,76 @@ html[data-theme="dark"] .cs-stack-card{
     box-sizing: border-box;
   }
 }
+
+/* Advisor rounded tabs */
+.ad-tabs{ margin-top:24px; text-align:center; }
+.ad-tablist{
+  display:inline-flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:6px;
+  padding:5px;
+  border:1px solid var(--b);
+  border-radius:999px;
+  background:var(--bg);
+}
+.ad-tab{
+  appearance:none;
+  border:0;
+  background:transparent;
+  color:var(--m);
+  font:600 .85rem Inter,system-ui,sans-serif;
+  padding:8px 16px;
+  border-radius:999px;
+  cursor:pointer;
+  transition:background .2s, color .2s;
+}
+.ad-tab:hover{ color:var(--t); }
+.ad-tab.is-on{
+  background:var(--c);
+  color:var(--t);
+  box-shadow:var(--sh);
+}
+.ad-panel{
+  display:none !important;
+  margin-top:18px;
+  padding:20px 22px;
+  border:1px solid var(--b);
+  border-radius:16px;
+  background:var(--c);
+  color:var(--m);
+  font-size:.98rem;
+  line-height:1.7;
+  text-align:left;
+}
+.ad-panel.is-on{ display:block !important; }
+.ad-panel-img{
+  width:100%;
+  border-radius:12px;
+  overflow:hidden;
+  margin:0 0 16px;
+  border:1px solid var(--b);
+  background:var(--s);
+  aspect-ratio:16 / 9;
+}
+.ad-panel-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.ad-panel p{ margin:0 0 12px; }
+.ad-panel p:last-child{ margin-bottom:0; }
+@media (max-width:700px){
+  .ad-tablist{ width:100%; }
+  .ad-tab{ flex:1 1 auto; text-align:center; }
+}
 </style>
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
 </head>
 <body>
-<nav><div class="ni">
+<nav>
+<div class="ni">
 <a href="index.html" class="logo">Kimi Chan</a>
 <div class="nl">
 <a href="index.html">Home</a>
@@ -731,18 +815,16 @@ html[data-theme="dark"] .cs-stack-card{
 <a href="about.html">About</a>
 </div>
 <div class="na">
-<button class="tt" id="themeBtn">&#9728;</button>
+<button class="tt" id="themeBtn" type="button" aria-label="Toggle color theme"></button>
 <a href="mailto:kimic329@gmail.com?subject=Hello%20from%20your%20website" class="btn bp" style="color:#0f172a">Get in touch</a>
 </div>
-</div></nav>
-
+</div>
+</nav>
 <article class="cs">
   <div class="ct">
-
     <div class="cs-top">
       <a href="index.html" class="cs-back">← Back to projects</a>
     </div>
-
     <header class="cs-hero">
       <div>
         <div class="cs-kicker">Graduation project</div>
@@ -768,41 +850,40 @@ html[data-theme="dark"] .cs-stack-card{
         <a href="#focus">Focus</a>
         <a href="#statement">Artist Statement</a>
         <a href="#inspiration">Inspiration</a>
-        <a href="#field">Field research</a>
-        <a href="#advisor">Advisor sessions</a>
+        <a href="#field">Field Research</a>
+        <a href="#consultation">Consultation</a>
+        <a href="#equipment">Equipment</a>
         <a href="#production">Production</a>
         <a href="#outcome">Outcome</a>
       </nav>
 
       <div class="cs-main">
-
         <section class="cs-section cs-reveal" id="overview">
           <h2>Overview</h2>
           <p>Designed as an immersive, first-person experience, this interactive artwork encourages audiences to reconsider familiar surroundings that are at risk of disappearing. The project unfolds across sites selected for their unique character, historical significance, and emotional resonance within the community.</p>
           <p>By transforming viewers into active participants, the piece emphasizes the importance of recognizing and valuing the transient aspects of our physical world.</p>
-            
-            <div class="cs-specs">
-            <div class="cs-spec-card">
-              <div class="cs-spec-label">Type</div>
-              <div class="cs-spec-value">Graduation Project</div>
-            </div>
-            <div class="cs-spec-card">
-              <div class="cs-spec-label">Category</div>
-              <div class="cs-spec-value">VR, Interactive</div>
-            </div>
-            <div class="cs-spec-card">
-              <div class="cs-spec-label">Tools</div>
-              <div class="cs-spec-value">RICOH THETA S camera, Zoom H3-VR audio recorder, 3DVista Virtual Tour software</div>
-            </div>
-            <div class="cs-spec-card wide">
-              <div class="cs-spec-label">Deliverables</div>
-              <div class="cs-spec-value">Immersive VR installation, field documentation, spatial experience</div>
-            </div>
-            <div class="cs-spec-card">
-              <div class="cs-spec-label">Location</div>
-              <div class="cs-spec-value">Hong Kong</div>
-            </div>
-          </div>
+            <dl class="cs-kv cs-specs">
+              <div class="cs-kv-row cs-spec-card">
+                <dt class="cs-spec-label">Type</dt>
+                <dd class="cs-spec-value">Graduation Project</dd>
+              </div>
+              <div class="cs-kv-row cs-spec-card">
+                <dt class="cs-spec-label">Category</dt>
+                <dd class="cs-spec-value">VR, Interactive</dd>
+              </div>
+              <div class="cs-kv-row cs-spec-card">
+                <dt class="cs-spec-label">Tools</dt>
+                <dd class="cs-spec-value">RICOH THETA S camera, Zoom H3-VR audio recorder, 3DVista Virtual Tour software</dd>
+              </div>
+              <div class="cs-kv-row cs-spec-card">
+                <dt class="cs-spec-label">Deliverables</dt>
+                <dd class="cs-spec-value">Immersive VR installation, field documentation, spatial experience</dd>
+              </div>
+              <div class="cs-kv-row cs-spec-card">
+                <dt class="cs-spec-label">Location</dt>
+                <dd class="cs-spec-value">Hong Kong</dd>
+              </div>
+            </dl>
         </section>
 
         <section class="cs-section cs-reveal" id="focus">
@@ -832,7 +913,7 @@ html[data-theme="dark"] .cs-stack-card{
           </div>
         </section>
 
-          <section class="cs-section cs-reveal" id="statement">
+        <section class="cs-section cs-reveal" id="statement">
           <h2>Artist Statement</h2>
           <p>When I first became absorbed in photography, Hong Kong’s landscapes deeply impressed me. At that time, I had little interest in the cityscape itself. 
             Influenced by many different factors, I began shooting between buildings, along streets and alleys, and through residential estates—trying to capture the city’s rhythm. 
@@ -843,8 +924,7 @@ html[data-theme="dark"] .cs-stack-card{
           <p>To capture the most authentic scenes, this artwork focuses on the moment as something experienced through imagery, sound, and space. Designed as immersive and interactive art, 
             it invites the audience to become participants—exploring from a first-person perspective. The location I chose is based on the place’s characteristics, local landmarks, historical architecture, 
             and shared collective memories. Now it’s your turn to observe, reflect, and let the work spark feelings and responses.</p>
-          </section>
-
+        </section>
 
         <section class="cs-section cs-stack-section cs-reveal" id="inspiration">
           <h2>Inspiration</h2>
@@ -858,7 +938,7 @@ html[data-theme="dark"] .cs-stack-card{
               <p>Mario Cipriano, an Italian photographer, created “Light Sound Light” using four short videos that combine images with shutter sounds. He records location audio with a microphone before shooting on his Leica M6. Black frames play five seconds of audio; photos follow with more sound, each lasting ten seconds.</p>
               </div>
               <div class="cs-stack-media">
-                <img src="images/project/inspiration-mario.jpg" alt="Mario Cipriano">
+                <img src="images/project/urban-watcher-inspiration-mario.jpg" alt="Mario Cipriano">
               </div>
               </div>
             </article>
@@ -870,7 +950,7 @@ html[data-theme="dark"] .cs-stack-card{
               <p>Stuart Fowkes collaborated with sound artists to collect images from over 75 countries through 500 contributors. He organizes them in a database, and sound designers select images to form a soundtrack. The result is a sound map blending media, prompting reflection on memory, consciousness, and storytelling.</p>
               </div>
               <div class="cs-stack-media">
-                <img src="images/project/inspiration-stuart.jpg" alt="Stuart Fowkes">
+                <img src="images/project/urban-watcher-inspiration-stuart.jpg" alt="Stuart Fowkes">
               </div>
               </div>
             </article>
@@ -882,7 +962,7 @@ html[data-theme="dark"] .cs-stack-card{
               <p>This virtual tour, created by City University of Hong Kong for Industrial Day 2020, introduces the facility and its projects. It includes Zoom chat, a promotional video, and an information window for newcomers. Built with 3DVista VT Pro, it offers useful reference despite lacking background music.</p>
               </div>
               <div class="cs-stack-media">
-                <img src="images/project/inspiration-cityu.jpg" alt="CENG Industrial Day">
+                <img src="images/project/urban-watcher-inspiration-cityu.jpg" alt="CENG Industrial Day">
               </div>
               </div>
             </article>
@@ -890,39 +970,147 @@ html[data-theme="dark"] .cs-stack-card{
         </section>
 
         <section class="cs-section cs-reveal" id="field">
-          <h2>Field research</h2>
+          <h2>Field Research</h2>
           <p>The field trip evaluated site feasibility. Locations were subject to adjustment based on assessment, and the final schedule superseded the initial itinerary. Sites were chosen for character, historical weight, and emotional resonance within the community.</p>
-          <figure class="cs-img">
-            <img src="images/project/urban-watcher-map.jpg" alt="Field trip map and selected sites">
-            <figcaption class="cs-img-caption">Site map — locations evaluated during field research</figcaption>
-          </figure>
+
+          <div class="vt" id="fieldTabs">
+            <div class="vt-nav" role="tablist" aria-label="Field research routes">
+              <button type="button" class="vt-tab is-on" role="tab" aria-selected="true" data-tab="0">
+                <div class="vt-badges"><span class="vt-badge">Kowloon</span></div>
+                <div class="vt-tab-top"><span class="vt-num">/01</span><span class="vt-name">Wong Tai Sin</span></div>
+              </button>
+              <button type="button" class="vt-tab" role="tab" aria-selected="false" data-tab="1">
+                <div class="vt-badges"><span class="vt-badge">Kowloon</span></div>
+                <div class="vt-tab-top"><span class="vt-num">/02</span><span class="vt-name">Yau Ma Tei</span></div>
+              </button>
+              <button type="button" class="vt-tab" role="tab" aria-selected="false" data-tab="2">
+                <div class="vt-badges"><span class="vt-badge">New Territories</span></div>
+                <div class="vt-tab-top"><span class="vt-num">/03</span><span class="vt-name">Tai Po</span></div>
+              </button>
+              <button type="button" class="vt-tab" role="tab" aria-selected="false" data-tab="3">
+                <div class="vt-badges"><span class="vt-badge">New Territories</span></div>
+                <div class="vt-tab-top"><span class="vt-num">/04</span><span class="vt-name">Tsuen Wan</span></div>
+              </button>
+              <button type="button" class="vt-tab" role="tab" aria-selected="false" data-tab="4">
+                <div class="vt-badges"><span class="vt-badge">Hong Kong Island</span></div>
+                <div class="vt-tab-top"><span class="vt-num">/05</span><span class="vt-name">Causeway Bay</span></div>
+
+              </button>
+              <button type="button" class="vt-tab" role="tab" aria-selected="false" data-tab="5">
+                <div class="vt-badges"><span class="vt-badge">Hong Kong Island</span></div>
+                <div class="vt-tab-top"><span class="vt-num">/06</span><span class="vt-name">Central</span></div>
+              </button>
+            </div>
+            <div class="vt-media">
+              <div id="vtMap" class="vt-map"></div>
+            </div>
+          </div>
         </section>
 
-        <section class="cs-section cs-reveal" id="advisor">
-          <h2>Advisor sessions</h2>
+        <section class="cs-section cs-reveal" id="consultation">
+          <h2>Consultation</h2>
           <p>Three meetings with advisor Adam Tam shaped the direction of the work. His feedback pushed deeper imagery and sound research, documented in detailed notes.</p>
           <p>A key breakthrough came in the second session, focused on technical design: rather than leaving the audience as passive viewers on tablets, we explored building a truly immersive experience through virtual reality concepts.</p>
+        
+
+          <div class="ad-tabs" id="advisorTabs">
+            <div class="ad-tablist" role="tablist" aria-label="Advisor consultations">
+              <button type="button" class="ad-tab is-on" role="tab" aria-selected="true" data-tab="0">1st Consultation</button>
+              <button type="button" class="ad-tab" role="tab" aria-selected="false" data-tab="1">2nd Consultation</button>
+              <button type="button" class="ad-tab" role="tab" aria-selected="false" data-tab="2">3rd Consultation</button>
+            </div>
+            <div class="ad-panel is-on" role="tabpanel">
+              <div class="ad-panel-img">
+                <img src="images/project/urban-watcher-1st-consultation.jpg" alt="1st Consultation">
+              </div>
+              <p>The advisor encouraged me to consider how to attract people to view my work. He emphasized that the artwork should be engaging and aligned with current trends, while still demonstrating strong technical capability and interactive elements. I should first evaluate whether my work can capture attention. Next, I need to define its key features and uniqueness. Finally, I should determine what content, scenes, and locations to document in order to achieve the intended characteristics.</p>
+            </div>
+            <div class="ad-panel" role="tabpanel" hidden>
+              <div class="ad-panel-img">
+                <img src="images/project/urban-watcher-2nd-consultation.jpg" alt="2nd Consultation">
+              </div>
+              <p>The advisor recommended that I study how the property company markets and presents the estate online. He noted that VR technology has matured in recent years, and many property companies now use VR media to help prospective tenants explore apartments without visiting in person. By using a 360-degree camera to capture images throughout the apartment, viewers can examine all areas and details through a virtual tour.</p>
+              <p>The advisor also suggested I learn how to operate the camera and how VR systems work. He further referenced an immersive installation of ancient Chinese Buddhist cave paintings at SCM in 2012, using virtual reality to fully immerse audiences. Overall, he advised that my artwork should focus on immersive art and interaction rather than installation.</p>
+            </div>
+            <div class="ad-panel" role="tabpanel" hidden>
+              <div class="ad-panel-img">
+                <img src="images/project/urban-watcher-3rd-consultation.jpg" alt="3rd Consultation">
+              </div>
+              <p>The advisor noted that Google Maps Street View is already well developed, so it may not be the best platform to present my work. Instead, I am more familiar with using the RICOH THETA application and app for editing and post-production.</p>
+              <p>To improve engagement, I will use content checkpoints to guide viewers through the tour (A, B, C, and D). Viewers will complete the virtual experience by visiting every checkpoint. In addition, the audio is designed with a main soundtrack plus independent audio tracks. The main soundtrack serves as background audio, and when viewers approach a checkpoint, the corresponding independent track will play louder.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="cs-section cs-reveal" id="equipment">
+          <h2>Equipment</h2>
+          <p>Key equipment was secured through the school: a RICOH THETA S camera, a Zoom H3-VR audio recorder, and a 3DVista Virtual Tour software license.</p>
+          <div class="cs-tools">
+            <article class="cs-tool">
+              <div class="cs-tool-copy">
+                <div class="cs-tool-kicker">01 · Camera</div>
+                <h3>RICOH THETA S</h3>
+                <p>The school provides the 360° camera. The RICOH THETA S supports high-resolution full HD video recording. Its LED indicator enables quick status checks at a glance, and it transfers images to a phone via Wi‑Fi at high speed. For photos, it offers a large format (5376 × 2688) and a medium format (2048 × 1024); the large format will be used. Weighing approximately 125 g, the camera is highly portable for capturing a variety of scenes. Its design and minimal controls also enhance usability.</p>
+              </div>
+              <div class="cs-tool-media">
+                <img src="images/project/urban-watcher-tool-ricoh.png" alt="RICOH THETA S">
+              </div>
+            </article>
+            <article class="cs-tool">
+              <div class="cs-tool-copy">
+                <div class="cs-tool-kicker">02 · Audio</div>
+                <h3>Zoom H3-VR Audio Recorder</h3>
+                <p>This recorder is designed for professional 360-audio capture and is well suited for use with a 360-degree camera. It records and processes spatial audio for VR, AR, and mixed-reality experiences. The H3-VR supports precise 360-degree VR audio recording up to 24-bit/96 kHz, and it can also capture stereo binaural WAV files up to 24-bit/48 kHz. Its distinctive conical design is engineered to capture sound from multiple angles.</p>
+              </div>
+              <div class="cs-tool-media">
+                <img src="images/project/urban-watcher-tool-zoom.png" alt="Zoom H3-VR Audio Recorder">
+              </div>
+            </article>
+            <article class="cs-tool">
+              <div class="cs-tool-copy">
+                <div class="cs-tool-kicker">03 · Software</div>
+                <h3>3DVista Virtual Tour</h3>
+                <p>This software enables the creation of interactive 360-degree virtual tours. It includes features such as embedded audio, videos, and photos, hotspots, floor plans, and fully customizable frames. It can also be accessed on a tablet without installation or required plugins, and it supports offline use. Since Wi‑Fi connectivity at school can be unstable, an offline virtual tour offers a more reliable viewing experience for audiences at any time. The software costs €499, so I will use the 30-day trial version. All post-production must be completed within one month, making scheduling and workload planning the most challenging part of the project.</p>
+              </div>
+              <div class="cs-tool-media">
+                <img src="images/project/urban-watcher-tool-3dvista.png" alt="3DVista Virtual Tour">
+              </div>
+            </article>
+          </div>
         </section>
 
         <section class="cs-section cs-reveal" id="production">
-          <h2>Production</h2>
-          <p>Key equipment was secured through the school: a RICOH THETA S camera, a Zoom H3-VR audio recorder, and a 3DVista Virtual Tour software license.</p>
-          <p>Images were retouched and audio noise reduction applied. Processed media was then imported into the software to assemble the virtual tour.</p>
-
-          <div class="cs-media-grid">
-            <div class="cs-media-card">
-              <div class="thumb">
-                <img src="images/project/urban-watcher-photoshoot.jpg" alt="PhotoShoot">
-              </div>
-              <div class="label">PhotoShoot</div>
-            </div>
-            <div class="cs-media-card">
-              <div class="thumb">
-                <img src="images/project/urban-watcher-post-production.jpg" alt="Post-Production">
-              </div>
-              <div class="label">Post-Production</div>
-            </div>
+        <h2>Production</h2>
+        <p>Images were retouched and audio noise reduction applied. Processed media was then imported into the software to assemble the virtual tour.</p>
+        <div class="ad-tabs" id="productionTabs">
+          <div class="ad-tablist" role="tablist" aria-label="Production stages">
+            <button type="button" class="ad-tab is-on" role="tab" aria-selected="true" data-tab="0">Photoshoot</button>
+            <button type="button" class="ad-tab" role="tab" aria-selected="false" data-tab="1">Post-Production on Image</button>
+            <button type="button" class="ad-tab" role="tab" aria-selected="false" data-tab="2">Post-Production on Sound</button>
           </div>
+          <div class="ad-panel is-on" role="tabpanel">
+            <div class="ad-panel-img">
+              <img src="images/project/urban-watcher-photoshoot.jpg" alt="Photoshoot">
+            </div>
+            <p>Some interesting observations and experiences occur “Behind the Scenes.” I document it in text.</p>
+            <p>When I arrived at Man Fung, staff were busy and customers were arriving gradually. I asked the boss for permission and she agreed, requesting that I not photograph staff faces. I felt nervous as customers watched and staff worked nearby. After finishing my work, I asked for a portrait photo, and the boss chatted with me while making dumplings.</p>
+            <p>When I arrived at Grandma’s tofu pudding shop in the afternoon, the staff were working continuously. I had visited before and asked permission, so one staff member recognized me. Customers came in for seating and were curious about my work. Many ordered tofu pudding and soy milk during filming. The staff remained focused on their duties. After the shoot, the shop was completely sold out, confirming the brand’s popularity.</p>
+          </div>
+          <div class="ad-panel" role="tabpanel">
+            <div class="ad-panel-img">
+              <img src="images/project/urban-watcher-post-production-1.jpg" alt="Post-Production-1">
+            </div>
+            <p>Selecting the best photo is the most challenging part, and it depends on overall exposure, composition, and content. Exposure is critical for viewers to understand the real scene and feel present. Sunlight, surrounding elements, and passers-by are difficult to control. I often use a faster shutter speed on sunny days, but strong contrast creates deep shadows and reduces detail. A slower shutter can overexpose the sky, so I balance shutter speed and contrast. Composition and content help express my focus, and I usually photograph people to capture decisive, truthful moments.</p>
+            <p>I used the blur tool to protect privacy by blurring people’s faces, license plates, and brand names. With the exception of Man Fung, Chu Kei, Grandma’s tofu pudding, and Sing Heung Yuen, all other identifying details were hidden. This produced the final ready-to-use images for the virtual tour. Before building the tour, I inserted the images into the RICOH THETA app for preview of spherical views.</p>
+          </div>
+          <div class="ad-panel" role="tabpanel">
+            <div class="ad-panel-img">
+              <img src="images/project/urban-watcher-post-production-2.jpg" alt="Post-Production-2">
+            </div>
+            <p>Each soundtrack is unique, so I select the best audio based on the corresponding image. I consider whether the sound provides important information that enhances understanding, how much wind noise it contains, whether the audio synchronizes with the sound sources in the scene, and whether the recording position matches the location shown in the image.</p>
+            <p>After evaluation, I listen carefully and trim sections where wind noise is prominent. I then use a noise-reduction function to reduce unwanted sounds. This process is repeated for every soundtrack to ensure consistency. Each track is recorded for about 3 minutes and 21 seconds to provide sufficient material for editing.</p>
+          </div>
+        </div>
 
           <div class="cs-scope">
             <div class="cs-scope-col">
@@ -950,7 +1138,7 @@ html[data-theme="dark"] .cs-stack-card{
               </ul>
             </div>
           </div>
-        </section>
+      </section>
 
         <section class="cs-section cs-reveal" id="outcome">
           <div class="cs-outcome">
@@ -1013,30 +1201,35 @@ html[data-theme="dark"] .cs-stack-card{
         </section>
       </div>
     </div>
-
-        <nav class="cs-nav">
-          <a href="project-setup-video.html">← Previous: Setup Video</a>
-          <a href="project-vixmini.html">Next: VIXMINI →</a>
-        </nav>
+    <nav class="cs-nav">
+      <a href="project-setup-video.html">← Previous: Setup Video</a>
+      <a href="project-vixmini.html">Next: VIXMINI →</a>
+    </nav>
   </div>
 </article>
 
-<footer>© 2026 KimiChan Studio</footer>
+<footer>© 2027 Kimi Chan</footer>
 
 <script>
 (function(){
-  var themeBtn = document.getElementById("themeBtn");
+  var themeBtn=document.getElementById("themeBtn");
+  var SUN='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>';
+  var MOON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
   function getTheme(){ try{ return localStorage.getItem("kc-theme"); }catch(e){ return null; } }
   function setTheme(v){ try{ localStorage.setItem("kc-theme", v); }catch(e){} }
-  var theme = getTheme() || "dark";
-  document.documentElement.setAttribute("data-theme", theme);
-  if (themeBtn) {
-    themeBtn.textContent = theme === "dark" ? "\u2600" : "\u263E";
+  function paint(theme){
+    document.documentElement.setAttribute("data-theme", theme);
+    if(!themeBtn) return;
+    themeBtn.innerHTML = theme==="dark" ? SUN : MOON;
+    themeBtn.setAttribute("aria-label", theme==="dark" ? "Switch to light mode" : "Switch to dark mode");
+  }
+  var theme=getTheme()||"dark";
+  paint(theme);
+  if(themeBtn){
     themeBtn.addEventListener("click", function(){
-      theme = theme === "dark" ? "light" : "dark";
-      document.documentElement.setAttribute("data-theme", theme);
+      theme = theme==="dark" ? "light" : "dark";
       setTheme(theme);
-      themeBtn.textContent = theme === "dark" ? "\u2600" : "\u263E";
+      paint(theme);
     });
   }
 })();
@@ -1084,8 +1277,6 @@ html[data-theme="dark"] .cs-stack-card{
   window.addEventListener("scroll", update, { passive: true });
   update();
 })();
-</script>
-<script>
 
 /* Outcome image slider — thumbs always match slides */
 (function(){
@@ -1147,6 +1338,191 @@ html[data-theme="dark"] .cs-stack-card{
   });
 })();
 
+(function(){
+  var root = document.getElementById("fieldTabs");
+  if (!root) return;
+  var tabs = root.querySelectorAll(".vt-tab");
+  var kicker = document.getElementById("vtKicker");
+  var title = document.getElementById("vtTitle");
+  var body = document.getElementById("vtBody");
+  var data = [
+    {
+      num:"/01", area:"Kowloon", name:"Wong Tai Sin",
+      pins:[
+        { label:"Sik Sik Yuen Wong Tai Sin Temple", lat:22.342914223835688, lng:114.19382682510698 },
+        { label:"Lung Cheung Road", lat:22.341835638402554, lng:114.19452456747722 },
+        { label:"Green Minibus Terminus", lat:22.341931129060534, lng:114.19552092235556 },
+        { label:"Fung Tak Park", lat:22.3426571590339, lng:114.19807080422177 }
+      ]
+    },
+  { 
+    num: "/02", area: "Kowloon", name: "Yau Ma Tei",
+    pins: [
+      { label: "Yau Ma Tei Theatre", lat: 22.31244285318579, lng: 114.16927202980838 },
+      { label: "Fruit Market", lat: 22.312315872968757, lng: 114.16867068542236 },
+      { label: "Jade Hawker Bazaar", lat: 22.30922821782744, lng: 114.17049549442028 },
+      { label: "Temple Street", lat: 22.307536475283275, lng: 114.1705755483911 }
+    ] 
+  },
+  { 
+    num: "/03", area: "New Territories", name: "Tai Po", 
+    pins: [
+      { label: "Kwong Fuk Bridge", lat: 22.45028614364698, lng: 114.16491729407058 },
+      { label: "Fu Shin Street", lat: 22.448991377748303, lng: 114.16476395930955 },
+      { label: "Tai Po Complex", lat: 22.446654099128775, lng: 114.16673321955834 },
+      { label: "Grandma's tofu pudding", lat: 22.446802814890162, lng: 114.16663077036854 }
+    ] 
+  },
+  { 
+    num: "/04", area: "New Territories · Kowloon", name: "Tsuen Wan",
+    pins: [
+      { label: "Tsuen Fung Centre", lat: 22.372171441619948, lng: 114.11956433489968 },
+      { label: "Min Fong Hong", lat: 22.371835831902015, lng: 114.1175242963398 },
+      { label: "Lo Tak Court", lat: 22.373090804091127, lng: 114.1156582623704 },
+      { label: "Chu Kee Household Hardware", lat: 22.372929455723717, lng: 114.11411992798777 }
+    ] 
+  },
+  { 
+    num: "/05", area: "Hong Kong Island", name: "Causeway Bay",
+    pins: [
+      { label: "Victoria Park", lat: 22.282465684097023, lng: 114.18938354229921 },
+      { label: "Hennessy Road", lat: 22.280172412174526, lng: 114.18473520804487 },
+      { label: "Jardine's Crescent", lat: 22.279355465700565, lng: 114.18507091819096 },
+      { label: "Canal Road Flyover Underground", lat: 22.279221706526826, lng: 114.18153476236981 }
+    ] 
+  },
+  { 
+    num: "/06", area: "Hong Kong Island", name: "Central", route: "Pottinger Street → Tai Kwun → SoHo → Graham Street Market", 
+    pins: [
+      { label: "Pottinger Street", lat: 22.283179718304307, lng: 114.15578796685311 },
+      { label: "Tai Kwun", lat: 22.281337351530674, lng: 114.15444142140498 },
+      { label: "SoHo", lat: 22.281553152150888, lng: 114.15327602873124 },
+      { label: "Graham Street Market", lat: 22.28310594206086, lng: 114.15472634302832 }
+    ] 
+  }
+  ];
+
+  var map = null;
+  var markers = [];
+
+  function styleSpec(dark){
+    return dark
+      ? "https://tiles.openfreemap.org/styles/dark"
+      : "https://tiles.openfreemap.org/styles/positron";
+  }
+
+  function clearMarkers(){
+    markers.forEach(function(m){ m.remove(); });
+    markers = [];
+  }
+
+  function addPins(pins){
+    if (!map) return;
+    clearMarkers();
+    if (!pins || !pins.length){
+      map.flyTo({ center:[114.17, 22.32], zoom:11, essential:true });
+      return;
+    }
+    var bounds = new maplibregl.LngLatBounds();
+    pins.forEach(function(pin, idx){
+      var el = document.createElement("div");
+      el.className = "vt-pin";
+      el.textContent = String(idx + 1);
+      var marker = new maplibregl.Marker({ element: el, anchor:"center" })
+        .setLngLat([pin.lng, pin.lat])
+        .setPopup(new maplibregl.Popup({ offset:16, closeButton:false }).setHTML('<div class="vt-tip">'+pin.label+'</div>'))
+        .addTo(map);
+      markers.push(marker);
+      bounds.extend([pin.lng, pin.lat]);
+    });
+    map.resize();
+    if (pins.length === 1) map.flyTo({ center:[pins[0].lng, pins[0].lat], zoom:15.4, essential:true });
+    else map.fitBounds(bounds, { padding:56, maxZoom:16, duration:700 });
+  }
+
+  function initMap(){
+    var el = document.getElementById("vtMap");
+    if (!el) return;
+    if (typeof maplibregl === "undefined"){
+      el.innerHTML = '<p style="padding:20px;color:#76808E">Map library did not load. Check your network.</p>';
+      return;
+    }
+    var dark = document.documentElement.getAttribute("data-theme") === "dark";
+    map = new maplibregl.Map({
+      container: "vtMap",
+      style: styleSpec(dark),
+      center: [114.191, 22.342],
+      zoom: 14.8
+    });
+    map.addControl(new maplibregl.NavigationControl({ showCompass:false }), "bottom-right");
+    map.on("load", function(){
+      map.resize();
+      addPins(data[0].pins);
+    });
+    window.addEventListener("resize", function(){ if (map) map.resize(); });
+  }
+
+  function show(i){
+    var d = data[i];
+    if (!d) return;
+    tabs.forEach(function(tab, idx){
+      var on = idx === i;
+      tab.classList.toggle("is-on", on);
+      tab.setAttribute("aria-selected", on ? "true" : "false");
+    });
+    if (kicker) kicker.textContent = d.num + " · " + d.area;
+    if (title) title.textContent = d.name;
+    if (body) body.textContent = d.route;
+    addPins(d.pins || []);
+  }
+
+  tabs.forEach(function(tab){
+    tab.addEventListener("click", function(){
+      show(parseInt(tab.getAttribute("data-tab"), 10) || 0);
+    });
+  });
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initMap);
+  else initMap();
+
+  var themeBtn = document.getElementById("themeBtn");
+  if (themeBtn){
+    themeBtn.addEventListener("click", function(){
+      setTimeout(function(){
+        if (!map) return;
+        var dark = document.documentElement.getAttribute("data-theme") === "dark";
+        var c = map.getCenter();
+        var z = map.getZoom();
+        map.setStyle(styleSpec(dark));
+        map.once("styledata", function(){
+          map.setCenter(c); map.setZoom(z);
+          var on = root.querySelector(".vt-tab.is-on");
+          var i = on ? parseInt(on.getAttribute("data-tab"), 10) : 0;
+          addPins((data[i] && data[i].pins) || []);
+        });
+      }, 40);
+    });
+  }
+})();
+
+(function(){
+  document.querySelectorAll(".ad-tabs").forEach(function(root){
+    var tabs = root.querySelectorAll(":scope > .ad-tablist .ad-tab");
+    var panels = root.querySelectorAll(":scope > .ad-panel");
+    tabs.forEach(function(tab){
+      tab.addEventListener("click", function(){
+        var i = parseInt(tab.getAttribute("data-tab"), 10) || 0;
+        tabs.forEach(function(t, idx){
+          t.classList.toggle("is-on", idx === i);
+          t.setAttribute("aria-selected", idx === i ? "true" : "false");
+        });
+        panels.forEach(function(p, idx){
+          p.classList.toggle("is-on", idx === i);
+        });
+      });
+    });
+  });
+})();
 </script>
 </body>
 </html>

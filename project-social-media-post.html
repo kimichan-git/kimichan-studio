@@ -19,10 +19,8 @@
   } else {
     show();
   }
-  window.addEventListener("pageshow", function(){ window.scrollTo(0,0); });
 })();
 </script>
-
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Social Media Post — KimiChan Studio</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -70,47 +68,6 @@
 }
 .cs-section > ul li::marker {
   color: var(--m);
-}
-.cs-specs {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-  margin: 24px 0 8px;
-}
-.cs-spec-card {
-  background: var(--c);
-  border: 1px solid var(--b);
-  border-radius: 16px;
-  padding: 22px 20px;
-  transition: border-color .25s, transform .25s, box-shadow .25s;
-}
-
-.cs-spec-card.wide {
-  grid-column: span 2;
-}
-.cs-spec-label {
-  font-size: .72rem;
-  font-weight: 600;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  color: var(--m);
-  margin-bottom: 8px;
-}
-.cs-spec-value {
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--t);
-  line-height: 1.35;
-  letter-spacing: -.02em;
-}
-.cs-spec-value em {
-  font-style: normal;
-  color: var(--a);
-  font-size: 1.45rem;
-}
-@media (max-width: 700px) {
-  .cs-specs { grid-template-columns: 1fr; }
-  .cs-spec-card.wide { grid-column: span 1; }
 }
 
 .cs-focus { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
@@ -226,54 +183,71 @@
   margin-right: auto;
 }
 
-.cs-specs {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-  margin: 24px 0 8px;
+.cs-specs,
+.cs-kv{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:0;
+  margin:24px 0 8px;
+  background:var(--c);
+  border:1px solid var(--b);
+  border-radius:18px;
+  overflow:hidden;
 }
-.cs-spec-card {
-  background: var(--c);
-  border: 1px solid var(--b);
-  border-radius: 16px;
-  padding: 22px 20px;
-  transition: border-color .25s, transform .25s, box-shadow .25s;
+.cs-spec-card,
+.cs-kv-row{
+  display:grid;
+  grid-template-columns:140px 1fr;
+  gap:16px;
+  align-items:baseline;
+  padding:16px 22px;
+  border-bottom:1px solid var(--b);
+  background:transparent;
+  border-radius:0;
+  box-shadow:none;
+  transform:none;
 }
-.cs-spec-card:hover {
-  border-color: var(--a);
-  transform: translateY(-2px);
-  box-shadow: var(--sh);
+.cs-spec-card:last-child,
+.cs-kv-row:last-child{ border-bottom:none; }
+.cs-spec-card.wide{ grid-column:auto; }
+.cs-spec-card:hover{
+  border-color:var(--b);
+  transform:none;
+  box-shadow:none;
+  background:var(--s);
 }
-.cs-spec-card.wide {
-  grid-column: span 2;
+.cs-spec-label,
+.cs-kv-row dt{
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--a);
+  margin:0;
 }
-
-.cs-spec-label {
-  font-size: .72rem;
-  font-weight: 600;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  color: var(--m);
-  margin-bottom: 8px;
+.cs-spec-value,
+.cs-kv-row dd{
+  font-size:1.02rem;
+  font-weight:600;
+  color:var(--t);
+  line-height:1.45;
+  letter-spacing:-.015em;
+  margin:0;
 }
-.cs-spec-value {
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--t);
-  line-height: 1.35;
-  letter-spacing: -.02em;
+.cs-spec-value em{
+  font-style:normal;
+  color:var(--a);
+  font-size:inherit;
 }
-.cs-spec-value em {
-  font-style: normal;
-  color: var(--a);
-  font-size: 1.45rem;
+@media (max-width:700px){
+  .cs-specs, .cs-kv{ grid-template-columns:1fr; }
+  .cs-spec-card, .cs-kv-row{
+    grid-template-columns:1fr;
+    gap:6px;
+    padding:14px 18px;
+  }
+  .cs-spec-card.wide{ grid-column:span 1; }
 }
-@media (max-width: 700px) {
-  .cs-specs { grid-template-columns: 1fr; }
-  .cs-spec-card.wide { grid-column: span 1; }
-}
-</style>
-<style>
 
 /* Mobile alignment + stable slider controls */
 @media (max-width: 900px) {
@@ -317,9 +291,7 @@
   }
 }
 
-
 /* same-action mobile column */
-
 @media (max-width: 900px) {
   .cs-hero, .cs-banner, .cs-top, .cs-section, .cs-layout, .cs-main,
   .ph-body, .ph-img, .lead, .meta {
@@ -347,21 +319,80 @@
     padding-right: 16px !important;
   }
 }
+
+.ic {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  overflow: hidden;
+  user-select: none;
+  touch-action: none;
+  cursor: ew-resize;
+  background: var(--c);
+  border: 1px solid var(--b);
+  margin: 28px 0 16px;
+}
+.ic + .ic { margin-top: 8px; }
+.ic-caption { margin-top: 4px; }
+
+.ic img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  display: block;
+}
+.ic-after { z-index: 1; }
+.ic-before { z-index: 2; clip-path: inset(0 50% 0 0); }
+.ic-slider {
+  position: absolute; top: 0; bottom: 0; left: 50%;
+  width: 2px; z-index: 3;
+  background: #fff;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+.ic-handle {
+  position: absolute; top: 50%; left: 50%;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: #fff; color: #111;
+  display: flex; align-items: center; justify-content: center;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 6px 20px rgba(0,0,0,.35);
+  font-weight: 700; font-size: 14px;
+}
+.ic-label {
+  position: absolute; top: 14px; z-index: 4;
+  padding: 5px 10px; border-radius: 999px;
+  background: rgba(0,0,0,.55); color: #fff;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: .08em; text-transform: uppercase;
+  pointer-events: none;
+}
+.ic-label.before { left: 14px; }
+.ic-label.after { right: 14px; }
+.ic-caption {
+  font-size: .82rem;
+  color: var(--m);
+  margin: 0 0 8px;
+}
 </style>
 </head>
 <body>
-<nav><div class="ni">
-<a href="index.html" class="logo">Kimi Chan</a>
-<div class="nl">
-<a href="index.html">Home</a>
-<a href="gallery.html">Gallery</a>
-<a href="about.html">About</a>
-</div>
-<div class="na">
-<button class="tt" id="themeBtn">&#9728;</button>
-<a href="mailto:kimic329@gmail.com?subject=Hello%20from%20your%20website" class="btn bp" style="color:#0f172a">Get in touch</a>
-</div>
-</div></nav>
+<nav>
+  <div class="ni">
+    <a href="index.html" class="logo">Kimi Chan</a>
+    <div class="nl">
+      <a href="index.html">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="na">
+      <button class="tt" id="themeBtn" type="button" aria-label="Toggle color theme"></button>
+      <a href="mailto:kimic329@gmail.com?subject=Hello%20from%20your%20website" class="btn bp" style="color:#0f172a">Get in touch</a>
+    </div>
+  </div>
+</nav>
 
 <article class="cs">
   <div class="ct">
@@ -407,13 +438,13 @@
             </div>
             <div class="cs-spec-card">
               <div class="cs-spec-label">Category</div>
-              <div class="cs-spec-value">Social Media / Campaign</div>
+              <div class="cs-spec-value">Social Media, Campaign</div>
             </div>
             <div class="cs-spec-card">
               <div class="cs-spec-label">Tools</div>
               <div class="cs-spec-value">Photoshop, Illustrator, Lovart</div>
             </div>
-            <div class="cs-spec-card wide">
+            <div class="cs-spec-card">
               <div class="cs-spec-label">Deliverables</div>
               <div class="cs-spec-value">Feed posts, stories, and advertisement</div>
             </div>
@@ -514,6 +545,30 @@
               </ul>
             </div>
           </div>
+
+          <p class="ic-caption" style="padding-top:30px;">Product photography: drag to compare studio capture and final retouch.</p>
+
+          <div class="ic" id="compare-1">
+            <img class="ic-after" src="images/project/social-media-prime-day-after.jpg" alt="After retouch">
+            <img class="ic-before" src="images/project/social-media-prime-day-before.jpg" alt="Before retouch">
+            <div class="ic-slider"><div class="ic-handle">↔</div></div>
+            <span class="ic-label before">Before</span>
+            <span class="ic-label after">After</span>
+          </div>
+            <div class="ic" id="compare-2">
+            <img class="ic-after" src="images/project/social-media-e5800-after.jpg" alt="After retouch">
+            <img class="ic-before" src="images/project/social-media-e5800-before.jpg" alt="Before retouch">
+            <div class="ic-slider"><div class="ic-handle">↔</div></div>
+            <span class="ic-label before">Before</span>
+            <span class="ic-label after">After</span>
+          </div>
+            <div class="ic" id="compare-3">
+            <img class="ic-after" src="images/project/social-media-mt6000-after.jpg" alt="After retouch">
+            <img class="ic-before" src="images/project/social-media-mt6000-before.jpg" alt="Before retouch">
+            <div class="ic-slider"><div class="ic-handle">↔</div></div>
+            <span class="ic-label before">Before</span>
+            <span class="ic-label after">After</span>
+          </div>
         </section>
 
         <section class="cs-section cs-reveal" id="outcome">
@@ -544,7 +599,6 @@
             </div>
           </div>
         </section>
-
       </div>
     </div>
 
@@ -555,22 +609,28 @@
   </div>
 </article>
 
-<footer>© 2026 KimiChan Studio</footer>
+<footer>© 2027 Kimi Chan</footer>
 
 <script>
 (function(){
-  var themeBtn = document.getElementById("themeBtn");
+  var themeBtn=document.getElementById("themeBtn");
+  var SUN='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>';
+  var MOON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
   function getTheme(){ try{ return localStorage.getItem("kc-theme"); }catch(e){ return null; } }
   function setTheme(v){ try{ localStorage.setItem("kc-theme", v); }catch(e){} }
-  var theme = getTheme() || "dark";
-  document.documentElement.setAttribute("data-theme", theme);
-  if (themeBtn) {
-    themeBtn.textContent = theme === "dark" ? "\u2600" : "\u263E";
+  function paint(theme){
+    document.documentElement.setAttribute("data-theme", theme);
+    if(!themeBtn) return;
+    themeBtn.innerHTML = theme==="dark" ? SUN : MOON;
+    themeBtn.setAttribute("aria-label", theme==="dark" ? "Switch to light mode" : "Switch to dark mode");
+  }
+  var theme=getTheme()||"dark";
+  paint(theme);
+  if(themeBtn){
     themeBtn.addEventListener("click", function(){
-      theme = theme === "dark" ? "light" : "dark";
-      document.documentElement.setAttribute("data-theme", theme);
+      theme = theme==="dark" ? "light" : "dark";
       setTheme(theme);
-      themeBtn.textContent = theme === "dark" ? "\u2600" : "\u263E";
+      paint(theme);
     });
   }
 })();
@@ -606,8 +666,7 @@
   window.addEventListener("scroll", update, { passive: true });
   update();
 })();
-</script>
-<script>
+
 (function(){
   function initSlider(root){
     var viewport = root.querySelector(".cs-slider-viewport");
@@ -644,8 +703,15 @@
       slides.forEach(function(s, idx){ s.classList.toggle("is-active", idx === i); });
       var thumbs = thumbsWrap.querySelectorAll(".cs-thumb");
       thumbs.forEach(function(t, idx){ t.classList.toggle("is-active", idx === i); });
-      if (thumbs[i] && thumbs[i].scrollIntoView) {
-        thumbs[i].scrollIntoView({ inline: "nearest", block: "nearest", behavior: "smooth" });
+      /* Keep thumbs in view horizontally only — never scroll the page (iOS jump). */
+      var thumb = thumbs[i];
+      if (thumb) {
+        var left = thumb.offsetLeft;
+        var right = left + thumb.offsetWidth;
+        var viewLeft = thumbsWrap.scrollLeft;
+        var viewRight = viewLeft + thumbsWrap.clientWidth;
+        if (left < viewLeft) thumbsWrap.scrollLeft = left - 8;
+        else if (right > viewRight) thumbsWrap.scrollLeft = right - thumbsWrap.clientWidth + 8;
       }
     }
 
@@ -666,11 +732,45 @@
       }
     });
 
-    window.addEventListener("resize", function(){ go(i); });
+    var lastW = width();
+    window.addEventListener("resize", function(){
+      var w = width();
+      if (w === lastW) return; /* ignore iOS address-bar height changes */
+      lastW = w;
+      go(i);
+    }, { passive: true });
     go(0);
   }
 
   document.querySelectorAll(".cs-slider").forEach(initSlider);
+})();
+
+(function(){
+  function initCompare(root){
+    var before = root.querySelector(".ic-before");
+    var slider = root.querySelector(".ic-slider");
+    if (!before || !slider) return;
+    var dragging = false;
+    function set(p){
+      p = Math.max(0, Math.min(100, p));
+      before.style.clipPath = "inset(0 " + (100 - p) + "% 0 0)";
+      slider.style.left = p + "%";
+    }
+    function fromEvent(e){
+      var x = e.clientX;
+      var r = root.getBoundingClientRect();
+      set(((x - r.left) / r.width) * 100);
+    }
+    root.addEventListener("pointerdown", function(e){
+      dragging = true;
+      root.setPointerCapture(e.pointerId);
+      fromEvent(e);
+    });
+    root.addEventListener("pointermove", function(e){ if (dragging) fromEvent(e); });
+    root.addEventListener("pointerup", function(){ dragging = false; });
+    root.addEventListener("pointercancel", function(){ dragging = false; });
+  }
+  document.querySelectorAll(".ic").forEach(initCompare);
 })();
 </script>
 </body>

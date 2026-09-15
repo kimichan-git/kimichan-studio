@@ -19,10 +19,8 @@
   } else {
     show();
   }
-  window.addEventListener("pageshow", function(){ window.scrollTo(0,0); });
 })();
 </script>
-
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Campaign Video — KimiChan Studio</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -170,37 +168,70 @@
 .cs-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
 .cs-thumb.is-active { opacity: 1; border-color: var(--a); transform: scale(1.06); }
 
-.cs-specs {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-  margin: 24px 0 8px;
+.cs-specs,
+.cs-kv{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:0;
+  margin:24px 0 8px;
+  background:var(--c);
+  border:1px solid var(--b);
+  border-radius:18px;
+  overflow:hidden;
 }
-.cs-spec-card {
-  background: var(--c);
-  border: 1px solid var(--b);
-  border-radius: 16px;
-  padding: 22px 20px;
+.cs-spec-card,
+.cs-kv-row{
+  display:grid;
+  grid-template-columns:140px 1fr;
+  gap:16px;
+  align-items:baseline;
+  padding:16px 22px;
+  border-bottom:1px solid var(--b);
+  background:transparent;
+  border-radius:0;
+  box-shadow:none;
+  transform:none;
 }
-.cs-spec-card.wide { grid-column: span 2; }
-.cs-spec-label {
-  font-size: .72rem;
-  font-weight: 600;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  color: var(--m);
-  margin-bottom: 8px;
+.cs-spec-card:last-child,
+.cs-kv-row:last-child{ border-bottom:none; }
+.cs-spec-card.wide{ grid-column:auto; }
+.cs-spec-card:hover{
+  border-color:var(--b);
+  transform:none;
+  box-shadow:none;
+  background:var(--s);
 }
-.cs-spec-value {
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--t);
-  line-height: 1.35;
+.cs-spec-label,
+.cs-kv-row dt{
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--a);
+  margin:0;
 }
-.cs-spec-value em {
-  font-style: normal;
-  color: var(--a);
-  font-size: 1.45rem;
+.cs-spec-value,
+.cs-kv-row dd{
+  font-size:1.02rem;
+  font-weight:600;
+  color:var(--t);
+  line-height:1.45;
+  letter-spacing:-.015em;
+  margin:0;
+}
+.cs-spec-value em{
+  font-style:normal;
+  color:var(--a);
+  font-size:inherit;
+}
+@media (max-width:700px){
+  .cs-specs, .cs-kv{ grid-template-columns:1fr; }
+  .cs-spec-card, .cs-kv-row{
+    grid-template-columns:1fr;
+    gap:6px;
+    padding:14px 18px;
+  }
+  .cs-spec-card.wide{ grid-column:span 1; }
 }
 
 .cs-video {
@@ -290,9 +321,6 @@
   .cs-section { margin-bottom: 40px !important; }
 }
 
-</style>
-<style>
-
 /* Mobile alignment + stable slider controls */
 @media (max-width: 900px) {
   .cs {
@@ -335,7 +363,6 @@
   }
 }
 
-
 /* same-action mobile column */
 
 @media (max-width: 900px) {
@@ -368,18 +395,20 @@
 </style>
 </head>
 <body>
-<nav><div class="ni">
-<a href="index.html" class="logo">Kimi Chan</a>
-<div class="nl">
-<a href="index.html">Home</a>
-<a href="gallery.html">Gallery</a>
-<a href="about.html">About</a>
-</div>
-<div class="na">
-<button class="tt" id="themeBtn">&#9728;</button>
-<a href="mailto:kimic329@gmail.com?subject=Hello%20from%20your%20website" class="btn bp" style="color:#0f172a">Get in touch</a>
-</div>
-</div></nav>
+<nav>
+  <div class="ni">
+    <a href="index.html" class="logo">Kimi Chan</a>
+    <div class="nl">
+      <a href="index.html">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="na">
+      <button class="tt" id="themeBtn" type="button" aria-label="Toggle color theme"></button>
+      <a href="mailto:kimic329@gmail.com?subject=Hello%20from%20your%20website" class="btn bp" style="color:#0f172a">Get in touch</a>
+    </div>
+  </div>
+</nav>
 
 <article class="cs">
   <div class="ct">
@@ -579,22 +608,28 @@
   </div>
 </article>
 
-<footer>© 2026 KimiChan Studio</footer>
+<footer>© 2027 Kimi Chan</footer>
 
 <script>
 (function(){
-  var themeBtn = document.getElementById("themeBtn");
+  var themeBtn=document.getElementById("themeBtn");
+  var SUN='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>';
+  var MOON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
   function getTheme(){ try{ return localStorage.getItem("kc-theme"); }catch(e){ return null; } }
   function setTheme(v){ try{ localStorage.setItem("kc-theme", v); }catch(e){} }
-  var theme = getTheme() || "dark";
-  document.documentElement.setAttribute("data-theme", theme);
-  if (themeBtn) {
-    themeBtn.textContent = theme === "dark" ? "\u2600" : "\u263E";
+  function paint(theme){
+    document.documentElement.setAttribute("data-theme", theme);
+    if(!themeBtn) return;
+    themeBtn.innerHTML = theme==="dark" ? SUN : MOON;
+    themeBtn.setAttribute("aria-label", theme==="dark" ? "Switch to light mode" : "Switch to dark mode");
+  }
+  var theme=getTheme()||"dark";
+  paint(theme);
+  if(themeBtn){
     themeBtn.addEventListener("click", function(){
-      theme = theme === "dark" ? "light" : "dark";
-      document.documentElement.setAttribute("data-theme", theme);
+      theme = theme==="dark" ? "light" : "dark";
       setTheme(theme);
-      themeBtn.textContent = theme === "dark" ? "\u2600" : "\u263E";
+      paint(theme);
     });
   }
 })();
@@ -630,8 +665,7 @@
   window.addEventListener("scroll", update, { passive: true });
   update();
 })();
-</script>
-<script>
+
 (function(){
   function initSlider(root){
     var viewport = root.querySelector(".cs-slider-viewport");
@@ -668,8 +702,15 @@
       slides.forEach(function(s, idx){ s.classList.toggle("is-active", idx === i); });
       var thumbs = thumbsWrap.querySelectorAll(".cs-thumb");
       thumbs.forEach(function(t, idx){ t.classList.toggle("is-active", idx === i); });
-      if (thumbs[i] && thumbs[i].scrollIntoView) {
-        thumbs[i].scrollIntoView({ inline: "nearest", block: "nearest", behavior: "smooth" });
+      /* Keep thumbs in view horizontally only — never scroll the page (iOS jump). */
+      var thumb = thumbs[i];
+      if (thumb) {
+        var left = thumb.offsetLeft;
+        var right = left + thumb.offsetWidth;
+        var viewLeft = thumbsWrap.scrollLeft;
+        var viewRight = viewLeft + thumbsWrap.clientWidth;
+        if (left < viewLeft) thumbsWrap.scrollLeft = left - 8;
+        else if (right > viewRight) thumbsWrap.scrollLeft = right - thumbsWrap.clientWidth + 8;
       }
     }
 
@@ -690,7 +731,13 @@
       }
     });
 
-    window.addEventListener("resize", function(){ go(i); });
+    var lastW = width();
+    window.addEventListener("resize", function(){
+      var w = width();
+      if (w === lastW) return; /* ignore iOS address-bar height changes */
+      lastW = w;
+      go(i);
+    }, { passive: true });
     go(0);
   }
 

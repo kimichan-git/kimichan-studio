@@ -19,10 +19,8 @@
   } else {
     show();
   }
-  window.addEventListener("pageshow", function(){ window.scrollTo(0,0); });
 })();
 </script>
-
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Unboxing Video — Kimi Chan Studio</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -207,50 +205,72 @@
   object-fit: cover;
   display: block;
 }
-.cs-specs {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-  margin: 24px 0 8px;
-}
-.cs-spec-card {
-  background: var(--c);
-  border: 1px solid var(--b);
-  border-radius: 16px;
-  padding: 22px 20px;
-  transition: border-color .25s, transform .25s, box-shadow .25s;
-}
 
-.cs-spec-card.wide {
-  grid-column: span 2;
+.cs-specs,
+.cs-kv{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:0;
+  margin:24px 0 8px;
+  background:var(--c);
+  border:1px solid var(--b);
+  border-radius:18px;
+  overflow:hidden;
 }
-
-.cs-spec-label {
-  font-size: .72rem;
-  font-weight: 600;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  color: var(--m);
-  margin-bottom: 8px;
+.cs-spec-card,
+.cs-kv-row{
+  display:grid;
+  grid-template-columns:140px 1fr;
+  gap:16px;
+  align-items:baseline;
+  padding:16px 22px;
+  border-bottom:1px solid var(--b);
+  background:transparent;
+  border-radius:0;
+  box-shadow:none;
+  transform:none;
 }
-.cs-spec-value {
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--t);
-  line-height: 1.35;
-  letter-spacing: -.02em;
+.cs-spec-card:last-child,
+.cs-kv-row:last-child{ border-bottom:none; }
+.cs-spec-card.wide{ grid-column:auto; }
+.cs-spec-card:hover{
+  border-color:var(--b);
+  transform:none;
+  box-shadow:none;
+  background:var(--s);
 }
-.cs-spec-value em {
-  font-style: normal;
-  color: var(--a);
-  font-size: 1.45rem;
+.cs-spec-label,
+.cs-kv-row dt{
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--a);
+  margin:0;
 }
-@media (max-width: 700px) {
-  .cs-specs { grid-template-columns: 1fr; }
-  .cs-spec-card.wide { grid-column: span 1; }
+.cs-spec-value,
+.cs-kv-row dd{
+  font-size:1.02rem;
+  font-weight:600;
+  color:var(--t);
+  line-height:1.45;
+  letter-spacing:-.015em;
+  margin:0;
 }
-</style>
-<style>
+.cs-spec-value em{
+  font-style:normal;
+  color:var(--a);
+  font-size:inherit;
+}
+@media (max-width:700px){
+  .cs-specs, .cs-kv{ grid-template-columns:1fr; }
+  .cs-spec-card, .cs-kv-row{
+    grid-template-columns:1fr;
+    gap:6px;
+    padding:14px 18px;
+  }
+  .cs-spec-card.wide{ grid-column:span 1; }
+}
 
 /* Mobile alignment + stable slider controls */
 @media (max-width: 900px) {
@@ -294,9 +314,7 @@
   }
 }
 
-
 /* same-action mobile column */
-
 @media (max-width: 900px) {
   .cs-hero, .cs-banner, .cs-top, .cs-section, .cs-layout, .cs-main,
   .ph-body, .ph-img, .lead, .meta {
@@ -327,18 +345,20 @@
 </style>
 </head>
 <body>
-<nav><div class="ni">
-<a href="index.html" class="logo">Kimi Chan</a>
-<div class="nl">
-<a href="index.html">Home</a>
-<a href="gallery.html">Gallery</a>
-<a href="about.html">About</a>
-</div>
-<div class="na">
-<button class="tt" id="themeBtn">&#9728;</button>
-<a href="mailto:kimic329@gmail.com?subject=Hello%20from%20your%20website" class="btn bp" style="color:#0f172a">Get in touch</a>
-</div>
-</div></nav>
+<nav>
+  <div class="ni">
+  <a href="index.html" class="logo">Kimi Chan</a>
+  <div class="nl">
+  <a href="index.html">Home</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="about.html">About</a>
+  </div>
+  <div class="na">
+  <button class="tt" id="themeBtn" type="button" aria-label="Toggle color theme"></button>
+  <a href="mailto:kimic329@gmail.com?subject=Hello%20from%20your%20website" class="btn bp" style="color:#0f172a">Get in touch</a>
+  </div>
+  </div>
+</nav>
 
 <article class="cs">
   <div class="ct">
@@ -379,28 +399,28 @@
                 <section class="cs-section cs-reveal" id="overview">
           <h2>Overview</h2>
           <p>The unboxing video introduces the latest GL.iNet product — showcasing its appearance. As a multimedia designer, I filmed and edited these videos so customers can quickly understand what they are receiving and how to get started.</p>
-            <div class="cs-specs">
-            <div class="cs-spec-card">
-              <div class="cs-spec-label">Client</div>
-              <div class="cs-spec-value">GL.iNet</div>
-            </div>
-            <div class="cs-spec-card">
-              <div class="cs-spec-label">Category</div>
-              <div class="cs-spec-value">Videography, Photography</div>
-            </div>
-            <div class="cs-spec-card">
-              <div class="cs-spec-label">Tools</div>
-              <div class="cs-spec-value">Premiere Pro</div>
-            </div>
-            <div class="cs-spec-card wide">
-              <div class="cs-spec-label">Deliverables</div>
-              <div class="cs-spec-value">Unboxing films, custom thumbnails</div>
-            </div>
-            <div class="cs-spec-card">
-              <div class="cs-spec-label">Production</div>
-              <div class="cs-spec-value">~5 days / video</div>
-            </div>
-          </div>
+              <dl class="cs-kv cs-specs">
+              <div class="cs-kv-row cs-spec-card">
+                <dt class="cs-spec-label">Client</dt>
+                <dd class="cs-spec-value">GL.iNet</dd>
+              </div>
+              <div class="cs-kv-row cs-spec-card">
+                <dt class="cs-spec-label">Category</dt>
+                <dd class="cs-spec-value">Videography, Photography</dd>
+              </div>
+              <div class="cs-kv-row cs-spec-card">
+                <dt class="cs-spec-label">Tools</dt>
+                <dd class="cs-spec-value">Premiere</dd>
+              </div>
+              <div class="cs-kv-row cs-spec-card">
+                <dt class="cs-spec-label">Deliverables</dt>
+                <dd class="cs-spec-value">Unboxing films, custom thumbnails</dd>
+              </div>
+              <div class="cs-kv-row cs-spec-card">
+                <dt class="cs-spec-label">Production</dt>
+                <dd class="cs-spec-value">~5 days / video</dd>
+              </div>
+            </dl>
         </section>
 
         <section class="cs-section cs-reveal" id="focus">
@@ -550,22 +570,28 @@
   </div>
 </article>
 
-<footer>© 2026 KimiChan Studio</footer>
+<footer>© 2027 Kimi Chan</footer>
 
 <script>
 (function(){
-  var themeBtn = document.getElementById("themeBtn");
+  var themeBtn=document.getElementById("themeBtn");
+  var SUN='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>';
+  var MOON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
   function getTheme(){ try{ return localStorage.getItem("kc-theme"); }catch(e){ return null; } }
   function setTheme(v){ try{ localStorage.setItem("kc-theme", v); }catch(e){} }
-  var theme = getTheme() || "dark";
-  document.documentElement.setAttribute("data-theme", theme);
-  if (themeBtn) {
-    themeBtn.textContent = theme === "dark" ? "\u2600" : "\u263E";
+  function paint(theme){
+    document.documentElement.setAttribute("data-theme", theme);
+    if(!themeBtn) return;
+    themeBtn.innerHTML = theme==="dark" ? SUN : MOON;
+    themeBtn.setAttribute("aria-label", theme==="dark" ? "Switch to light mode" : "Switch to dark mode");
+  }
+  var theme=getTheme()||"dark";
+  paint(theme);
+  if(themeBtn){
     themeBtn.addEventListener("click", function(){
-      theme = theme === "dark" ? "light" : "dark";
-      document.documentElement.setAttribute("data-theme", theme);
+      theme = theme==="dark" ? "light" : "dark";
       setTheme(theme);
-      themeBtn.textContent = theme === "dark" ? "\u2600" : "\u263E";
+      paint(theme);
     });
   }
 })();
@@ -601,8 +627,7 @@
   window.addEventListener("scroll", update, { passive: true });
   update();
 })();
-</script>
-<script>
+
 /* Multi-slider: pixel translate, rebuild thumbs, all .cs-slider instances */
 (function(){
   function initSlider(root){
@@ -640,8 +665,15 @@
       slides.forEach(function(s, idx){ s.classList.toggle("is-active", idx === i); });
       var thumbs = thumbsWrap.querySelectorAll(".cs-thumb");
       thumbs.forEach(function(t, idx){ t.classList.toggle("is-active", idx === i); });
-      if (thumbs[i] && thumbs[i].scrollIntoView) {
-        thumbs[i].scrollIntoView({ inline: "nearest", block: "nearest", behavior: "smooth" });
+      /* Keep thumbs in view horizontally only — never scroll the page (iOS jump). */
+      var thumb = thumbs[i];
+      if (thumb) {
+        var left = thumb.offsetLeft;
+        var right = left + thumb.offsetWidth;
+        var viewLeft = thumbsWrap.scrollLeft;
+        var viewRight = viewLeft + thumbsWrap.clientWidth;
+        if (left < viewLeft) thumbsWrap.scrollLeft = left - 8;
+        else if (right > viewRight) thumbsWrap.scrollLeft = right - thumbsWrap.clientWidth + 8;
       }
     }
 
@@ -662,7 +694,13 @@
       }
     });
 
-    window.addEventListener("resize", function(){ go(i); });
+    var lastW = width();
+    window.addEventListener("resize", function(){
+      var w = width();
+      if (w === lastW) return; /* ignore iOS address-bar height changes */
+      lastW = w;
+      go(i);
+    }, { passive: true });
     go(0);
   }
 

@@ -10,13 +10,13 @@
 <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-
 <style>
 .ph-gallery {
   padding-top: 120px;
 }
 .ph-gallery .ct { max-width: 1100px; }
 
+/* Three equal-width columns; JS packs items so tops and bottoms line up */
 .gal-grid {
   display: flex !important;
   align-items: stretch;
@@ -48,6 +48,7 @@
   -webkit-transform: translateZ(0) !important;
   z-index: auto;
   flex: 0 0 auto;
+  /* Keeps 16px corners while the image scales on hover */
   clip-path: inset(0 round 16px);
   -webkit-clip-path: inset(0 round 16px);
 }
@@ -88,106 +89,215 @@
   .gal-col { gap: 14px; }
 }
 .gal-ig { text-align: left; margin-left: 0; padding-left: 0; }
+
+.gal-cta-wrap{ padding: 8px 24px 64px; }
+.gal-cta{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:28px;
+  align-items:center;
+  background:var(--c);
+  border:1px solid var(--b);
+  border-radius:24px;
+  padding:36px 40px;
+  box-shadow:var(--sh);
+  overflow:hidden;
+  position:relative;
+}
+.gal-cta-kicker{
+  font-size:.75rem;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--a);
+  margin-bottom:10px;
+}
+.gal-cta h2{
+  font-size:clamp(1.6rem,3vw,2.1rem);
+  font-weight:800;
+  letter-spacing:-.03em;
+  margin:0 0 12px;
+}
+.gal-cta p{
+  color:var(--m);
+  font-size:1.02rem;
+  line-height:1.65;
+  max-width:460px;
+  margin:0 0 22px;
+}
+.gal-cta-actions{ display:flex; flex-wrap:wrap; gap:10px; }
+.gal-cta-visual{
+  position:relative;
+  min-height:180px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.gal-cta-photo{
+  width:168px;height:168px;border-radius:50%;
+  object-fit:cover;
+  display:block;
+  position:relative;
+  z-index:1;
+  border:3px solid var(--c);
+  box-shadow:var(--sh);
+}
+.gal-cta-ring{
+  position:absolute;
+  width:210px;height:210px;
+  border:1px solid var(--b);
+  border-radius:50%;
+}
+@media (max-width:700px){
+  .gal-cta{
+    grid-template-columns:1fr auto;
+    gap:16px;
+    padding:22px 18px;
+    text-align:left;
+    align-items:center;
+  }
+  .gal-cta h2{ font-size:1.28rem; margin-bottom:10px; }
+  .gal-cta p{ margin-left:0; margin-right:0; }
+  .gal-cta-actions{ justify-content:flex-start; }
+  .gal-cta-visual{
+    min-height:0;
+    width:112px;
+    height:112px;
+    flex-shrink:0;
+  }
+  .gal-cta-photo{
+    width:96px;
+    height:96px;
+  }
+  .gal-cta-ring{
+    width:112px;
+    height:112px;
+  }
+}
 </style>
 </head>
 <body>
-<nav><div class="ni">
-<a href="index.html" class="logo">Kimi Chan</a>
-<div class="nl">
-<a href="index.html">Home</a>
-<a href="gallery.html" class="on">Gallery</a>
-<a href="about.html">About</a>
-</div>
-<div class="na">
-<button class="tt" id="themeBtn">&#9728;</button>
-<a href="mailto:kimic329@gmail.com?subject=Hello%20from%20your%20website" class="btn bp" style="color:#0f172a">Get in touch</a>
-</div>
-</div></nav>
+<nav>
+  <div class="ni">
+    <a href="index.html" class="logo">Kimi Chan</a>
+    <div class="nl">
+      <a href="index.html">Home</a>
+      <a href="gallery.html" class="on">Gallery</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="na">
+      <button class="tt" id="themeBtn" type="button" aria-label="Toggle color theme"></button>
+      <a href="mailto:kimic329@gmail.com?subject=Hello%20from%20your%20website" class="btn bp" style="color:#0f172a">Get in touch</a>
+    </div>
+  </div>
+</nav>
 
 <section class="ph ph-gallery">
 <div class="ct">
-<div class="sl">Photography</div>
-<h1>My Journey</h1>
-<p class="lead">Discover the world through my lens. A visual journey across Hong Kong and beyond, capturing the serene interplay of cityscapes, landscapes, and human stories.</p>
-<p class="gal-ig" style="margin-top:36px;color:var(--m);font-size:.95rem;text-align:left">More work on <a href="https://www.instagram.com/kimic.foto/" style="color:var(--a);font-weight:600" target="_blank" rel="noopener">Instagram: @kimic.foto</a></p>
-<div class="gal-grid" id="galGrid">
-<div class="gal-item"><img src="images/gallery/026244.jpg" alt="Gallery photo 1" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/030627.jpg" alt="Gallery photo 2" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/051819.jpg" alt="Gallery photo 3" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/093331.jpg" alt="Gallery photo 4" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/093400.jpg" alt="Gallery photo 5" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/125229.jpg" alt="Gallery photo 6" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/131875.jpg" alt="Gallery photo 7" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/134761.jpg" alt="Gallery photo 8" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/135908.jpg" alt="Gallery photo 9" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/163359.jpg" alt="Gallery photo 10" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/168791.jpg" alt="Gallery photo 11" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/226139.jpg" alt="Gallery photo 12" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/248121.jpg" alt="Gallery photo 13" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/313777.jpg" alt="Gallery photo 14" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/326791.jpg" alt="Gallery photo 15" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/331785.jpg" alt="Gallery photo 16" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/335608.jpg" alt="Gallery photo 17" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/383799.jpg" alt="Gallery photo 18" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/416590.jpg" alt="Gallery photo 19" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/417324.jpg" alt="Gallery photo 20" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/431058.jpg" alt="Gallery photo 21" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/433768.jpg" alt="Gallery photo 22" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/507122.jpg" alt="Gallery photo 23" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/510026.jpg" alt="Gallery photo 24" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/536351.jpg" alt="Gallery photo 25" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/561507.jpg" alt="Gallery photo 26" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/591285.jpg" alt="Gallery photo 27" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/591391.jpg" alt="Gallery photo 28" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/610190.jpg" alt="Gallery photo 29" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/621835.jpg" alt="Gallery photo 30" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/630647.jpg" alt="Gallery photo 31" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/644700.jpg" alt="Gallery photo 32" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/659894.jpg" alt="Gallery photo 33" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/671579.jpg" alt="Gallery photo 34" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/689103.jpg" alt="Gallery photo 35" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/717987.jpg" alt="Gallery photo 36" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/724807.jpg" alt="Gallery photo 37" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/763172.jpg" alt="Gallery photo 38" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/772517.jpg" alt="Gallery photo 39" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/773618.jpg" alt="Gallery photo 40" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/774450.jpg" alt="Gallery photo 41" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/777500.jpg" alt="Gallery photo 42" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/785924.jpg" alt="Gallery photo 43" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/792333.jpg" alt="Gallery photo 44" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/810454.jpg" alt="Gallery photo 45" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/869763.jpg" alt="Gallery photo 46" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/892515.jpg" alt="Gallery photo 47" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/924303.jpg" alt="Gallery photo 48" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/966613.jpg" alt="Gallery photo 49" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/988486.jpg" alt="Gallery photo 50" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/624785.jpg" alt="Gallery photo 49" class="gi-img" loading="lazy"></div>
-<div class="gal-item"><img src="images/gallery/330593.jpg" alt="Gallery photo 50" class="gi-img" loading="lazy"></div>
-</div>
-</div>
+  <div class="sl">Photography</div>
+    <h1>My Journey</h1>
+    <p class="lead">Discover the world through my lens. A visual journey across Hong Kong and beyond, capturing the serene interplay of cityscapes, landscapes, and human stories.</p>
+    <p class="gal-ig" style="margin-top:36px;color:var(--m);font-size:.95rem;text-align:left">More work on <a href="https://www.instagram.com/kimic.foto/" style="color:var(--a);font-weight:600" target="_blank" rel="noopener">Instagram: @kimic.foto</a></p>
+    <div class="gal-grid" id="galGrid">
+      <div class="gal-item"><img src="images/gallery/026244.jpg" alt="Gallery photo 1" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/030627.jpg" alt="Gallery photo 2" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/051819.jpg" alt="Gallery photo 3" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/093331.jpg" alt="Gallery photo 4" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/093400.jpg" alt="Gallery photo 5" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/125229.jpg" alt="Gallery photo 6" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/131875.jpg" alt="Gallery photo 7" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/134761.jpg" alt="Gallery photo 8" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/135908.jpg" alt="Gallery photo 9" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/163359.jpg" alt="Gallery photo 10" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/168791.jpg" alt="Gallery photo 11" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/226139.jpg" alt="Gallery photo 12" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/248121.jpg" alt="Gallery photo 13" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/313777.jpg" alt="Gallery photo 14" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/326791.jpg" alt="Gallery photo 15" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/331785.jpg" alt="Gallery photo 16" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/335608.jpg" alt="Gallery photo 17" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/383799.jpg" alt="Gallery photo 18" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/416590.jpg" alt="Gallery photo 19" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/417324.jpg" alt="Gallery photo 20" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/431058.jpg" alt="Gallery photo 21" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/433768.jpg" alt="Gallery photo 22" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/507122.jpg" alt="Gallery photo 23" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/510026.jpg" alt="Gallery photo 24" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/536351.jpg" alt="Gallery photo 25" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/561507.jpg" alt="Gallery photo 26" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/591285.jpg" alt="Gallery photo 27" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/591391.jpg" alt="Gallery photo 28" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/610190.jpg" alt="Gallery photo 29" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/621835.jpg" alt="Gallery photo 30" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/630647.jpg" alt="Gallery photo 31" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/644700.jpg" alt="Gallery photo 32" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/659894.jpg" alt="Gallery photo 33" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/671579.jpg" alt="Gallery photo 34" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/689103.jpg" alt="Gallery photo 35" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/717987.jpg" alt="Gallery photo 36" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/724807.jpg" alt="Gallery photo 37" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/763172.jpg" alt="Gallery photo 38" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/772517.jpg" alt="Gallery photo 39" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/773618.jpg" alt="Gallery photo 40" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/774450.jpg" alt="Gallery photo 41" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/777500.jpg" alt="Gallery photo 42" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/785924.jpg" alt="Gallery photo 43" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/792333.jpg" alt="Gallery photo 44" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/810454.jpg" alt="Gallery photo 45" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/869763.jpg" alt="Gallery photo 46" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/892515.jpg" alt="Gallery photo 47" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/924303.jpg" alt="Gallery photo 48" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/966613.jpg" alt="Gallery photo 49" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/988486.jpg" alt="Gallery photo 50" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/624785.jpg" alt="Gallery photo 49" class="gi-img" loading="lazy"></div>
+      <div class="gal-item"><img src="images/gallery/330593.jpg" alt="Gallery photo 50" class="gi-img" loading="lazy"></div>
+    </div>
+  </div>
 </section>
 
-<footer>© 2026 KimiChan Studio</footer>
+<section class="gal-cta-wrap" style="padding-top: 100px;">
+  <div class="ct">
+    <article class="gal-cta">
+      <div class="gal-cta-copy">
+        <div class="gal-cta-kicker">Stay in the frame</div>
+        <h2>Follow along on Instagram</h2>
+        <div class="gal-cta-actions">
+          <a class="btn bp" href="https://www.instagram.com/kimic.foto/" target="_blank" rel="noopener" style="color:#0f172a">Follow @kimic.foto</a>
+        </div>
+      </div>
+      <div class="gal-cta-visual">
+        <span class="gal-cta-ring" aria-hidden="true"></span>
+        <img class="gal-cta-photo" src="images/gallery/gallery-cta-icon.jpg" alt="">
+      </div>
+    </article>
+  </div>
+</section>
+
+<footer>© 2027 Kimi Chan</footer>
 <script>
 (function(){
   var themeBtn=document.getElementById("themeBtn");
+  var SUN='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>';
+  var MOON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
   function getTheme(){ try{ return localStorage.getItem("kc-theme"); }catch(e){ return null; } }
   function setTheme(v){ try{ localStorage.setItem("kc-theme", v); }catch(e){} }
+  function paint(theme){
+    document.documentElement.setAttribute("data-theme", theme);
+    if(!themeBtn) return;
+    themeBtn.innerHTML = theme==="dark" ? SUN : MOON;
+    themeBtn.setAttribute("aria-label", theme==="dark" ? "Switch to light mode" : "Switch to dark mode");
+  }
   var theme=getTheme()||"dark";
-  document.documentElement.setAttribute("data-theme",theme);
+  paint(theme);
   if(themeBtn){
-    themeBtn.textContent=theme==="dark"?"\u2600":"\u263E";
-    themeBtn.onclick=function(){
-      theme=theme==="dark"?"light":"dark";
-      document.documentElement.setAttribute("data-theme",theme);
+    themeBtn.addEventListener("click", function(){
+      theme = theme==="dark" ? "light" : "dark";
       setTheme(theme);
-      themeBtn.textContent=theme==="dark"?"\u2600":"\u263E";
-    };
+      paint(theme);
+    });
   }
 })();
-</script>
 
-<script>
 (function(){
   var grid = document.getElementById("galGrid");
   if(!grid) return;
@@ -309,7 +419,12 @@
 
   pack();
   window.addEventListener("load", pack);
-  window.addEventListener("resize", schedulePack);
+  var lastInnerW = window.innerWidth;
+  window.addEventListener("resize", function(){
+    if (window.innerWidth === lastInnerW) return; /* ignore iOS address-bar height */
+    lastInnerW = window.innerWidth;
+    schedulePack();
+  });
 })();
 </script>
 </body>
