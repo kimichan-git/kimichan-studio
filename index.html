@@ -418,12 +418,13 @@ footer {
 <nav>
   <div class="ni">
     <a href="index.html" class="logo">Kimi Chan</a>
-    <div class="nl">
+    <div class="nl" id="siteNav">
       <a href="index.html" class="on">Home</a>
       <a href="gallery.html">Gallery</a>
       <a href="about.html">About</a>
     </div>
     <div class="na">
+            <button class="nb" id="navBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
       <button class="tt" id="themeBtn" type="button" aria-label="Toggle color theme"></button>
       <a href="mailto:kimic329@gmail.com?subject=Hello%20from%20your%20website" class="btn bp" style="color:#0f172a">Get in touch</a>
     </div>
@@ -450,12 +451,12 @@ footer {
     <div class="sl">Capabilities</div>
     <h2 class="st">My Skillset &amp; Expertise</h2>
     <div class="sg">
-      <div class="sc" onclick="this.classList.toggle('open')"><div class="sn">01</div><h3>Photo & Editing</h3><p>Visual planning and professional retouching for product imagery.</p><div class="sx"><ul><li>Product photos</li><li>Retouching</li><li>Visual direction</li></ul></div></div>
-      <div class="sc" onclick="this.classList.toggle('open')"><div class="sn">02</div><h3>Video & Motion</h3><p>Storyboarding and animation for demos, tutorials and promo films.</p><div class="sx"><ul><li>Product demos</li><li>Tutorials</li><li>Promo films</li></ul></div></div>
-      <div class="sc" onclick="this.classList.toggle('open')"><div class="sn">03</div><h3>Website Design</h3><p>Clean interfaces with HTML/SCSS/JS and utilize AI development tools.</p><div class="sx"><ul><li>Dashboards</li><li>Admin consoles</li><li>Responsive UI</li></ul></div></div>
-      <div class="sc" onclick="this.classList.toggle('open')"><div class="sn">04</div><h3>Graphic Design</h3><p>Campaign concepts and promotional materials that strengthen brands.</p><div class="sx"><ul><li>Social campaigns</li><li>Brand visuals</li><li>Print & digital</li></ul></div></div>
-      <div class="sc" onclick="this.classList.toggle('open')"><div class="sn">05</div><h3>UX / UI Design</h3><p>User research, wireframes and high-fidelity interfaces for website or app.</p><div class="sx"><ul><li>User flows</li><li>Prototypes</li><li>Design systems</li></ul></div></div>
-      <div class="sc" onclick="this.classList.toggle('open')"><div class="sn">06</div><h3>Motion Graphics</h3><p>Purposeful animation for video, social media and product experiences.</p><div class="sx"><ul><li>Social motion</li><li>UI animation</li><li>Explainers</li></ul></div></div>
+      <button type="button" class="sc" aria-expanded="false"><div class="sn">01</div><h3>Photo & Editing</h3><p>Visual planning and professional retouching for product imagery.</p><div class="sx"><ul><li>Product photos</li><li>Retouching</li><li>Visual direction</li></ul></div></button>
+      <button type="button" class="sc" aria-expanded="false"><div class="sn">02</div><h3>Video & Motion</h3><p>Storyboarding and animation for demos, tutorials and promo films.</p><div class="sx"><ul><li>Product demos</li><li>Tutorials</li><li>Promo films</li></ul></div></button>
+      <button type="button" class="sc" aria-expanded="false"><div class="sn">03</div><h3>Website Design</h3><p>Clean interfaces with HTML/SCSS/JS and utilize AI development tools.</p><div class="sx"><ul><li>Dashboards</li><li>Admin consoles</li><li>Responsive UI</li></ul></div></button>
+      <button type="button" class="sc" aria-expanded="false"><div class="sn">04</div><h3>Graphic Design</h3><p>Campaign concepts and promotional materials that strengthen brands.</p><div class="sx"><ul><li>Social campaigns</li><li>Brand visuals</li><li>Print & digital</li></ul></div></button>
+      <button type="button" class="sc" aria-expanded="false"><div class="sn">05</div><h3>UX / UI Design</h3><p>User research, wireframes and high-fidelity interfaces for website or app.</p><div class="sx"><ul><li>User flows</li><li>Prototypes</li><li>Design systems</li></ul></div></button>
+      <button type="button" class="sc" aria-expanded="false"><div class="sn">06</div><h3>Motion Graphics</h3><p>Purposeful animation for video, social media and product experiences.</p><div class="sx"><ul><li>Social motion</li><li>UI animation</li><li>Explainers</li></ul></div></button>
     </div>
   </div>
 </section>
@@ -699,7 +700,7 @@ footer {
   </div>
 </section>
 
-<footer>© 2027 Kimi Chan</footer>
+<footer>© <span data-year></span> Kimi Chan</footer>
 
 <script>
 (function () {
@@ -759,30 +760,11 @@ footer {
 })();
 
 (function(){
-  var themeBtn=document.getElementById("themeBtn");
-  var SUN='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>';
-  var MOON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
-  function getTheme(){ try{ return localStorage.getItem("kc-theme"); }catch(e){ return null; } }
-  function setTheme(v){ try{ localStorage.setItem("kc-theme", v); }catch(e){} }
-  function paint(theme){
-    document.documentElement.setAttribute("data-theme", theme);
-    if(!themeBtn) return;
-    themeBtn.innerHTML = theme==="dark" ? SUN : MOON;
-    themeBtn.setAttribute("aria-label", theme==="dark" ? "Switch to light mode" : "Switch to dark mode");
-  }
-  var theme=getTheme()||"dark";
-  paint(theme);
-  if(themeBtn){
-    themeBtn.addEventListener("click", function(){
-      theme = theme==="dark" ? "light" : "dark";
-      setTheme(theme);
-      paint(theme);
-    });
-  }
-})();
-
-(function(){
   document.querySelectorAll(".sc").forEach(function(el){
+    el.addEventListener("click", function(){
+      var open = el.classList.toggle("open");
+      el.setAttribute("aria-expanded", open ? "true" : "false");
+    });
     var frame = null;
     var px = 0, py = 0;
     function update(){
@@ -805,5 +787,7 @@ footer {
   });
 })();
 </script>
+<script src="site.js"></script>
+<script src="theme.js"></script>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Gallery — KimiChan Studio</title>
+<title>Gallery — Kimi Chan</title>
 <link rel="icon" href="images/favicon/favicon.ico" sizes="any">
 <link rel="icon" href="images/favicon/favicon.svg" type="image/svg+xml">
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32.png">
@@ -88,7 +88,15 @@
   .gal-grid { gap: 14px; }
   .gal-col { gap: 14px; }
 }
-.gal-ig { text-align: left; margin-left: 0; padding-left: 0; }
+.gal-ig {
+  text-align: left;
+  margin: 24px 0 0;
+  padding-left: 0;
+  color: var(--t);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+.gal-ig a { color: var(--a); font-weight: 600; }
 
 .gal-cta-wrap{ padding: 8px 24px 64px; }
 .gal-cta{
@@ -180,12 +188,13 @@
 <nav>
   <div class="ni">
     <a href="index.html" class="logo">Kimi Chan</a>
-    <div class="nl">
+    <div class="nl" id="siteNav">
       <a href="index.html">Home</a>
       <a href="gallery.html" class="on">Gallery</a>
       <a href="about.html">About</a>
     </div>
     <div class="na">
+            <button class="nb" id="navBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
       <button class="tt" id="themeBtn" type="button" aria-label="Toggle color theme"></button>
       <a href="mailto:kimic329@gmail.com?subject=Hello%20from%20your%20website" class="btn bp" style="color:#0f172a">Get in touch</a>
     </div>
@@ -196,8 +205,7 @@
 <div class="ct">
   <div class="sl">Photography</div>
     <h1>My Journey</h1>
-    <p class="lead">Discover the world through my lens. A visual journey across Hong Kong and beyond, capturing the serene interplay of cityscapes, landscapes, and human stories.</p>
-    <p class="gal-ig" style="margin-top:36px;color:var(--m);font-size:.95rem;text-align:left">More work on <a href="https://www.instagram.com/kimic.foto/" style="color:var(--a);font-weight:600" target="_blank" rel="noopener">Instagram: @kimic.foto</a></p>
+    <p class="lead">Discover the world through my lens. A visual journey across Hong Kong and beyond, capturing the serene interplay of cityscapes, landscapes, and human stories. More work on <a href="https://www.instagram.com/kimic.foto/" target="_blank" rel="noopener">Instagram: @kimic.foto</a></p>
     <div class="gal-grid" id="galGrid">
       <div class="gal-item"><img src="images/gallery/026244.jpg" alt="Gallery photo 1" class="gi-img" loading="lazy"></div>
       <div class="gal-item"><img src="images/gallery/030627.jpg" alt="Gallery photo 2" class="gi-img" loading="lazy"></div>
@@ -273,31 +281,8 @@
   </div>
 </section>
 
-<footer>© 2027 Kimi Chan</footer>
+<footer>© <span data-year></span> Kimi Chan</footer>
 <script>
-(function(){
-  var themeBtn=document.getElementById("themeBtn");
-  var SUN='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>';
-  var MOON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
-  function getTheme(){ try{ return localStorage.getItem("kc-theme"); }catch(e){ return null; } }
-  function setTheme(v){ try{ localStorage.setItem("kc-theme", v); }catch(e){} }
-  function paint(theme){
-    document.documentElement.setAttribute("data-theme", theme);
-    if(!themeBtn) return;
-    themeBtn.innerHTML = theme==="dark" ? SUN : MOON;
-    themeBtn.setAttribute("aria-label", theme==="dark" ? "Switch to light mode" : "Switch to dark mode");
-  }
-  var theme=getTheme()||"dark";
-  paint(theme);
-  if(themeBtn){
-    themeBtn.addEventListener("click", function(){
-      theme = theme==="dark" ? "light" : "dark";
-      setTheme(theme);
-      paint(theme);
-    });
-  }
-})();
-
 (function(){
   var grid = document.getElementById("galGrid");
   if(!grid) return;
@@ -427,5 +412,7 @@
   });
 })();
 </script>
+<script src="site.js"></script>
+<script src="theme.js"></script>
 </body>
 </html>

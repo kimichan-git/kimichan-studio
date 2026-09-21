@@ -22,339 +22,24 @@
 })();
 </script>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Unboxing Video — Kimi Chan Studio</title>
+<title>Unboxing Video — Kimi Chan</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<style>
-.cs { padding: 100px 24px 80px; }
-.cs .ct { max-width: 1100px; }
-.cs-top { margin-bottom: 32px; }
-.cs-back { font-size: .9rem; font-weight: 500; color: var(--a); display: inline-flex; align-items: center; gap: 6px; transition: opacity .2s; }
-.cs-back:hover { opacity: .8; }
-.cs-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
-.cs-pill { font-size: .72rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--b); color: var(--m); background: var(--c); }
-.cs-hero { display: block; margin-bottom: 40px; max-width: none; width: 100%; }
-.cs-hero h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 800; letter-spacing: -.035em; line-height: 1.08; margin: 0 0 16px; }
-.cs-lead { font-size: 1.12rem; color: var(--m); line-height: 1.65; max-width: none; width: 100%; margin: 0; }
-.cs-banner { width: 100%; border-radius: 20px; overflow: hidden; margin-bottom: 64px; border: 1px solid var(--b); background: var(--c); aspect-ratio: 21 / 9; position: relative; }
-.cs-banner img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.cs-layout { display: grid; grid-template-columns: 200px 1fr; gap: 48px; align-items: start; }
-.cs-toc { position: sticky; top: 88px; border: none; background: transparent; height: auto; z-index: 2; }
-.cs-toc-label { font-size: .7rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--m); margin-bottom: 14px; }
-.cs-toc a { display: block; font-size: .88rem; font-weight: 500; color: var(--m); padding: 7px 0; border: none; border-left: 2px solid transparent; padding-left: 14px; text-decoration: none; transition: color .2s, border-color .2s; }
-.cs-toc a:hover { color: var(--t); }
-.cs-toc a.on { color: var(--t); border-left-color: var(--a); font-weight: 600; }
-.cs-main { min-width: 0; }
-.cs-section { margin-bottom: 64px; scroll-margin-top: 96px; }
-.cs-section h2 { font-size: 1.5rem; font-weight: 700; letter-spacing: -.02em; margin: 0 0 16px; }
-.cs-section > p { color: var(--m); font-size: 1.02rem; line-height: 1.7; max-width: none; width: 100%; margin: 0 0 16px; }
-.cs-focus { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
-.cs-focus-card { background: var(--c); border: 1px solid var(--b); border-radius: 14px; padding: 20px; transition: border-color .25s, transform .25s, box-shadow .25s; }
-.cs-focus-card:hover { border-color: var(--a); transform: translateY(-2px); box-shadow: var(--sh); }
-.cs-focus-num { font-size: .72rem; font-weight: 700; color: var(--a); letter-spacing: .06em; margin-bottom: 8px; }
-.cs-focus-card h3 { font-size: 1.02rem; font-weight: 600; margin: 0 0 6px; }
-.cs-focus-card p { font-size: .9rem; color: var(--m); margin: 0; line-height: 1.55; }
-.cs-scope { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
-.cs-scope-col { background: var(--c); border: 1px solid var(--b); border-radius: 14px; padding: 20px; }
-.cs-scope-col h3 { font-size: .95rem; font-weight: 600; margin: 0 0 12px; color: var(--t); }
-.cs-scope-col ul { list-style: none; margin: 0; padding: 0; }
-.cs-scope-col li { font-size: .88rem; color: var(--m); padding: 5px 0 5px 16px; position: relative; line-height: 1.45; }
-.cs-scope-col li::before { content: "→"; position: absolute; left: 0; color: var(--a); font-size: .8rem; }
-.cs-img { width: 100%; border-radius: 16px; overflow: hidden; border: 1px solid var(--b); margin: 28px 0; background: var(--c); }
-.cs-img img { width: 100%; height: auto; display: block; }
-.cs-img-caption { font-size: .82rem; color: var(--m); padding: 10px 14px; border-top: 1px solid var(--b); }
-.cs-media-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 28px 0; }
-.cs-media-card { border-radius: 16px; overflow: hidden; border: 1px solid var(--b); background: var(--c); transition: transform .3s, box-shadow .3s; }
-.cs-media-card:hover { transform: translateY(-3px); box-shadow: var(--sh); }
-.cs-media-card .thumb { height: 200px; overflow: hidden; background: var(--s); }
-.cs-media-card .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s ease; }
-.cs-media-card:hover .thumb img { transform: scale(1.04); }
-.cs-media-card .label { padding: 14px 16px; font-size: .95rem; font-weight: 600; }
-.cs-outcome h2 { margin-bottom: 12px; }
-.cs-outcome > p { color: var(--m); max-width: none; width: 100%; margin-bottom: 28px; }
-.cs-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.cs-stat { padding: 16px; border-radius: 12px; background: var(--bg); border: 1px solid var(--b); }
-.cs-stat strong { display: block; font-size: 1.35rem; font-weight: 700; color: var(--a); margin-bottom: 4px; }
-.cs-stat span { font-size: .85rem; color: var(--m); }
-.cs-nav { position: static; display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-top: 56px; padding: 28px 0 8px; border: none; border-top: 1px solid var(--b); background: transparent; max-width: 1100px; width: 100%; height: auto; z-index: auto; }
-.cs-nav a { font-weight: 600; color: var(--a); font-size: .95rem; }
-.cs-reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s cubic-bezier(.22,1,.36,1), transform .6s cubic-bezier(.22,1,.36,1); }
-.cs-reveal.in { opacity: 1; transform: none; }
+<link rel="stylesheet" href="project-page.css">
 
-/* Slider */
-.cs-video {
-  margin: 28px 0 8px;
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid var(--b);
-  background: #000;
-  aspect-ratio: 16 / 9;
-  max-width: 100%;
-}
-.cs-video iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
-  display: block;
-}
-.cs-slider { margin: 28px 0 32px; }
-.cs-slider-viewport {
-  border-radius: 16px; overflow: hidden; border: 1px solid var(--b);
-  background: #fff; aspect-ratio: 1 / 1; max-width: 560px; width: 100%;
-  margin: 0 auto; position: relative;
-}
-.cs-slider--wide .cs-slider-viewport {
-  aspect-ratio: 16 / 9;
-  max-width: 100%;
-}
-.cs-slider--wide .cs-slide img {
-  object-fit: cover;
-}
-.cs-slider-track {
-  display: flex; height: 100%; width: 100%;
-  transition: transform .45s cubic-bezier(.22,1,.36,1); will-change: transform;
-}
-.cs-slide {
-  flex: 0 0 100%; width: 100%; height: 100%;
-  min-width: 100%; max-width: 100%; box-sizing: border-box;
-}
-.cs-slide img { width: 100%; height: 100%; object-fit: contain; display: block; background: #fff; }
-.cs-slider-nav {
-  display: flex; align-items: center; justify-content: center; gap: 12px;
-  margin-top: 16px; position: relative; z-index: 5; pointer-events: auto;
-}
-.cs-slider-btn {
-  width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--b);
-  background: var(--c); color: var(--t); font-size: 1rem; cursor: pointer;
-  display: inline-flex; align-items: center; justify-content: center;
-  font-family: inherit; z-index: 6; pointer-events: auto; flex-shrink: 0;
-  -webkit-appearance: none; appearance: none;
-}
-.cs-slider-btn:hover { border-color: var(--a); transform: scale(1.05); }
-.cs-slider-thumbs {
-  display: flex; gap: 8px; align-items: center; flex-wrap: nowrap;
-  justify-content: flex-start; max-width: min(100%, 420px);
-  overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin; padding: 4px 2px; pointer-events: auto;
-}
-.cs-thumb {
-  width: 48px; height: 48px; border-radius: 8px; border: 2px solid transparent;
-  padding: 0; cursor: pointer; background: var(--bg2); opacity: .55;
-  overflow: hidden; flex-shrink: 0; line-height: 0; z-index: 6;
-  pointer-events: auto; -webkit-appearance: none; appearance: none;
-  transition: opacity .2s, border-color .2s, transform .2s;
-}
-.cs-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
-.cs-thumb.is-active { opacity: 1; border-color: var(--a); transform: scale(1.06); }
-
-@media (max-width: 900px) {
-  .cs-layout { grid-template-columns: 1fr; }
-  .cs-toc { display: none; }
-  .cs-focus, .cs-scope, .cs-media-grid, .cs-stats { grid-template-columns: 1fr; }
-  .cs-banner { aspect-ratio: 16 / 9; }
-}
-
-.cs-yt-actions {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  margin: 16px 0 28px;
-  padding-right: 0;
-  box-sizing: border-box;
-}
-@media (max-width: 900px) {
-  .cs-yt-actions {
-    width: 100%;
-  }
-}
-.cs-yt-actions a {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 20px;
-  border-radius: 999px;
-  border: 1px solid var(--b);
-  background: var(--c);
-  color: var(--t);
-  font-size: .9rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: border-color .2s, background .2s, transform .15s;
-}
-.cs-yt-actions a:hover {
-  border-color: var(--a);
-  background: var(--s);
-  transform: translateY(-1px);
-}
-
-.cs-slider { margin: 28px 0 32px; }
-.cs-slider-viewport {
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid var(--b);
-  background: var(--bg);
-  aspect-ratio: 16 / 10;
-  width: 100%;
-  max-width: none;
-  margin: 0;
-  position: relative;
-}
-.cs-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.cs-specs,
-.cs-kv{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:0;
-  margin:24px 0 8px;
-  background:var(--c);
-  border:1px solid var(--b);
-  border-radius:18px;
-  overflow:hidden;
-}
-.cs-spec-card,
-.cs-kv-row{
-  display:grid;
-  grid-template-columns:140px 1fr;
-  gap:16px;
-  align-items:baseline;
-  padding:16px 22px;
-  border-bottom:1px solid var(--b);
-  background:transparent;
-  border-radius:0;
-  box-shadow:none;
-  transform:none;
-}
-.cs-spec-card:last-child,
-.cs-kv-row:last-child{ border-bottom:none; }
-.cs-spec-card.wide{ grid-column:auto; }
-.cs-spec-card:hover{
-  border-color:var(--b);
-  transform:none;
-  box-shadow:none;
-  background:var(--s);
-}
-.cs-spec-label,
-.cs-kv-row dt{
-  font-size:.72rem;
-  font-weight:700;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  color:var(--a);
-  margin:0;
-}
-.cs-spec-value,
-.cs-kv-row dd{
-  font-size:1.02rem;
-  font-weight:600;
-  color:var(--t);
-  line-height:1.45;
-  letter-spacing:-.015em;
-  margin:0;
-}
-.cs-spec-value em{
-  font-style:normal;
-  color:var(--a);
-  font-size:inherit;
-}
-@media (max-width:700px){
-  .cs-specs, .cs-kv{ grid-template-columns:1fr; }
-  .cs-spec-card, .cs-kv-row{
-    grid-template-columns:1fr;
-    gap:6px;
-    padding:14px 18px;
-  }
-  .cs-spec-card.wide{ grid-column:span 1; }
-}
-
-/* Mobile alignment + stable slider controls */
-@media (max-width: 900px) {
-  .cs {
-    padding-left: 20px !important;
-    padding-right: 20px !important;
-  }
-  .cs .ct {
-    max-width: 100%;
-    padding-left: 0;
-    padding-right: 0;
-  }
-  .cs-nav {
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-  .cs-slider-nav {
-    flex-wrap: nowrap;
-    gap: 10px;
-  }
-  .cs-slider-thumbs {
-    flex-wrap: nowrap !important;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    max-width: min(100%, 280px);
-    justify-content: flex-start;
-  }
-  .cs-slider-btn {
-    transform: none !important; /* no scale transform on mobile */
-    flex-shrink: 0;
-  }
-  .cs-slider-btn:hover,
-  .cs-slider-btn:active {
-    transform: none !important;
-  }
-}
-@media (max-width: 520px) {
-  .cs {
-    padding-left: 16px !important;
-    padding-right: 16px !important;
-  }
-}
-
-/* same-action mobile column */
-@media (max-width: 900px) {
-  .cs-hero, .cs-banner, .cs-top, .cs-section, .cs-layout, .cs-main,
-  .ph-body, .ph-img, .lead, .meta {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    margin-left: 0;
-    margin-right: 0;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-  }
-  .ph {
-    padding-left: 20px !important;
-    padding-right: 20px !important;
-  }
-  .ph .ct {
-    max-width: 100%;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-}
-@media (max-width: 520px) {
-  .ph {
-    padding-left: 16px !important;
-    padding-right: 16px !important;
-  }
-}
-</style>
 </head>
 <body>
 <nav>
   <div class="ni">
   <a href="index.html" class="logo">Kimi Chan</a>
-  <div class="nl">
+  <div class="nl" id="siteNav">
   <a href="index.html">Home</a>
   <a href="gallery.html">Gallery</a>
   <a href="about.html">About</a>
   </div>
   <div class="na">
-  <button class="tt" id="themeBtn" type="button" aria-label="Toggle color theme"></button>
+        <button class="nb" id="navBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      <button class="tt" id="themeBtn" type="button" aria-label="Toggle color theme"></button>
   <a href="mailto:kimic329@gmail.com?subject=Hello%20from%20your%20website" class="btn bp" style="color:#0f172a">Get in touch</a>
   </div>
   </div>
@@ -487,7 +172,7 @@
         <section class="cs-section cs-reveal" id="editing">
           <h2>Video editing</h2>
           <p>After filming, the best takes are selected. Color and exposure are balanced, then subtitles, background music, and transitions (dissolve, stabilizer, and other effects) are added for a polished final cut.</p>
-            <div class="cs-slider">
+            <div class="cs-slider cs-slider--wide">
               <div class="cs-slider-viewport">
                 <div class="cs-slider-track">
                   <div class="cs-slide is-active"><img src="images/project/unboxing-video-editing-1.jpg" alt="Video editing 1"></div>
@@ -570,32 +255,9 @@
   </div>
 </article>
 
-<footer>© 2027 Kimi Chan</footer>
+<footer>© <span data-year></span> Kimi Chan</footer>
 
 <script>
-(function(){
-  var themeBtn=document.getElementById("themeBtn");
-  var SUN='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>';
-  var MOON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
-  function getTheme(){ try{ return localStorage.getItem("kc-theme"); }catch(e){ return null; } }
-  function setTheme(v){ try{ localStorage.setItem("kc-theme", v); }catch(e){} }
-  function paint(theme){
-    document.documentElement.setAttribute("data-theme", theme);
-    if(!themeBtn) return;
-    themeBtn.innerHTML = theme==="dark" ? SUN : MOON;
-    themeBtn.setAttribute("aria-label", theme==="dark" ? "Switch to light mode" : "Switch to dark mode");
-  }
-  var theme=getTheme()||"dark";
-  paint(theme);
-  if(themeBtn){
-    themeBtn.addEventListener("click", function(){
-      theme = theme==="dark" ? "light" : "dark";
-      setTheme(theme);
-      paint(theme);
-    });
-  }
-})();
-
 (function(){
   var els = document.querySelectorAll(".cs-reveal");
   if (!els.length) return;
@@ -707,5 +369,7 @@
   document.querySelectorAll(".cs-slider").forEach(initSlider);
 })();
 </script>
+<script src="site.js"></script>
+<script src="theme.js"></script>
 </body>
 </html>

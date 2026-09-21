@@ -21,786 +21,184 @@
 })();
 </script>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Urban Watcher — KimiChan Studio</title>
+<title>Urban Watcher — Kimi Chan</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="project-page.css">
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
 <style id="boot-top">html{scroll-behavior:auto!important}html.boot-top body{visibility:hidden}</style>
 <style>
-/* —— Project case study layout —— */
-.cs {
-  padding: 100px 24px 80px;
-}
-.cs .ct {
-  max-width: 1100px;
-}
-
-/* Back + meta strip */
-.cs-top {
-  margin-bottom: 32px;
-}
-.cs-back {
-  font-size: .9rem;
-  font-weight: 500;
-  color: var(--a);
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: opacity .2s;
-}
-.cs-back:hover { opacity: .8; }
-.cs-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 20px;
-}
-.cs-pill {
-  font-size: .72rem;
-  font-weight: 600;
-  letter-spacing: .04em;
-  text-transform: uppercase;
-  padding: 6px 12px;
-  border-radius: 999px;
-  border: 1px solid var(--b);
-  color: var(--m);
-  background: var(--c);
-}
-
-/* Hero header */
-.cs-hero {
-  display: block;
-  margin-bottom: 28px;
-  max-width: none;
-  width: 100%;
-}
-.cs-hero h1 {
-  font-size: clamp(2.4rem, 5vw, 3.6rem);
-  font-weight: 800;
-  letter-spacing: -.035em;
-  line-height: 1.08;
-  margin: 0 0 16px;
-}
-.cs-kicker {
-  font-size: .75rem;
-  font-weight: 600;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--a);
-  margin-bottom: 12px;
-}
-.cs-lead {
-  font-size: 1.12rem;
-  color: var(--m);
-  line-height: 1.65;
-  max-width: none;
-  width: 100%;
-  margin: 0;
-}
-
-/* Full-bleed hero image */
-.cs-banner {
-  width: 100%;
-  border-radius: 20px;
-  overflow: hidden;
-  margin-bottom: 48px;
-  border: 1px solid var(--b);
-  background: var(--c);
-  aspect-ratio: 21 / 9;
-  position: relative;
-}
-.cs-banner img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* Two-column body */
-.cs-layout {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 48px;
-  align-items: start;
-}
-.cs-toc {
-  position: sticky;
-  top: 88px;
-  border: none;
-  border-bottom: none;
-  background: transparent;
-  backdrop-filter: none;
-  height: auto;
-  z-index: 2;
-}
-.cs-toc-label {
-  font-size: .7rem;
-  font-weight: 600;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--m);
-  margin-bottom: 14px;
-}
-.cs-toc a {
-  display: block;
-  font-size: .88rem;
-  font-weight: 500;
-  color: var(--m);
-  padding: 7px 0;
-  border: none;
-  border-left: 2px solid transparent;
-  border-bottom: none;
-  padding-left: 14px;
-  text-decoration: none;
-  box-shadow: none;
-  transition: color .2s, border-color .2s;
-}
-.cs-toc a:hover {
-  color: var(--t);
-  border-bottom: none;
-  text-decoration: none;
-}
-.cs-toc a.on {
-  color: var(--t);
-  border-left-color: var(--a);
-  border-bottom: none;
-  font-weight: 600;
-  text-decoration: none;
-  box-shadow: none;
-}
-.cs-toc a:last-child {
-  border-bottom: none;
-}
-
-.cs-main { min-width: 0; }
-
-.cs-section {
-  margin-bottom: 48px;
+/* Stacking cards (sticky stack) */
+.cs-stack-section {
+  margin-bottom: 64px;
   scroll-margin-top: 96px;
 }
-.cs-section h2 {
+.cs-stack-section > h2 {
   font-size: 1.5rem;
   font-weight: 700;
   letter-spacing: -.02em;
-  margin: 0 0 16px;
+  margin: 0 0 8px;
 }
-.cs-section > p {
+.cs-stack-lead {
   color: var(--m);
   font-size: 1.02rem;
   line-height: 1.7;
-  max-width: none;
-  width: 100%;
-  margin: 0 0 16px;
+  margin: 0 0 28px;
 }
-
-/* Focus grid */
-.cs-focus {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-top: 24px;
+.cs-stack {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-bottom: 12px;
 }
-.cs-focus-card {
+.cs-stack-card {
+  position: sticky;
+  top: calc(88px + var(--stack-i, 0) * 18px);
+  z-index: calc(10 + var(--stack-i, 0));
   background: var(--c);
   border: 1px solid var(--b);
-  border-radius: 14px;
-  padding: 20px;
-  transition: border-color .25s, transform .25s, box-shadow .25s;
+  border-radius: 20px;
+  padding: 28px 28px 26px;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, .08);
+  transform-origin: center top;
 }
-.cs-focus-card:hover {
-  border-color: var(--a);
-  transform: translateY(-2px);
-  box-shadow: var(--sh);
+html[data-theme="dark"] .cs-stack-card {
+  box-shadow: 0 16px 40px rgba(0, 0, 0, .35);
 }
-.cs-focus-num {
+.cs-stack-card:nth-child(1) { --stack-i: 0; }
+.cs-stack-card:nth-child(2) { --stack-i: 1; }
+.cs-stack-card:nth-child(3) { --stack-i: 2; }
+.cs-stack-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.cs-stack-num {
   font-size: .72rem;
   font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
   color: var(--a);
-  letter-spacing: .06em;
-  margin-bottom: 8px;
 }
-.cs-focus-card h3 {
-  font-size: 1.02rem;
-  font-weight: 600;
-  margin: 0 0 6px;
-}
-.cs-focus-card p {
-  font-size: .9rem;
-  color: var(--m);
-  margin: 0;
-  line-height: 1.55;
-}
-
-/* Scope process */
-.cs-scope {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin-top: 24px;
-}
-.cs-scope-col {
-  background: var(--c);
-  border: 1px solid var(--b);
-  border-radius: 14px;
-  padding: 20px;
-}
-.cs-scope-col h3 {
-  font-size: .95rem;
-  font-weight: 600;
+.cs-stack-card h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -.02em;
   margin: 0 0 12px;
   color: var(--t);
 }
-.cs-scope-col ul {
-  list-style: none;
+.cs-stack-card p {
   margin: 0;
-  padding: 0;
-}
-.cs-scope-col li {
-  font-size: .88rem;
-  color: var(--m);
-  padding: 5px 0 5px 16px;
-  position: relative;
-  line-height: 1.45;
-}
-.cs-scope-col li::before {
-  content: "→";
-  position: absolute;
-  left: 0;
-  color: var(--a);
-  font-size: .8rem;
-}
-
-/* Inline images */
-.cs-img {
-  width: 100%;
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid var(--b);
-  margin: 28px 0;
-  background: var(--c);
-}
-.cs-img img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-.cs-img-caption {
-  font-size: .82rem;
-  color: var(--m);
-  padding: 10px 14px;
-  border-top: 1px solid var(--b);
-}
-
-/* Dual media cards */
-.cs-media-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  margin: 28px 0;
-}
-.cs-media-card {
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid var(--b);
-  background: var(--c);
-  transition: transform .3s, box-shadow .3s;
-}
-.cs-media-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--sh);
-}
-.cs-media-card .thumb {
-  height: 200px;
-  overflow: hidden;
-  background: var(--s);
-}
-.cs-media-card .thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform .4s ease;
-}
-.cs-media-card:hover .thumb img {
-  transform: scale(1.04);
-}
-.cs-media-card .label {
-  padding: 14px 16px;
   font-size: .95rem;
-  font-weight: 600;
-}
-
-/* Outcome strip */
-.cs-outcome h2 {
-  margin-bottom: 12px;
-}
-.cs-outcome > p {
-  color: var(--m);
-  max-width: none;
-  width: 100%;
-  margin-bottom: 28px;
-}
-.cs-stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
-.cs-stat {
-  padding: 16px;
-  border-radius: 12px;
-  background: var(--bg);
-  border: 1px solid var(--b);
-}
-.cs-stat strong {
-  display: block;
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: var(--a);
-  margin-bottom: 4px;
-}
-.cs-stat span {
-  font-size: .85rem;
+  line-height: 1.65;
   color: var(--m);
 }
-
-/* Nav */
-.cs-nav {
-  position: static; /* override global nav{position:fixed} */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-  margin-top: 56px;
-  margin-bottom: 0;
-  padding: 28px 0 8px;
-  border: none;
-  border-top: 1px solid var(--b);
-  border-bottom: none;
-  background: transparent;
-  backdrop-filter: none;
-  max-width: 1100px;
-  width: 100%;
-  height: auto;
-  z-index: auto;
-}
-.cs-nav a {
-  font-weight: 600;
-  color: var(--a);
-  font-size: .95rem;
-  transition: opacity .2s;
-}
-.cs-nav a:hover { opacity: .8; }
-
-/* Reveal animation */
-.cs-reveal {
-  opacity: 0;
-  transform: translateY(18px);
-  transition: opacity .6s cubic-bezier(.22,1,.36,1), transform .6s cubic-bezier(.22,1,.36,1);
-}
-.cs-reveal.in {
-  opacity: 1;
-  transform: none;
-}
-
-/* Image slider (Outcome) */
-.cs-slider {
-  margin: 28px 0 32px;
-}
-.cs-slider-viewport {
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid var(--b);
-  background: var(--bg);
-  aspect-ratio: 16 / 10;
-  position: relative;
-}
-.cs-slider-track {
-  display: flex;
-  height: 100%;
-  transition: transform .45s cubic-bezier(.22,1,.36,1);
-  will-change: transform;
-}
-.cs-slide {
-  flex: 0 0 100%;
-  height: 100%;
-  min-width: 100%;
-}
-.cs-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.cs-slider-nav {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-  margin-top: 16px;
-}
-.cs-slider-btn {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 1px solid var(--b);
-  background: var(--c);
-  color: var(--t);
-  font-size: 1rem;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: border-color .2s, background .2s, transform .15s;
-  font-family: inherit;
-}
-.cs-slider-btn:hover {
-  border-color: var(--a);
-  transform: scale(1.05);
-}
-.cs-slider-thumbs {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  max-width: min(100%, 420px);
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-.cs-thumb {
-  width: 56px;
-  height: 40px;
-  border-radius: 8px;
-  border: 2px solid transparent;
-  padding: 0;
-  cursor: pointer;
-  background: var(--bg2);
-  opacity: .55;
-  transition: opacity .2s, border-color .2s, transform .2s;
-  overflow: hidden;
-  flex-shrink: 0;
-  line-height: 0;
-}
-.cs-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  pointer-events: none;
-}
-.cs-thumb.is-active {
-  opacity: 1;
-  border-color: var(--a);
-  transform: scale(1.06);
-}
-
-@media (max-width: 900px) {
-  .cs-layout { grid-template-columns: 1fr; }
-  .cs-toc { display: none; }
-  .cs-focus { grid-template-columns: 1fr; }
-  .cs-scope { grid-template-columns: 1fr; }
-  .cs-media-grid { grid-template-columns: 1fr; }
-  .cs-stats { grid-template-columns: 1fr; }
-  .cs-banner { aspect-ratio: 16 / 9; }
-}
-
-.cs-specs,
-.cs-kv{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:0;
-  margin:24px 0 8px;
-  background:var(--c);
-  border:1px solid var(--b);
-  border-radius:18px;
-  overflow:hidden;
-}
-.cs-spec-card,
-.cs-kv-row{
-  display:grid;
-  grid-template-columns:140px 1fr;
-  gap:16px;
-  align-items:baseline;
-  padding:16px 22px;
-  border-bottom:1px solid var(--b);
-  background:transparent;
-  border-radius:0;
-  box-shadow:none;
-  transform:none;
-}
-.cs-spec-card:last-child,
-.cs-kv-row:last-child{ border-bottom:none; }
-.cs-spec-card.wide{ grid-column:auto; }
-.cs-spec-card:hover{
-  border-color:var(--b);
-  transform:none;
-  box-shadow:none;
-  background:var(--s);
-}
-.cs-spec-label,
-.cs-kv-row dt{
-  font-size:.72rem;
-  font-weight:700;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  color:var(--a);
-  margin:0;
-}
-.cs-spec-value,
-.cs-kv-row dd{
-  font-size:1.02rem;
-  font-weight:600;
-  color:var(--t);
-  line-height:1.45;
-  letter-spacing:-.015em;
-  margin:0;
-}
-.cs-spec-value em{
-  font-style:normal;
-  color:var(--a);
-  font-size:inherit;
-}
-@media (max-width:700px){
-  .cs-specs, .cs-kv{ grid-template-columns:1fr; }
-  .cs-spec-card, .cs-kv-row{
-    grid-template-columns:1fr;
-    gap:6px;
-    padding:14px 18px;
-  }
-  .cs-spec-card.wide{ grid-column:span 1; }
-}
-
-/* —— Stacking cards (sticky stack) —— */
-.cs-stack-section{
-  margin-bottom:64px;
-  scroll-margin-top:96px;
-}
-.cs-stack-section > h2{
-  font-size:1.5rem;
-  font-weight:700;
-  letter-spacing:-.02em;
-  margin:0 0 8px;
-}
-.cs-stack-lead{
-  color:var(--m);
-  font-size:1.02rem;
-  line-height:1.7;
-  margin:0 0 28px;
-}
-.cs-stack{
-  position:relative;
-  display:flex;
-  flex-direction:column;
-  gap:24px;
-  padding-bottom:12px;
-}
-.cs-stack-card{
-  position:sticky;
-  top:calc(88px + var(--stack-i, 0) * 18px);
-  z-index:calc(10 + var(--stack-i, 0));
-  background:var(--c);
-  border:1px solid var(--b);
-  border-radius:20px;
-  padding:28px 28px 26px;
-  box-shadow:0 12px 32px rgba(15,23,42,.08);
-  transform-origin:center top;
-}
-html[data-theme="dark"] .cs-stack-card{
-  box-shadow:0 16px 40px rgba(0,0,0,.35);
-}
-.cs-stack-card:nth-child(1){ --stack-i:0; }
-.cs-stack-card:nth-child(2){ --stack-i:1; }
-.cs-stack-card:nth-child(3){ --stack-i:2; }
-.cs-stack-meta{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  margin-bottom:14px;
-}
-.cs-stack-num{
-  font-size:.72rem;
-  font-weight:700;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  color:var(--a);
-}
-.cs-stack-card h3{
-  font-size:1.35rem;
-  font-weight:700;
-  letter-spacing:-.02em;
-  margin:0 0 12px;
-  color:var(--t);
-}
-.cs-stack-card p{
-  margin:0;
-  font-size:.95rem;
-  line-height:1.65;
-  color:var(--m);
-}
-@media (max-width:700px){
-  .cs-stack-card{
-    padding:22px 20px;
-    top:calc(76px + var(--stack-i, 0) * 14px);
-  }
-  .cs-stack-card h3{ font-size:1.2rem; }
-}
-@media (prefers-reduced-motion: reduce){
-  .cs-stack-card{ position:relative; top:auto; }
-}
-
-.cs-stack-body{
+.cs-stack-body {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   gap: 24px;
   align-items: center;
 }
-.cs-stack-media{
+.cs-stack-media {
   border-radius: 14px;
   overflow: hidden;
   border: 1px solid var(--b);
   aspect-ratio: 4 / 3;
   background: var(--s);
 }
-.cs-stack-media img{
+.cs-stack-media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
-@media (max-width: 700px){
-  .cs-stack-body{
-    grid-template-columns: 1fr;
+@media (max-width: 700px) {
+  .cs-stack-card {
+    padding: 22px 20px;
+    top: calc(76px + var(--stack-i, 0) * 14px);
   }
-  .cs-stack-media{
-    order: -1; /* image on top on mobile */
+  .cs-stack-card h3 { font-size: 1.2rem; }
+  .cs-stack-body { grid-template-columns: 1fr; }
+  .cs-stack-media {
+    order: -1;
     aspect-ratio: 16 / 10;
   }
 }
-
-/* mobile hero banner spacing */
-@media (max-width: 900px) {
-  .cs-hero { margin-bottom: 24px !important; }
-  .cs-banner { margin-bottom: 40px !important; }
-  .cs-section { margin-bottom: 40px !important; }
-}
-
-/* Mobile alignment + stable slider controls */
-@media (max-width: 900px) {
-  .cs {
-    padding-left: 20px !important;
-    padding-right: 20px !important;
-  }
-  .cs .ct {
-    max-width: 100%;
-    padding-left: 0;
-    padding-right: 0;
-  }
-  .cs-nav {
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-  .cs-slider-nav {
-    flex-wrap: nowrap;
-    gap: 10px;
-  }
-  .cs-slider-thumbs {
-    flex-wrap: nowrap !important;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    max-width: min(100%, 280px);
-    justify-content: flex-start;
-  }
-  .cs-slider-btn {
-    transform: none !important; /* no scale transform on mobile */
-    flex-shrink: 0;
-  }
-  .cs-slider-btn:hover,
-  .cs-slider-btn:active {
-    transform: none !important;
-  }
-}
-@media (max-width: 520px) {
-  .cs {
-    padding-left: 16px !important;
-    padding-right: 16px !important;
-  }
-}
-
-@media (max-width: 900px) {
-  .cs-hero, .cs-banner, .cs-top, .cs-section, .cs-layout, .cs-main {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    margin-left: 0;
-    margin-right: 0;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-  }
+@media (prefers-reduced-motion: reduce) {
+  .cs-stack-card { position: relative; top: auto; }
 }
 
 /* Advisor rounded tabs */
-.ad-tabs{ margin-top:24px; text-align:center; }
-.ad-tablist{
-  display:inline-flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:6px;
-  padding:5px;
-  border:1px solid var(--b);
-  border-radius:999px;
-  background:var(--bg);
+.ad-tabs { margin-top: 24px; text-align: center; }
+.ad-tablist {
+  display: inline-flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 5px;
+  border: 1px solid var(--b);
+  border-radius: 999px;
+  background: var(--bg);
 }
-.ad-tab{
-  appearance:none;
-  border:0;
-  background:transparent;
-  color:var(--m);
-  font:600 .85rem Inter,system-ui,sans-serif;
-  padding:8px 16px;
-  border-radius:999px;
-  cursor:pointer;
-  transition:background .2s, color .2s;
+.ad-tab {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--m);
+  font: 600 .85rem Inter, system-ui, sans-serif;
+  padding: 8px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background .2s, color .2s;
 }
-.ad-tab:hover{ color:var(--t); }
-.ad-tab.is-on{
-  background:var(--c);
-  color:var(--t);
-  box-shadow:var(--sh);
+.ad-tab:hover { color: var(--t); }
+.ad-tab.is-on {
+  background: var(--c);
+  color: var(--t);
+  box-shadow: var(--sh);
 }
-.ad-panel{
-  display:none !important;
-  margin-top:18px;
-  padding:20px 22px;
-  border:1px solid var(--b);
-  border-radius:16px;
-  background:var(--c);
-  color:var(--m);
-  font-size:.98rem;
-  line-height:1.7;
-  text-align:left;
+.ad-panel {
+  display: none !important;
+  margin-top: 18px;
+  padding: 20px 22px;
+  border: 1px solid var(--b);
+  border-radius: 16px;
+  background: var(--c);
+  color: var(--m);
+  font-size: .98rem;
+  line-height: 1.7;
+  text-align: left;
 }
-.ad-panel.is-on{ display:block !important; }
-.ad-panel-img{
-  width:100%;
-  border-radius:12px;
-  overflow:hidden;
-  margin:0 0 16px;
-  border:1px solid var(--b);
-  background:var(--s);
-  aspect-ratio:16 / 9;
+.ad-panel.is-on { display: block !important; }
+.ad-panel-img {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 0 0 16px;
+  border: 1px solid var(--b);
+  background: var(--s);
+  aspect-ratio: 16 / 9;
 }
-.ad-panel-img img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
+.ad-panel-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
-.ad-panel p{ margin:0 0 12px; }
-.ad-panel p:last-child{ margin-bottom:0; }
-@media (max-width:700px){
-  .ad-tablist{ width:100%; }
-  .ad-tab{ flex:1 1 auto; text-align:center; }
+.ad-panel p { margin: 0 0 12px; }
+.ad-panel p:last-child { margin-bottom: 0; }
+@media (max-width: 700px) {
+  .ad-tablist { width: 100%; }
+  .ad-tab { flex: 1 1 auto; text-align: center; }
+}
+
+/* Landscape outcome thumbs */
+.cs-thumb {
+  width: 56px;
+  height: 40px;
 }
 </style>
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
@@ -809,13 +207,14 @@ html[data-theme="dark"] .cs-stack-card{
 <nav>
 <div class="ni">
 <a href="index.html" class="logo">Kimi Chan</a>
-<div class="nl">
+<div class="nl" id="siteNav">
 <a href="index.html">Home</a>
 <a href="gallery.html">Gallery</a>
 <a href="about.html">About</a>
 </div>
 <div class="na">
-<button class="tt" id="themeBtn" type="button" aria-label="Toggle color theme"></button>
+      <button class="nb" id="navBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      <button class="tt" id="themeBtn" type="button" aria-label="Toggle color theme"></button>
 <a href="mailto:kimic329@gmail.com?subject=Hello%20from%20your%20website" class="btn bp" style="color:#0f172a">Get in touch</a>
 </div>
 </div>
@@ -916,13 +315,13 @@ html[data-theme="dark"] .cs-stack-card{
         <section class="cs-section cs-reveal" id="statement">
           <h2>Artist Statement</h2>
           <p>When I first became absorbed in photography, Hong Kong’s landscapes deeply impressed me. At that time, I had little interest in the cityscape itself. 
-            Influenced by many different factors, I began shooting between buildings, along streets and alleys, and through residential estates—trying to capture the city’s rhythm. 
+            Influenced by many different factors, I began shooting between buildings, along streets and alleys, and through residential estates — trying to capture the city’s rhythm. 
             Slowly, I realized there is so much in Hong Kong worth preserving on camera. No matter people’s routines or daily behaviors, the city always carries vitality and spirit. To me, 
             these are the beauty elements that come together within the urban environment.</p>
           <p>Living in a fast-paced life shaped by technology, we often overlook the unique human touch. During the social movements and the pandemic, many of our lives were disrupted, and 
             most people were forced to stay in Hong Kong. At the same time, we began to rediscover the city’s history and beauty. This inspired me to create an artwork connected to the Hong Kong I grew up with.</p>
           <p>To capture the most authentic scenes, this artwork focuses on the moment as something experienced through imagery, sound, and space. Designed as immersive and interactive art, 
-            it invites the audience to become participants—exploring from a first-person perspective. The location I chose is based on the place’s characteristics, local landmarks, historical architecture, 
+            it invites the audience to become participants — exploring from a first-person perspective. The location I chose is based on the place’s characteristics, local landmarks, historical architecture, 
             and shared collective memories. Now it’s your turn to observe, reflect, and let the work spark feelings and responses.</p>
         </section>
 
@@ -1145,7 +544,7 @@ html[data-theme="dark"] .cs-stack-card{
             <h2>Outcome</h2>
             <p>Showcased on a tablet at the SCM exhibit, the project came to life alongside free collectible postcards for attendees — extending the experience beyond the screen.</p>
 
-            <div class="cs-slider" id="csSlider">
+            <div class="cs-slider cs-slider--wide" id="csSlider">
               <div class="cs-slider-viewport">
                 <div class="cs-slider-track">
                   <div class="cs-slide is-active">
@@ -1184,15 +583,15 @@ html[data-theme="dark"] .cs-stack-card{
                 <button type="button" class="cs-slider-btn" data-dir="-1" aria-label="Previous slide">←</button>
                 <div class="cs-slider-thumbs" role="tablist">
                   <button type="button" class="cs-thumb is-active" data-index="0" aria-label="Slide 1"><img src="images/project/urban-watcher-outcome-1.jpg" alt="Urban Watcher exhibit view 1"></button>
-                  <button type="button" class="cs-thumb" data-index="1" aria-label="Slide 2"><img src="images/project/urban-watcher-outcome-2" alt="Urban Watcher exhibit view 2"></button>
-                  <button type="button" class="cs-thumb" data-index="2" aria-label="Slide 3"><img src="images/project/urban-watcher-outcome-3" alt="Urban Watcher exhibit view 3"></button>
-                  <button type="button" class="cs-thumb" data-index="3" aria-label="Slide 4"><img src="images/project/urban-watcher-outcome-4" alt="Urban Watcher exhibit view 4"></button>
-                  <button type="button" class="cs-thumb" data-index="4" aria-label="Slide 5"><img src="images/project/urban-watcher-outcome-5" alt="Urban Watcher exhibit view 5"></button>
-                  <button type="button" class="cs-thumb" data-index="5" aria-label="Slide 6"><img src="images/project/urban-watcher-outcome-6" alt="Urban Watcher exhibit view 6"></button>
-                  <button type="button" class="cs-thumb" data-index="6" aria-label="Slide 7"><img src="images/project/urban-watcher-outcome-7" alt="Urban Watcher exhibit view 7"></button>
-                  <button type="button" class="cs-thumb" data-index="7" aria-label="Slide 8"><img src="images/project/urban-watcher-outcome-8" alt="Urban Watcher exhibit view 8"></button>
-                  <button type="button" class="cs-thumb" data-index="8" aria-label="Slide 9"><img src="images/project/urban-watcher-outcome-9" alt="Urban Watcher exhibit view 9"></button>
-                  <button type="button" class="cs-thumb" data-index="9" aria-label="Slide 10"><img src="images/project/urban-watcher-outcome-10" alt="Urban Watcher exhibit view 10"></button>
+                  <button type="button" class="cs-thumb" data-index="1" aria-label="Slide 2"><img src="images/project/urban-watcher-outcome-2.jpg" alt="Urban Watcher exhibit view 2"></button>
+                  <button type="button" class="cs-thumb" data-index="2" aria-label="Slide 3"><img src="images/project/urban-watcher-outcome-3.jpg" alt="Urban Watcher exhibit view 3"></button>
+                  <button type="button" class="cs-thumb" data-index="3" aria-label="Slide 4"><img src="images/project/urban-watcher-outcome-4.jpg" alt="Urban Watcher exhibit view 4"></button>
+                  <button type="button" class="cs-thumb" data-index="4" aria-label="Slide 5"><img src="images/project/urban-watcher-outcome-5.jpg" alt="Urban Watcher exhibit view 5"></button>
+                  <button type="button" class="cs-thumb" data-index="5" aria-label="Slide 6"><img src="images/project/urban-watcher-outcome-6.jpg" alt="Urban Watcher exhibit view 6"></button>
+                  <button type="button" class="cs-thumb" data-index="6" aria-label="Slide 7"><img src="images/project/urban-watcher-outcome-7.jpg" alt="Urban Watcher exhibit view 7"></button>
+                  <button type="button" class="cs-thumb" data-index="7" aria-label="Slide 8"><img src="images/project/urban-watcher-outcome-8.jpg" alt="Urban Watcher exhibit view 8"></button>
+                  <button type="button" class="cs-thumb" data-index="8" aria-label="Slide 9"><img src="images/project/urban-watcher-outcome-9.jpg" alt="Urban Watcher exhibit view 9"></button>
+                  <button type="button" class="cs-thumb" data-index="9" aria-label="Slide 10"><img src="images/project/urban-watcher-outcome-10.jpg" alt="Urban Watcher exhibit view 10"></button>
                 </div>
                 <button type="button" class="cs-slider-btn" data-dir="1" aria-label="Next slide">→</button>
               </div>
@@ -1208,32 +607,9 @@ html[data-theme="dark"] .cs-stack-card{
   </div>
 </article>
 
-<footer>© 2027 Kimi Chan</footer>
+<footer>© <span data-year></span> Kimi Chan</footer>
 
 <script>
-(function(){
-  var themeBtn=document.getElementById("themeBtn");
-  var SUN='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>';
-  var MOON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
-  function getTheme(){ try{ return localStorage.getItem("kc-theme"); }catch(e){ return null; } }
-  function setTheme(v){ try{ localStorage.setItem("kc-theme", v); }catch(e){} }
-  function paint(theme){
-    document.documentElement.setAttribute("data-theme", theme);
-    if(!themeBtn) return;
-    themeBtn.innerHTML = theme==="dark" ? SUN : MOON;
-    themeBtn.setAttribute("aria-label", theme==="dark" ? "Switch to light mode" : "Switch to dark mode");
-  }
-  var theme=getTheme()||"dark";
-  paint(theme);
-  if(themeBtn){
-    themeBtn.addEventListener("click", function(){
-      theme = theme==="dark" ? "light" : "dark";
-      setTheme(theme);
-      paint(theme);
-    });
-  }
-})();
-
 /* Scroll reveal */
 (function(){
   var els = document.querySelectorAll(".cs-reveal");
@@ -1524,5 +900,7 @@ html[data-theme="dark"] .cs-stack-card{
   });
 })();
 </script>
+<script src="site.js"></script>
+<script src="theme.js"></script>
 </body>
 </html>

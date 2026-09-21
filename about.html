@@ -2,7 +2,7 @@
 <html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>About — KimiChan Studio</title>
+<title>About — Kimi Chan</title>
 <link rel="icon" href="images/favicon/favicon.ico" sizes="any">
 <link rel="icon" href="images/favicon/favicon.svg" type="image/svg+xml">
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32.png">
@@ -366,6 +366,9 @@ html[data-theme="dark"] .tl-item:not(:last-child) .tl-rail::before{
   max-width:none; /* use full left column — text stays left */
 }
 .about-copy .at{margin-top:24px;max-width:42rem !important}
+.about-copy .at p{color:var(--m);font-size:1rem;line-height:1.65;margin:0}
+.about-copy .at p + p{margin-top:16px}
+.about-copy .at a{color:var(--a);font-weight:600}
 .about-photo{
   position:relative;
   width:320px;
@@ -628,13 +631,14 @@ html[data-theme="dark"] .fit-copy{
 <nav>
   <div class="ni">
   <a href="index.html" class="logo">Kimi Chan</a>
-  <div class="nl">
+  <div class="nl" id="siteNav">
     <a href="index.html">Home</a>
     <a href="gallery.html">Gallery</a>
     <a href="about.html" class="on">About</a>
   </div>
   <div class="na">
-    <button class="tt" id="themeBtn" type="button" aria-label="Toggle color theme"></button>
+          <button class="nb" id="navBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      <button class="tt" id="themeBtn" type="button" aria-label="Toggle color theme"></button>
     <a href="mailto:kimic329@gmail.com?subject=Hello%20from%20your%20website" class="btn bp" style="color:#0f172a">Get in touch</a>
   </div>
   </div>
@@ -648,8 +652,8 @@ html[data-theme="dark"] .fit-copy{
       <h1>Kimi Chan</h1>
       <p class="lead">A senior Multimedia Designer with over 5 years of experience.</p>
       <div class="at">
-        <p>Combining expertise in photography, video, graphic design, and UX/UI, I create multimedia experiences that engage audiences and drive real results. As a photographer, my work captures landscapes, cityscapes, and portraits through a serene, authentic lens, highlighting the dynamic interplay between city energy and quiet abstraction. Explore my recent shots and visual projects on <a href="https://www.instagram.com/kimic.foto/" target="_blank" rel="noopener" style="color:var(--a);font-weight:600">Instagram</a>.</p>
-        <p style="margin-top:16px">I have a natural curiosity and love picking up new skills whenever I can. In the past two years alone, I’ve jumped into a diverse range of topics, learning how to craft interior spaces using AutoCAD, becoming a Gemini Certified Educator, and experimenting with vibe coding to build software using AI. I thrive on staying ahead of the curve and applying modern tools to solve problems. Feel free to follow up my latest state on <a href="https://www.linkedin.com/in/kimi-chan-3ab4ab211" target="_blank" rel="noopener" style="color:var(--a);font-weight:600">LinkedIn</a>.</p>
+        <p>Combining expertise in photography, video, graphic design, and UX/UI, I create multimedia experiences that engage audiences and drive real results. As a photographer, my work captures landscapes, cityscapes, and portraits through a serene, authentic lens, highlighting the dynamic interplay between city energy and quiet abstraction. Explore my recent shots and visual projects on <a href="https://www.instagram.com/kimic.foto/" target="_blank" rel="noopener">Instagram</a>.</p>
+        <p>I have a natural curiosity and love picking up new skills whenever I can. In the past two years alone, I’ve jumped into a diverse range of topics, learning how to craft interior spaces using AutoCAD, becoming a Gemini Certified Educator, and experimenting with vibe coding to build software using AI. I thrive on staying ahead of the curve and applying modern tools to solve problems. Feel free to follow up my latest state on <a href="https://www.linkedin.com/in/kimi-chan-3ab4ab211" target="_blank" rel="noopener">LinkedIn</a>.</p>
         <div style="display: none;" class="dl-cards">
           <div class="dl-card">
             <div class="dl-preview dl-cv">
@@ -657,7 +661,7 @@ html[data-theme="dark"] .fit-copy{
             </div>
             <div class="dl-meta">
               <span class="dl-name">CV</span>
-              <a href="https://drive.google.com/file/d/1uTexTaSHV8gVAqKVt-NF63azdXe2sEiO/view?usp=share_link" download="Chan Wing Shan_CV-10012026.pdf" class="dl-btn" target="_blank" rel="noopener">
+              <a href="public/Chan%20Wing%20Shan_CV-17092026.pdf" download="Chan Wing Shan_CV-17092026.pdf" class="dl-btn">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                 Download
               </a>
@@ -802,7 +806,7 @@ html[data-theme="dark"] .fit-copy{
               <svg class="fit-check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
             </button>
           </div>
-          <a href="https://drive.google.com/file/d/1uTexTaSHV8gVAqKVt-NF63azdXe2sEiO/view?usp=share_link" download="Chan Wing Shan_CV-10012026.pdf" class="btn bp fit-resume" target="_blank" rel="noopener">
+          <a href="public/Chan%20Wing%20Shan_CV-17092026.pdf" download="Chan Wing Shan_CV-17092026.pdf" class="btn bp fit-resume">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             Download resume
           </a>
@@ -812,7 +816,7 @@ html[data-theme="dark"] .fit-copy{
   </div>
 </section>
 
-<footer>© 2027 Kimi Chan</footer>
+<footer>© <span data-year></span> Kimi Chan</footer>
 
 <script>
 (function(){
@@ -832,28 +836,6 @@ html[data-theme="dark"] .fit-copy{
   });
 })();
 
-(function(){
-  var themeBtn=document.getElementById("themeBtn");
-  var SUN='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>';
-  var MOON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
-  function getTheme(){ try{ return localStorage.getItem("kc-theme"); }catch(e){ return null; } }
-  function setTheme(v){ try{ localStorage.setItem("kc-theme", v); }catch(e){} }
-  function paint(theme){
-    document.documentElement.setAttribute("data-theme", theme);
-    if(!themeBtn) return;
-    themeBtn.innerHTML = theme==="dark" ? SUN : MOON;
-    themeBtn.setAttribute("aria-label", theme==="dark" ? "Switch to light mode" : "Switch to dark mode");
-  }
-  var theme=getTheme()||"dark";
-  paint(theme);
-  if(themeBtn){
-    themeBtn.addEventListener("click", function(){
-      theme = theme==="dark" ? "light" : "dark";
-      setTheme(theme);
-      paint(theme);
-    });
-  }
-})();
 (function(){
   var btn=document.getElementById("copyEmailBtn");
   if(!btn) return;
@@ -951,5 +933,7 @@ html[data-theme="dark"] .fit-copy{
   requestAnimationFrame(tick);
 })();
 </script>
+<script src="site.js"></script>
+<script src="theme.js"></script>
 </body>
 </html>
