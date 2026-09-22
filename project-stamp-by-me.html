@@ -23,9 +23,16 @@
 </script>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Stamp By Me — Kimi Chan</title>
+<meta name="description" content="Stamp By Me promo film for HKMoA — a Bluetooth museum app that guides visitors through floor challenges to collect stamps and gifts.">
+<meta property="og:title" content="Stamp By Me — Kimi Chan">
+<meta property="og:description" content="Stamp By Me promo film for HKMoA — a Bluetooth museum app that guides visitors through floor challenges to collect stamps and gifts.">
+<meta property="og:image" content="images/index/hero-desktop.webp">
+<meta property="og:url" content="project-stamp-by-me.html">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="project-page.css">
+<link rel="preload" href="styles.css" as="style" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="styles.css"></noscript>
+<link rel="preload" href="project-page.css" as="style" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="project-page.css"></noscript>
 
 </head>
 <body>
@@ -347,7 +354,7 @@
   document.querySelectorAll(".cs-slider").forEach(initSlider);
 })();
 </script>
-<script src="site.js"></script>
-<script src="theme.js"></script>
+<script src="site.js" defer></script>
+<script src="theme.js" defer></script>
 </body>
 </html>

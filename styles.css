@@ -233,23 +233,32 @@ html[data-theme="dark"] .kc-toast-btn{
   .kc-toast-wrap{right:16px;bottom:16px;}
 }
 
-.hero {
-  background: url("images/index/hero-desktop.jpg") center / cover no-repeat;
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  margin: 0;
+  pointer-events: none;
 }
-[data-theme="dark"] .hero {
-  background-image: url("images/index/hero-desktop-dark.jpg");
+.hero-bg--dark { display: none; }
+[data-theme="dark"] .hero-bg--light { display: none; }
+[data-theme="dark"] .hero-bg--dark { display: block; }
+.hero-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 @media (max-width: 850px) {
   .hero {
-    background-image: url("images/index/hero-mobile.jpg");
-    background-position: center bottom;
     align-items: flex-start;
     padding-top: 180px;
     padding-bottom: 280px;
   }
-  [data-theme="dark"] .hero {
-    background-image: url("images/index/hero-mobile-dark.jpg");
-  }
+  .hero-bg-img { object-position: center bottom; }
 }
 
 @font-face {
