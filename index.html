@@ -9,8 +9,8 @@
 <meta property="og:description" content="Portfolio of Kimi Chan, a Hong Kong multimedia designer and photographer. Selected work in video, graphic design, UX/UI, and photography.">
 <meta property="og:image" content="images/index/hero-desktop.webp">
 <meta property="og:url" content="index.html">
-<link rel="preload" as="image" href="images/index/hero-desktop-dark.webp" media="(min-width: 851px)" fetchpriority="high">
-<link rel="preload" as="image" href="images/index/hero-mobile-dark.webp" media="(max-width: 850px)" fetchpriority="high">
+<link rel="preload" as="image" href="images/index/hero-desktop-dark.jpg" media="(min-width: 851px)" fetchpriority="high">
+<link rel="preload" as="image" href="images/index/hero-mobile-dark.jpg" media="(max-width: 850px)" fetchpriority="high">
 <link rel="icon" href="images/favicon/favicon.ico" sizes="any">
 <link rel="icon" href="images/favicon/favicon.svg" type="image/svg+xml">
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32.png">
@@ -437,11 +437,15 @@ footer {
 <section class="hero">
   <picture class="hero-bg hero-bg--light" aria-hidden="true">
     <source media="(max-width: 850px)" srcset="images/index/hero-mobile.webp" type="image/webp">
-    <img src="images/index/hero-desktop.webp" alt="" decoding="async" class="hero-bg-img">
+    <source media="(max-width: 850px)" srcset="images/index/hero-mobile.jpg">
+    <source srcset="images/index/hero-desktop.webp" type="image/webp">
+    <img src="images/index/hero-desktop.jpg" alt="" decoding="async" class="hero-bg-img">
   </picture>
   <picture class="hero-bg hero-bg--dark" aria-hidden="true">
     <source media="(max-width: 850px)" srcset="images/index/hero-mobile-dark.webp" type="image/webp">
-    <img src="images/index/hero-desktop-dark.webp" alt="" fetchpriority="high" decoding="async" class="hero-bg-img">
+    <source media="(max-width: 850px)" srcset="images/index/hero-mobile-dark.jpg">
+    <source srcset="images/index/hero-desktop-dark.webp" type="image/webp">
+    <img src="images/index/hero-desktop-dark.jpg" alt="" fetchpriority="high" decoding="async" class="hero-bg-img">
   </picture>
   <div class="hi">
     <div>
