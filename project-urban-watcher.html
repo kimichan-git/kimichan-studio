@@ -22,12 +22,12 @@
 </script>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Urban Watcher — Kimi Chan</title>
+<link rel="preload" href="assets/fonts/inter-v20-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
 <meta name="description" content="Urban Watcher is a graduation VR project documenting fleeting Hong Kong places through 360 photography, spatial sound, and interactive tour.">
 <meta property="og:title" content="Urban Watcher — Kimi Chan">
 <meta property="og:description" content="Urban Watcher is a graduation VR project documenting fleeting Hong Kong places through 360 photography, spatial sound, and interactive tour.">
 <meta property="og:image" content="images/index/hero-desktop.webp">
 <meta property="og:url" content="project-urban-watcher.html">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="preload" href="styles.css" as="style" onload="this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="styles.css"></noscript>
 <link rel="preload" href="project-page.css" as="style" onload="this.rel='stylesheet'">
@@ -155,7 +155,7 @@ html[data-theme="dark"] .cs-stack-card {
   border: 0;
   background: transparent;
   color: var(--m);
-  font: 600 .85rem Inter, system-ui, sans-serif;
+  font: 600 .85rem 'Inter', 'Inter Fallback', sans-serif;
   padding: 8px 16px;
   border-radius: 999px;
   cursor: pointer;
