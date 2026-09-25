@@ -1,14 +1,20 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Kimi Chan — Multimedia Designer</title>
 <meta name="description" content="Portfolio of Kimi Chan, a Hong Kong multimedia designer and photographer. Selected work in video, graphic design, UX/UI, and photography.">
+<meta property="og:title" content="Kimi Chan — Multimedia Designer">
+<meta property="og:description" content="Portfolio of Kimi Chan, a Hong Kong multimedia designer and photographer. Selected work in video, graphic design, UX/UI, and photography.">
+<meta property="og:image" content="images/index/hero-desktop.jpg">
+<meta property="og:url" content="index.html">
 <link rel="icon" href="images/favicon/favicon.ico" sizes="any">
 <link rel="icon" href="images/favicon/favicon.svg" type="image/svg+xml">
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
@@ -114,10 +120,6 @@
   background: var(--c);
   color: var(--t);
 }
-[data-theme="dark"] .sw-flag-body {
-  background: #1F1F1F;
-  color: #f1f5f9;
-}
 
 .sw-label {
   font-size: .72rem;
@@ -134,7 +136,6 @@
   margin: 0 0 10px;
   color: var(--t);
 }
-[data-theme="dark"] .sw-flag-body h3 { color: #fff; }
 .sw-meta {
   font-size: .9rem;
   color: var(--m);
@@ -170,10 +171,6 @@
   border: 1px solid var(--b);
   color: var(--m);
   background: transparent;
-}
-[data-theme="dark"] .sw-tags span {
-  border-color: rgba(148,163,184,.35);
-  color: #cbd5e1;
 }
 .sw-link {
   font-size: .92rem;
@@ -243,17 +240,12 @@
   display: flex;
   flex-direction: column;
 }
-[data-theme="dark"] .sw-card-body {
-  background: #1F1F1F;
-  color: #f1f5f9;
-}
 .sw-card-body h3 {
   font-size: 1.1rem;
   font-weight: 700;
   margin: 0 0 6px;
   color: var(--t);
 }
-[data-theme="dark"] .sw-card-body h3 { color: #fff; }
 .sw-card-body .sw-meta {
   font-size: .82rem;
   margin-bottom: 10px;
@@ -405,14 +397,6 @@
 .contact-section .st { color: var(--t); }
 .contact-section .sd { color: var(--m); }
 .contact-section .btn.bp { color: #0f172a; }
-
-/* Footer: white in light mode, keep dark-theme surface in dark mode */
-footer {
-  background: #FEFCFB;
-}
-[data-theme="dark"] footer {
-  background: var(--bg1);
-}
 </style>
 </head>
 <body>
@@ -667,27 +651,27 @@ footer {
   <div class="bd-stage">
     <div class="bd-track" id="bdTrack">
       <!-- set A -->
-      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/093331.jpg" alt="093331" loading="lazy"></div></div>
-      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/093400.jpg" alt="093400" loading="lazy"></div></div>
-      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/131875.jpg" alt="131875" loading="lazy"></div></div>
-      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/134761.jpg" alt="134761" loading="lazy"></div></div>
-      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/135908.jpg" alt="135908" loading="lazy"></div></div>
-      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/168791.jpg" alt="168791" loading="lazy"></div></div>
-      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/248121.jpg" alt="248121" loading="lazy"></div></div>
-      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/313777.jpg" alt="313777" loading="lazy"></div></div>
-      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/326791.jpg" alt="326791" loading="lazy"></div></div>
-      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/335608.jpg" alt="335608" loading="lazy"></div></div>
+      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/093331.jpg" alt="093331"></div></div>
+      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/093400.jpg" alt="093400"></div></div>
+      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/131875.jpg" alt="131875"></div></div>
+      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/134761.jpg" alt="134761"></div></div>
+      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/135908.jpg" alt="135908"></div></div>
+      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/168791.jpg" alt="168791"></div></div>
+      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/248121.jpg" alt="248121"></div></div>
+      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/313777.jpg" alt="313777"></div></div>
+      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/326791.jpg" alt="326791"></div></div>
+      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/335608.jpg" alt="335608"></div></div>
       <!-- set B (duplicate for seamless loop) -->
-      <div class="bd-card" aria-hidden="true"><div class="bd-card-inner"><img src="images/gallery/416590.jpg" alt="416590" loading="lazy"></div></div>
-      <div class="bd-card" aria-hidden="true"><div class="bd-card-inner"><img src="images/gallery/417324.jpg" alt="417324" loading="lazy"></div></div>
-      <div class="bd-card" aria-hidden="true"><div class="bd-card-inner"><img src="images/gallery/431058.jpg" alt="431058" loading="lazy"></div></div>
-      <div class="bd-card" aria-hidden="true"><div class="bd-card-inner"><img src="images/gallery/433768.jpg" alt="433768" loading="lazy"></div></div>
-      <div class="bd-card" aria-hidden="true"><div class="bd-card-inner"><img src="images/gallery/591391.jpg" alt="591391" loading="lazy"></div></div>
-      <div class="bd-card" aria-hidden="true"><div class="bd-card-inner"><img src="images/gallery/621835.jpg" alt="621835" loading="lazy"></div></div>
-      <div class="bd-card" aria-hidden="true"><div class="bd-card-inner"><img src="images/gallery/644700.jpg" alt="644700" loading="lazy"></div></div>
-      <div class="bd-card" aria-hidden="true"><div class="bd-card-inner"><img src="images/gallery/689103.jpg" alt="689103" loading="lazy"></div></div>
-      <div class="bd-card" aria-hidden="true"><div class="bd-card-inner"><img src="images/gallery/772517.jpg" alt="772517" loading="lazy"></div></div>
-      <div class="bd-card" aria-hidden="true"><div class="bd-card-inner"><img src="images/gallery/810454.jpg" alt="810454" loading="lazy"></div></div>
+      <div class="bd-card" aria-hidden="true"><div class="bd-card-inner"><img src="images/gallery/416590.jpg" alt="416590"></div></div>
+      <div class="bd-card" aria-hidden="true"><div class="bd-card-inner"><img src="images/gallery/417324.jpg" alt="417324"></div></div>
+      <div class="bd-card" aria-hidden="true"><div class="bd-card-inner"><img src="images/gallery/431058.jpg" alt="431058"></div></div>
+      <div class="bd-card" aria-hidden="true"><div class="bd-card-inner"><img src="images/gallery/433768.jpg" alt="433768"></div></div>
+      <div class="bd-card" aria-hidden="true"><div class="bd-card-inner"><img src="images/gallery/591391.jpg" alt="591391"></div></div>
+      <div class="bd-card" aria-hidden="true"><div class="bd-card-inner"><img src="images/gallery/621835.jpg" alt="621835"></div></div>
+      <div class="bd-card" aria-hidden="true"><div class="bd-card-inner"><img src="images/gallery/644700.jpg" alt="644700"></div></div>
+      <div class="bd-card" aria-hidden="true"><div class="bd-card-inner"><img src="images/gallery/689103.jpg" alt="689103"></div></div>
+      <div class="bd-card" aria-hidden="true"><div class="bd-card-inner"><img src="images/gallery/772517.jpg" alt="772517"></div></div>
+      <div class="bd-card" aria-hidden="true"><div class="bd-card-inner"><img src="images/gallery/810454.jpg" alt="810454"></div></div>
     </div>
   </div>
 </section>

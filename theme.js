@@ -10,7 +10,7 @@
     themeBtn.innerHTML = theme==="dark" ? SUN : MOON;
     themeBtn.setAttribute("aria-label", theme==="dark" ? "Switch to light mode" : "Switch to dark mode");
   }
-  var theme=getTheme()||"dark";
+  var theme=getTheme()||"light";
   paint(theme);
   if(themeBtn){
     themeBtn.addEventListener("click", function(){
