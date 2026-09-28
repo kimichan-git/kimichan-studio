@@ -234,9 +234,18 @@ html[data-theme="dark"] .kc-toast-btn{
 }
 
 .hero {
-  background: url("images/index/hero-desktop.jpg") center / cover no-repeat;
+  background-color: #f4ede1;
+  background-image: url("images/index/hero-desktop.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.hero .hi {
+  position: relative;
+  z-index: 1;
 }
 [data-theme="dark"] .hero {
+  background-color: #040201;
   background-image: url("images/index/hero-desktop-dark.jpg");
 }
 @media (max-width: 850px) {
