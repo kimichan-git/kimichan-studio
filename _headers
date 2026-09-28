@@ -1,0 +1,13 @@
+# 图片:缓存三个月,内容不变时无需重新下载
+/images/*
+  Cache-Control: public, max-age=7776000
+
+# CSS/JS:同样缓存三个月
+/*.css
+  Cache-Control: public, max-age=7776000
+/*.js
+  Cache-Control: public, max-age=7776000
+
+# HTML 页面本身:不要缓存太久,因为你可能会经常更新内容
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
