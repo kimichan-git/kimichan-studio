@@ -78,21 +78,6 @@ Open `index.html` in a browser, or serve the folder:
 npx serve .
 ```
 
-## Hero background note
-
-`.hero` uses a full-bleed JPEG:
-
-- Desktop: `images/index/hero-desktop.jpg`
-- Mobile (`max-width: 850px`): `images/index/hero-mobile.jpg`
-
-The mobile file is a two-band composite (flatter paper on top, warmer textured paper + portrait on the bottom), so the background can look like two colours. Simplest CSS fix: drop the mobile override and use the desktop image on all breakpoints.
-
-```css
-.hero {
-  background: url("images/index/hero-desktop.jpg") center / cover no-repeat;
-}
-```
-
 ## Contact
 
 - Email: [kimic329@gmail.com](mailto:kimic329@gmail.com)
