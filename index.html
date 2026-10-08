@@ -292,6 +292,141 @@
   }
 }
 
+/* Values / how I work */
+.values-section {
+  padding: 80px 24px;
+  background: var(--bg);
+}
+.values-section .values-sub {
+  color: var(--m);
+  max-width: 52ch;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+.values-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 36px;
+  align-items: start;
+}
+.values-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.values-step {
+  text-align: left;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 16px 16px 16px 18px;
+  border-radius: 16px;
+  font: inherit;
+  color: inherit;
+  width: 100%;
+}
+.values-step-card {
+  border-radius: 16px;
+}
+.values-step-card.is-on {
+  background: var(--c);
+  box-shadow: var(--sh);
+}
+.values-step.on {
+  background: transparent;
+  box-shadow: none;
+}
+.values-step-link {
+  display: block;
+  margin: 4px 0 0;
+  padding: 0 18px 16px;
+  font-weight: 600;
+  font-size: .92rem;
+  color: var(--a);
+  text-decoration: none;
+}
+.values-step-link:hover {
+  color: var(--a2);
+}
+.values-bar {
+  display: none;
+}
+.values-bar i {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: var(--a);
+}
+.values-step.on .values-bar i {
+  animation: valuesFill 4.8s linear forwards;
+}
+@keyframes valuesFill {
+  to { width: 100%; }
+}
+.values-step-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+.values-num {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1.5px solid var(--b);
+  display: grid;
+  place-items: center;
+  font-size: .75rem;
+  font-weight: 700;
+  color: var(--m);
+  flex: none;
+  background: var(--c);
+}
+.values-step.on .values-num {
+  background: var(--a);
+  border-color: var(--a);
+  color: #fff;
+}
+.values-step h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0;
+}
+.values-step p {
+  color: var(--m);
+  font-size: .92rem;
+  line-height: 1.55;
+  max-width: 48ch;
+  margin: 0;
+  text-align: left;
+}
+.values-panel {
+  border-radius: 24px;
+  background: transparent;
+  color: #fefcfb;
+  width: 100%;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+.values-slide-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+@media (max-width: 800px) {
+  .values-layout { grid-template-columns: 1fr; }
+  .values-panel {
+    aspect-ratio: 1 / 1;
+    height: auto !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .values-step.on .values-bar i { animation: none; width: 100%; }
+}
+
 .bd-section {
   background: var(--bg);
   padding: 80px 0 100px;
@@ -326,10 +461,10 @@
 .bd-track {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 0;
   width: max-content;
   height: 100%;
-  padding: 0 10vw;
+  padding: 0;
   animation: bd-marquee 50s linear infinite;
   transform-style: preserve-3d;
   will-change: transform;
@@ -342,6 +477,7 @@
 
 .bd-card {
   flex-shrink: 0;
+  margin-right: 30px;
   width: 200px;
   height: 320px;
   text-decoration: none;
@@ -437,11 +573,11 @@
     <h2 class="st">My Skillset &amp; Expertise</h2>
     <div class="sg">
       <button type="button" class="sc" aria-expanded="false"><div class="sn">01</div><h3>Photo & Editing</h3><p>Visual planning and professional retouching for product imagery.</p><div class="sx"><ul><li>Product photos</li><li>Retouching</li><li>Visual direction</li></ul></div></button>
-      <button type="button" class="sc" aria-expanded="false"><div class="sn">02</div><h3>Video & Motion</h3><p>Storyboarding and animation for demos, tutorials and promo films.</p><div class="sx"><ul><li>Product demos</li><li>Tutorials</li><li>Promo films</li></ul></div></button>
+      <button type="button" class="sc" aria-expanded="false"><div class="sn">02</div><h3>Video & Motion</h3><p>Storyboarding and animation for video, social media and product experiences.</p><div class="sx"><ul><li>Product demos</li><li>Tutorials</li><li>Promo films</li></ul></div></button>
       <button type="button" class="sc" aria-expanded="false"><div class="sn">03</div><h3>Website Design</h3><p>Clean interfaces with HTML/SCSS/JS and utilize AI development tools.</p><div class="sx"><ul><li>Dashboards</li><li>Admin consoles</li><li>Responsive UI</li></ul></div></button>
       <button type="button" class="sc" aria-expanded="false"><div class="sn">04</div><h3>Graphic Design</h3><p>Campaign concepts and promotional materials that strengthen brands.</p><div class="sx"><ul><li>Social campaigns</li><li>Brand visuals</li><li>Print & digital</li></ul></div></button>
-      <button type="button" class="sc" aria-expanded="false"><div class="sn">05</div><h3>UX / UI Design</h3><p>User research, wireframes and high-fidelity interfaces for website or app.</p><div class="sx"><ul><li>User flows</li><li>Prototypes</li><li>Design systems</li></ul></div></button>
-      <button type="button" class="sc" aria-expanded="false"><div class="sn">06</div><h3>Motion Graphics</h3><p>Purposeful animation for video, social media and product experiences.</p><div class="sx"><ul><li>Social motion</li><li>UI animation</li><li>Explainers</li></ul></div></button>
+      <button type="button" class="sc" aria-expanded="false"><div class="sn">05</div><h3>UX/UI Design</h3><p>User research, wireframes and high-fidelity interfaces for website or app.</p><div class="sx"><ul><li>User flows</li><li>Prototypes</li><li>Design systems</li></ul></div></button>
+      <button type="button" class="sc" aria-expanded="false"><div class="sn">06</div><h3>AutoCAD</h3><p>Floor plans and interior layouts. Room dimensions, and furniture placement.</p><div class="sx"><ul><li>Social motion</li><li>UI animation</li><li>Explainers</li></ul></div></button>
     </div>
   </div>
 </section>
@@ -454,7 +590,6 @@
     <!-- Flagship: 01 Urban Watcher -->
     <a href="project-urban-watcher.html" class="sw-flagship">
       <div class="sw-flag-media" data-hue="1">
-        <span class="sw-num">01</span>
         <img src="images/project/urban-watcher-banner.jpg" alt="Urban Watcher" class="sw-flag-img">
       </div>
       <div class="sw-flag-body">
@@ -477,7 +612,6 @@
     <div class="sw-grid">
       <a href="project-vixmini.html" class="sw-card">
         <div class="sw-card-media" data-hue="2">
-          <span class="sw-num">02</span>
           <img src="images/project/vixmini-banner.jpg" alt="VIXMINI" class="sw-card-img">
         </div>
         <div class="sw-card-body">
@@ -495,7 +629,6 @@
 
       <a href="project-unboxing-video.html" class="sw-card">
         <div class="sw-card-media" data-hue="3">
-          <span class="sw-num">03</span>
           <img src="images/project/unboxing-video-banner.jpg" alt="Unboxing Video" class="sw-card-img">
         </div>
         <div class="sw-card-body">
@@ -513,7 +646,6 @@
 
       <a href="project-camping-day.html" class="sw-card">
         <div class="sw-card-media" data-hue="4">
-          <span class="sw-num">04</span>
           <img src="images/project/camping-day-banner.jpg" alt="Camping Day" class="sw-card-img">
         </div>
         <div class="sw-card-body">
@@ -531,7 +663,6 @@
 
       <a href="project-stamp-by-me.html" class="sw-card">
         <div class="sw-card-media" data-hue="5">
-          <span class="sw-num">05</span>
           <img src="images/project/stamp-by-me-banner.jpg" alt="Stamp By Me" class="sw-card-img">
         </div>
         <div class="sw-card-body">
@@ -549,7 +680,6 @@
 
       <a href="project-product-listing.html" class="sw-card">
         <div class="sw-card-media" data-hue="6">
-          <span class="sw-num">06</span>
           <img src="images/project/product-listing-banner.jpg" alt="Product Listing" class="sw-card-img">
         </div>
         <div class="sw-card-body">
@@ -567,7 +697,6 @@
 
       <a href="project-social-media-post.html" class="sw-card">
         <div class="sw-card-media" data-hue="7">
-          <span class="sw-num">07</span>
           <img src="images/project/social-media-banner.jpg" alt="Social Media Post" class="sw-card-img">
         </div>
         <div class="sw-card-body">
@@ -585,7 +714,6 @@
 
       <a href="project-campaign-video.html" class="sw-card">
         <div class="sw-card-media" data-hue="8">
-          <span class="sw-num">08</span>
           <img src="images/project/campaign-video-banner.jpg" alt="Campaign Video" class="sw-card-img">
         </div>
         <div class="sw-card-body">
@@ -603,7 +731,6 @@
 
       <a href="project-reels-video.html" class="sw-card">
         <div class="sw-card-media" data-hue="9">
-          <span class="sw-num">09</span>
           <img src="images/project/reels-video-banner.jpg" alt="Reels Video" class="sw-card-img">
         </div>
         <div class="sw-card-body">
@@ -621,7 +748,6 @@
 
       <a href="project-setup-video.html" class="sw-card">
         <div class="sw-card-media" data-hue="10">
-          <span class="sw-num">10</span>
           <img src="images/project/setup-video-banner.jpg" alt="Setup Video" class="sw-card-img">
         </div>
         <div class="sw-card-body">
@@ -640,6 +766,54 @@
   </div>
 </section>
 
+<section class="values-section">
+  <div class="ct">
+    <div class="sl">How I work</div>
+    <h2 class="st">What keeps a project on track</h2>
+    <p class="values-sub">Four simple rules keep my work focused and clear.</p>
+    <div class="values-layout">
+      <div class="values-steps" id="valuesSteps">
+        <div class="values-step-card is-on">
+          <button class="values-step on" type="button">
+            <div class="values-bar"><i></i></div>
+            <div class="values-step-top"><span class="values-num">1</span><h3>Brief</h3></div>
+            <p>One piece, one main idea. Save the rest for later.</p>
+          </button>
+          <a class="values-step-link" href="project-setup-video.html">See Setup Video →</a>
+        </div>
+        <div class="values-step-card">
+          <button class="values-step" type="button">
+            <div class="values-bar"><i></i></div>
+            <div class="values-step-top"><span class="values-num">2</span><h3>Plan</h3></div>
+            <p>Map it before you build it. If you can’t point to a detail, drop it.</p>
+          </button>
+          <a class="values-step-link" href="project-campaign-video.html">See Campaign Video →</a>
+        </div>
+        <div class="values-step-card">
+          <button class="values-step" type="button">
+            <div class="values-bar"><i></i></div>
+            <div class="values-step-top"><span class="values-num">3</span><h3>Make</h3></div>
+            <p>Design for the human using it, not the software making it.</p>
+          </button>
+          <a class="values-step-link" href="project-stamp-by-me.html">See Stamp By Me →</a>
+        </div>
+        <div class="values-step-card">
+          <button class="values-step" type="button">
+            <div class="values-bar"><i></i></div>
+            <div class="values-step-top"><span class="values-num">4</span><h3>Deliver</h3></div>
+            <p>Make every detail clear enough to work with the sound off.</p>
+          </button>
+          <a class="values-step-link" href="project-product-listing.html">See Product Listing →</a>
+        </div>
+      </div>
+
+      <div class="values-panel">
+        <img class="values-slide-img" id="valuesSlideImg" src="images/index/rules-work-step-1.jpg" alt="Setup Video — connection modes">
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="bd-section">
   <div class="ct bd-intro">
     <div class="sl">Capture the Moment</div>
@@ -650,28 +824,26 @@
 
   <div class="bd-stage">
     <div class="bd-track" id="bdTrack">
-      <!-- set A -->
-      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/093331.jpg" alt="093331"></div></div>
-      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/093400.jpg" alt="093400"></div></div>
-      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/131875.jpg" alt="131875"></div></div>
-      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/134761.jpg" alt="134761"></div></div>
-      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/135908.jpg" alt="135908"></div></div>
-      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/168791.jpg" alt="168791"></div></div>
-      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/248121.jpg" alt="248121"></div></div>
-      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/313777.jpg" alt="313777"></div></div>
-      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/326791.jpg" alt="326791"></div></div>
-      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/335608.jpg" alt="335608"></div></div>
-      <!-- set B (duplicate for seamless loop) -->
-      <div class="bd-card" aria-hidden="true"><div class="bd-card-inner"><img src="images/gallery/416590.jpg" alt="416590"></div></div>
-      <div class="bd-card" aria-hidden="true"><div class="bd-card-inner"><img src="images/gallery/417324.jpg" alt="417324"></div></div>
-      <div class="bd-card" aria-hidden="true"><div class="bd-card-inner"><img src="images/gallery/431058.jpg" alt="431058"></div></div>
-      <div class="bd-card" aria-hidden="true"><div class="bd-card-inner"><img src="images/gallery/433768.jpg" alt="433768"></div></div>
-      <div class="bd-card" aria-hidden="true"><div class="bd-card-inner"><img src="images/gallery/591391.jpg" alt="591391"></div></div>
-      <div class="bd-card" aria-hidden="true"><div class="bd-card-inner"><img src="images/gallery/621835.jpg" alt="621835"></div></div>
-      <div class="bd-card" aria-hidden="true"><div class="bd-card-inner"><img src="images/gallery/644700.jpg" alt="644700"></div></div>
-      <div class="bd-card" aria-hidden="true"><div class="bd-card-inner"><img src="images/gallery/689103.jpg" alt="689103"></div></div>
-      <div class="bd-card" aria-hidden="true"><div class="bd-card-inner"><img src="images/gallery/772517.jpg" alt="772517"></div></div>
-      <div class="bd-card" aria-hidden="true"><div class="bd-card-inner"><img src="images/gallery/810454.jpg" alt="810454"></div></div>
+      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/093331.jpg" alt="Gallery photo 093331"></div></div>
+      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/093400.jpg" alt="Gallery photo 093400"></div></div>
+      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/131875.jpg" alt="Gallery photo 131875"></div></div>
+      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/134761.jpg" alt="Gallery photo 134761"></div></div>
+      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/135908.jpg" alt="Gallery photo 135908"></div></div>
+      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/168791.jpg" alt="Gallery photo 168791"></div></div>
+      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/248121.jpg" alt="Gallery photo 248121"></div></div>
+      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/313777.jpg" alt="Gallery photo 313777"></div></div>
+      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/326791.jpg" alt="Gallery photo 326791"></div></div>
+      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/335608.jpg" alt="Gallery photo 335608"></div></div>
+      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/416590.jpg" alt="Gallery photo 416590"></div></div>
+      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/417324.jpg" alt="Gallery photo 417324"></div></div>
+      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/431058.jpg" alt="Gallery photo 431058"></div></div>
+      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/433768.jpg" alt="Gallery photo 433768"></div></div>
+      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/591391.jpg" alt="Gallery photo 591391"></div></div>
+      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/621835.jpg" alt="Gallery photo 621835"></div></div>
+      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/644700.jpg" alt="Gallery photo 644700"></div></div>
+      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/689103.jpg" alt="Gallery photo 689103"></div></div>
+      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/772517.jpg" alt="Gallery photo 772517"></div></div>
+      <div class="bd-card"><div class="bd-card-inner"><img src="images/gallery/810454.jpg" alt="Gallery photo 810454"></div></div>
     </div>
   </div>
 </section>
@@ -689,8 +861,113 @@
 
 <script>
 (function () {
+  var steps = Array.prototype.slice.call(document.querySelectorAll(".values-step"));
+  var slideImg = document.getElementById("valuesSlideImg");
+  var stepsCol = document.getElementById("valuesSteps");
+  var valuesPanel = document.querySelector(".values-panel");
+  if (!steps.length || !slideImg) return;
+
+  function syncValuesPanelHeight() {
+    if (!stepsCol || !valuesPanel) return;
+    if (window.matchMedia("(max-width: 800px)").matches) {
+      valuesPanel.style.height = "";
+      return;
+    }
+    valuesPanel.style.height = stepsCol.offsetHeight + "px";
+  }
+  syncValuesPanelHeight();
+  window.addEventListener("resize", syncValuesPanelHeight);
+  if (window.ResizeObserver && stepsCol) {
+    new ResizeObserver(syncValuesPanelHeight).observe(stepsCol);
+  }
+  var shownIndex = -1;
+
+  var copy = [
+    ["images/index/rules-work-step-1.jpg", "Setup Video — connection modes"],
+    ["images/index/rules-work-step-2.jpg", "Campaign Video — 5G and eSIM on the road"],
+    ["images/index/rules-work-step-3.jpg", "Stamp By Me — collect stamps at the kiosk"],
+    ["images/index/rules-work-step-4.jpg", "Product listing — Beryl 7 travel router"]
+  ];
+  var i = 0;
+  var timer;
+  var swapToken = 0;
+  var preloaded = Object.create(null);
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  copy.forEach(function (row) {
+    var src = row[0];
+    if (preloaded[src]) return;
+    var img = new Image();
+    img.src = src;
+    preloaded[src] = img;
+  });
+
+  function applyPanel(index) {
+    if (index === shownIndex) return;
+    var row = copy[index];
+    slideImg.alt = row[1];
+    if (slideImg.getAttribute("src") !== row[0]) slideImg.src = row[0];
+    if (slideImg.decode) slideImg.decode().catch(function () {});
+    shownIndex = index;
+  }
+
+  function swapPanel(index) {
+    var src = copy[index][0];
+    var token = ++swapToken;
+    var cached = preloaded[src];
+    if (cached && cached.complete && cached.naturalWidth > 0) {
+      applyPanel(index);
+      return;
+    }
+    var loader = new Image();
+    loader.onload = function () {
+      loader.onload = null;
+      preloaded[src] = loader;
+      if (token !== swapToken) return;
+      applyPanel(index);
+    };
+    loader.onerror = function () {
+      if (token !== swapToken) return;
+      applyPanel(index);
+    };
+    loader.src = src;
+  }
+
+  function go(n) {
+    i = n % steps.length;
+    steps.forEach(function (s, idx) {
+      s.classList.toggle("on", idx === i);
+      var card = s.closest(".values-step-card");
+      if (card) card.classList.toggle("is-on", idx === i);
+      var bar = s.querySelector(".values-bar i");
+      if (bar) {
+        bar.style.animation = "none";
+        void bar.offsetWidth;
+        bar.style.animation = "";
+      }
+    });
+    swapPanel(i);
+    clearTimeout(timer);
+    if (!reduce) timer = setTimeout(function () { go(i + 1); }, 5300);
+  }
+
+  steps.forEach(function (s, idx) {
+    s.addEventListener("click", function () { go(idx); });
+  });
+  go(0);
+})();
+
+(function () {
   var track = document.getElementById("bdTrack");
   if (!track) return;
+
+  Array.prototype.slice.call(track.children).forEach(function (card) {
+    var clone = card.cloneNode(true);
+    clone.setAttribute("aria-hidden", "true");
+    clone.querySelectorAll("img").forEach(function (img) { img.alt = ""; });
+    track.appendChild(clone);
+  });
+
   var cards = track.querySelectorAll(".bd-card");
   if (!cards.length) return;
 

@@ -211,13 +211,31 @@
   gap: 14px;
   margin: 24px 0 8px;
 }
+.cs-topics--stack {
+  grid-template-columns: 1fr;
+}
 .cs-topic {
   background: var(--c);
   border: 1px solid var(--b);
   border-radius: 14px;
   padding: 18px 20px;
 }
+.cs-topic .thumb {
+  margin: -18px -20px 14px;
+  overflow: hidden;
+  border-radius: 13px 13px 0 0;
+  line-height: 0;
+}
+.cs-topic .thumb img {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  object-fit: cover;
+  display: block;
+}
 .cs-topic h3 { font-size: .95rem; font-weight: 600; margin: 0 0 6px; color: var(--t); }
+.cs-topic h3 a { color: inherit; text-decoration: none; }
+.cs-topic h3 a:hover { color: var(--a); text-decoration: underline; }
 .cs-topic p { font-size: .88rem; color: var(--m); margin: 0; line-height: 1.5; }
 
 /* Spec / key-value table (used on almost every page's Overview) */

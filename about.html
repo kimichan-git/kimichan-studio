@@ -191,19 +191,18 @@
   padding-left:0 !important;
   padding-right:0 !important;
 }
-/* Center Milestones + Quick Q&A */
+/* Left-align Milestones + Quick Q&A with hero copy */
 .milestones-section,
 .qa-section{
   max-width:720px !important;
   width:100% !important;
   margin-top: 100px;
-  margin-left:auto !important;
+  margin-left:0 !important;
   margin-right:auto !important;
   box-sizing:border-box !important;
   padding-left:0 !important;
   padding-right:0 !important;
 }
-
 html[data-theme="light"] .milestones-section{
   background:#FEFCFB;
   border-color:transparent;
@@ -292,8 +291,8 @@ html[data-theme="light"] .tl-item:not(:last-child) .tl-rail::before{
 .tl-cursor{
   position:fixed;
   top:0;left:0;
-  width:320px;
-  height:180px; /* 16:9 */
+  width:420px;
+  height:236.25px; /* 16:9 */
   margin:0;
   pointer-events:none;
   z-index:80;
@@ -349,7 +348,7 @@ html[data-theme="light"] .tl-item:not(:last-child) .tl-rail::before{
   margin-right:0;
 }
 .about-copy,
-.about-copy h1,
+.about-copy h2,
 .about-copy .lead,
 .about-copy .at,
 .ph > .ct > .sl{
@@ -434,63 +433,26 @@ html[data-theme="light"] .about-photo-frame{
   box-shadow:0 22px 44px rgba(0,0,0,.38);
 }
 
-/* Fit / contact card — stay inside page column and center */
-.fit-section{
-  width:100% !important;
-  max-width:560px !important;
-  margin-left:auto !important;
-  margin-right:auto !important;
-  margin-top:48px;
-  margin-bottom:0;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  box-sizing:border-box;
-  padding:64px 0;
-  background:transparent;
-}
-html[data-theme="light"] .fit-section{
-  background:transparent;
-}
+/* Fit / contact — left-aligned */
 .fit-card{
-  width:100%;
-  max-width:560px;
   background:transparent;
   border:none;
   border-radius:0;
   padding:0;
   box-sizing:border-box;
-  text-align:center;
-}
-html[data-theme="light"] .fit-card{
-  background:transparent;
-  border:none;
 }
 .fit-title{
-  margin:0 auto 22px;
   font-size:clamp(1.45rem, 2.4vw, 1.85rem);
   font-weight:700;
   color:var(--t);
   letter-spacing:-.02em;
   line-height:1.35;
-  text-align:center;
-  width:100%;
-}
-.fit-row{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:12px;
-  flex-wrap:wrap;
 }
 .fit-email{
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:10px;
-  min-width:min(100%,270px);
-  flex:1;
   padding:6px 6px 6px 16px;
   border-radius:10px;
   background:var(--c);
@@ -554,44 +516,7 @@ html[data-theme="light"] .fit-copy{
     margin-left:auto;
     margin-right:auto;
   }
-  /* Fit card: stack email then download */
-  .fit-row{
-    flex-direction:column;
-    align-items:center;
-    gap:12px;
-  }
-  .fit-email{
-    min-width:0;
-    width:100%;
-    flex:none;
-  }
-  .fit-row .dl-btn{
-    width:auto;
-    justify-content:center;
-    align-self:center;
-  }
-  .fit-title{
-    line-height:1.45;
-    text-align:center !important;
-    width:100%;
-    margin-left:auto;
-    margin-right:auto;
-  }
-  .fit-card{
-    margin-left:auto;
-    margin-right:auto;
-    text-align:center !important;
-  }
-  .fit-section{
-    margin-left:auto !important;
-    margin-right:auto !important;
-    width:100% !important;
-    max-width:560px !important;
-    margin-top:28px !important;
-    margin-bottom:0 !important;
-    padding:40px 0;
-    justify-self:center;
-  }
+  .fit-title{ line-height:1.45; }
 }
 @media(max-width:520px){
   .about-photo{
@@ -602,7 +527,6 @@ html[data-theme="light"] .fit-copy{
     justify-self:center;
   }
   .fit-card{padding:0;border-radius:0}
-  .fit-email{min-width:0;width:100%}
 }
 
 /* Mobile: align about content with nav logo */
@@ -619,11 +543,6 @@ html[data-theme="light"] .fit-copy{
   .milestones-section,
   .qa-section {
     max-width: 100% !important;
-  }
-  .fit-section {
-    max-width: 560px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
   }
 }
 @media (max-width: 520px) {
@@ -656,7 +575,7 @@ html[data-theme="light"] .fit-copy{
     <div class="sl">About</div>
     <div class="about-hero">
     <div class="about-copy">
-      <h1>Kimi Chan</h1>
+      <h2 class="st">Kimi Chan</h2>
       <p class="lead">A senior Multimedia Designer with over 5 years of experience.</p>
       <div class="at">
         <p>Combining expertise in photography, video, graphic design, and UX/UI, I create multimedia experiences that engage audiences and drive real results. As a photographer, my work captures landscapes, cityscapes, and portraits through a serene, authentic lens, highlighting the dynamic interplay between city energy and quiet abstraction. Explore my recent shots and visual projects on <a href="https://www.instagram.com/kimic.foto/" target="_blank" rel="noopener">Instagram</a>.</p>
@@ -734,6 +653,14 @@ html[data-theme="light"] .fit-copy{
             <div class="tl-content">Featured for a photography series capturing the peaceful, vibrant pink blossoms of the historic Cassia javanica tree at The Murray.</div>
           </div>
         </div>
+         <div class="tl-item">
+          <time class="tl-date">Sep 2025</time>
+          <div class="tl-rail"><span class="tl-dot"></span></div>
+          <div class="tl-body">
+            <div class="tl-title tl-hover" data-preview="images/about/milestone-featured.jpg">Featured across multiple Instagram platforms</div>
+            <div class="tl-content">Several of the photo works were shared by different accounts, including @nikonhongkong, @discoverhongkong, @conservationhk, @timeouthk, @awsomehongkong, @capturinghongkong, and @canonhongkong.</div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -751,7 +678,7 @@ html[data-theme="light"] .fit-copy{
             <span class="qa-icon" aria-hidden="true"></span>
           </button>
           <div class="qa-a">
-            <p>My favorite project is Urban Watcher, my graduation project. It connects me with people and helps me visit places I’d never explored before. It’s an immersive, interactive experience that lets guests browse Hong Kong through image and sound—from field trips and exhibition setup to new experiences I learned along the way. I’m grateful the final result matched my expectations. You can see more about the production progress here.</p>
+            <p>My favorite project is Urban Watcher, my graduation project. It connects me with people and helps me visit places I’d never explored before. It’s an immersive, interactive experience that lets guests browse Hong Kong through image and sound—from field trips and exhibition setup to new experiences I learned along the way. I’m grateful the final result matched my expectations. You can see more about the production progress on this website.</p>
           </div>
         </div>
         <div class="qa-item">
@@ -802,26 +729,30 @@ html[data-theme="light"] .fit-copy{
       </div>
     </div>
 
-    <div class="fit-section">
-      <div class="fit-card">
-        <p class="fit-title">Tell me what you're building.<br>Let's see if it's a fit.</p>
-        <div class="fit-row">
-          <div class="fit-email" id="fitEmail">
-            <span>kimic329@gmail.com</span>
-            <button type="button" class="fit-copy" id="copyEmailBtn" aria-label="Copy email address" title="Copy email">
-              <svg class="fit-copy-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-              <svg class="fit-check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-            </button>
-          </div>
-          <a href="public/Chan%20Wing%20Shan_CV-17092026.pdf" download="Chan Wing Shan_CV-17092026.pdf" class="btn bp fit-resume">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Download resume
-          </a>
+  </div>
+</section>
+
+<div class="fit-section">
+  <div class="fit-section-inner">
+    <div class="sl">Contact</div>
+    <div class="fit-card">
+      <p class="fit-title">Tell me what you're building. Let's see if it's a fit.</p>
+      <div class="fit-row">
+        <div class="fit-email" id="fitEmail">
+          <span>kimic329@gmail.com</span>
+          <button type="button" class="fit-copy" id="copyEmailBtn" aria-label="Copy email address" title="Copy email">
+            <svg class="fit-copy-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <svg class="fit-check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          </button>
         </div>
+        <a href="public/Chan%20Wing%20Shan_CV-17092026.pdf" download="Chan Wing Shan_CV-17092026.pdf" class="btn bp fit-resume">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download resume
+        </a>
       </div>
     </div>
   </div>
-</section>
+</div>
 
 <footer>© <span data-year></span> Kimi Chan</footer>
 
