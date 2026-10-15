@@ -160,12 +160,14 @@ footer{border-top:1px solid var(--b);padding:28px 24px;text-align:center;color:v
   justify-content:flex-start !important;
   align-items:center !important;
   gap:12px !important;
+  gap: 1rem;
   width:100% !important;
 }
 .fit-email{
   flex:0 0 auto !important;
   width:fit-content !important;
   max-width:min(100%,320px) !important;
+  padding: 0.25rem 0;
 }
 .fit-resume{ flex-shrink:0 !important; }
 @media (max-width:520px){
