@@ -454,7 +454,10 @@ html[data-theme="light"] .about-photo-frame{
   align-items:center;
   justify-content:space-between;
   gap:10px;
-  padding:6px 6px 6px 16px;
+  box-sizing:border-box;
+  height:48px;
+  min-height:48px;
+  padding:0 6px 0 16px;
   border-radius:10px;
   background:var(--c);
   border:1px solid var(--b);
@@ -491,10 +494,18 @@ html[data-theme="light"] .fit-copy{
 }
 .fit-resume{
   color:#1d1d1d !important;
+  box-sizing:border-box;
   height:48px;
+  min-height:48px;
   padding:10px 20px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
   white-space:nowrap;
   flex-shrink:0;
+  width:auto;
+  max-width:min(100%,320px);
 }
 .fit-copy.copied{
   color:#16a34a;
@@ -518,6 +529,7 @@ html[data-theme="light"] .fit-copy{
     margin-right:auto;
   }
   .fit-title{ line-height:1.45; }
+  .fit-title-line2{ display:block; }
 }
 @media(max-width:520px){
   .about-photo{
@@ -545,9 +557,17 @@ html[data-theme="light"] .fit-copy{
   .qa-section {
     max-width: 100% !important;
   }
+  .fit-section {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
 }
 @media (max-width: 520px) {
   .ph {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  .fit-section {
     padding-left: 16px !important;
     padding-right: 16px !important;
   }
@@ -737,7 +757,7 @@ html[data-theme="light"] .fit-copy{
   <div class="fit-section-inner">
     <div class="sl">Contact</div>
     <div class="fit-card">
-      <p class="fit-title">Tell me what you're building. Let's see if it's a fit.</p>
+      <p class="fit-title">Tell me what you're building. <span class="fit-title-line2">Let's see if it's a fit.</span></p>
       <div class="fit-row">
         <div class="fit-email" id="fitEmail">
           <span>kimic329@gmail.com</span>
