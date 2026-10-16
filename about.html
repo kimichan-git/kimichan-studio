@@ -453,11 +453,11 @@ html[data-theme="light"] .about-photo-frame{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:10px;
+  gap:20px;
   box-sizing:border-box;
   height:48px;
   min-height:48px;
-  padding:0 6px 0 16px;
+  padding:0 8px 0 16px;
   border-radius:10px;
   background:var(--c);
   border:1px solid var(--b);
@@ -472,6 +472,8 @@ html[data-theme="light"] .fit-email{
 .fit-copy{
   width:36px;
   height:36px;
+  margin:0;
+  padding:0;
   border-radius:10px;
   border:1px solid var(--b);
   background:var(--c);
@@ -760,7 +762,7 @@ html[data-theme="light"] .fit-copy{
       <p class="fit-title">Tell me what you're building. <span class="fit-title-line2">Let's see if it's a fit.</span></p>
       <div class="fit-row">
         <div class="fit-email" id="fitEmail">
-          <span>kimic329@gmail.com</span>
+          <span class="fit-email-text">kimic329@gmail.com</span>
           <button type="button" class="fit-copy" id="copyEmailBtn" aria-label="Copy email address" title="Copy email">
             <svg class="fit-copy-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
             <svg class="fit-check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
