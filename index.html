@@ -17,6 +17,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <style>
 .hero-bg-img{
   position:absolute;inset:0;width:100%;height:100%;
@@ -300,131 +301,42 @@
 .values-section .values-sub {
   color: var(--m);
   max-width: 52ch;
-  margin-bottom: 40px;
+  margin-bottom: 28px;
   line-height: 1.6;
 }
-.values-layout {
+.values-grid {
   display: grid;
-  grid-template-columns: 1fr 1.05fr;
-  gap: 36px;
-  align-items: start;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
 }
-.values-steps {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.values-step {
-  text-align: left;
-  border: 0;
-  background: transparent;
-  cursor: pointer;
-  padding: 16px 16px 16px 18px;
-  border-radius: 16px;
-  font: inherit;
-  color: inherit;
-  width: 100%;
-}
-.values-step-card {
-  border-radius: 16px;
-}
-.values-step-card.is-on {
+.values-card {
   background: var(--c);
-  box-shadow: var(--sh);
+  border: 1px solid var(--b);
+  border-radius: 18px;
+  padding: 22px 24px 20px;
+  box-shadow: 0 1px 2px rgba(29, 29, 29, .04);
 }
-.values-step.on {
-  background: transparent;
-  box-shadow: none;
-}
-.values-step-link {
+.values-card > i {
   display: block;
-  margin: 4px 0 0;
-  padding: 0 18px 16px;
-  font-weight: 600;
-  font-size: .92rem;
   color: var(--a);
-  text-decoration: none;
+  font-size: 1.61rem;
+  line-height: 1;
+  margin-bottom: 14px;
 }
-.values-step-link:hover {
-  color: var(--a2);
-}
-.values-bar {
-  display: none;
-}
-.values-bar i {
-  display: block;
-  height: 100%;
-  width: 0;
-  background: var(--a);
-}
-.values-step.on .values-bar i {
-  animation: valuesFill 4.8s linear forwards;
-}
-@keyframes valuesFill {
-  to { width: 100%; }
-}
-.values-step-top {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 6px;
-}
-.values-num {
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  border: 1.5px solid var(--b);
-  display: grid;
-  place-items: center;
-  font-size: .75rem;
-  font-weight: 700;
-  color: var(--m);
-  flex: none;
-  background: var(--c);
-}
-.values-step.on .values-num {
-  background: var(--a);
-  border-color: var(--a);
-  color: #fff;
-}
-.values-step h3 {
+.values-card h3 {
   font-size: 1.05rem;
-  font-weight: 600;
-  margin: 0;
+  font-weight: 700;
+  letter-spacing: -.01em;
+  margin: 0 0 6px;
 }
-.values-step p {
+.values-card p {
   color: var(--m);
-  font-size: .92rem;
+  font-size: .95rem;
   line-height: 1.55;
-  max-width: 48ch;
   margin: 0;
-  text-align: left;
 }
-.values-panel {
-  border-radius: 24px;
-  background: transparent;
-  color: #fefcfb;
-  width: 100%;
-  padding: 0;
-  position: relative;
-  overflow: hidden;
-}
-.values-slide-img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: inherit;
-}
-@media (max-width: 800px) {
-  .values-layout { grid-template-columns: 1fr; }
-  .values-panel {
-    aspect-ratio: 1 / 1;
-    height: auto !important;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .values-step.on .values-bar i { animation: none; width: 100%; }
+@media (max-width: 700px) {
+  .values-grid { grid-template-columns: 1fr; }
 }
 
 .bd-section {
@@ -571,6 +483,7 @@
   <div class="ct">
     <div class="sl">Capabilities</div>
     <h2 class="st">My Skillset &amp; Expertise</h2>
+    <p class="sd">Creative skills for visual and digital experiences.</p>
     <div class="sg">
       <button type="button" class="sc" aria-expanded="false"><div class="sn">01</div><h3>Photo & Editing</h3><p>Visual planning and professional retouching for product imagery.</p><div class="sx"><ul><li>Product photos</li><li>Retouching</li><li>Visual direction</li></ul></div></button>
       <button type="button" class="sc" aria-expanded="false"><div class="sn">02</div><h3>Video & Motion</h3><p>Storyboarding and animation for video, social media and product experiences.</p><div class="sx"><ul><li>Product demos</li><li>Tutorials</li><li>Promo films</li></ul></div></button>
@@ -586,6 +499,7 @@
   <div class="ct">
     <div class="sl">Selected Work</div>
     <h2 class="st">Recent projects</h2>
+    <p class="sd">A selection of my recent creative work.</p>
 
     <!-- Flagship: 01 Urban Watcher -->
     <a href="project-urban-watcher.html" class="sw-flagship">
@@ -771,45 +685,27 @@
     <div class="sl">How I work</div>
     <h2 class="st">What keeps a project on track</h2>
     <p class="values-sub">Four simple rules keep my work focused and clear.</p>
-    <div class="values-layout">
-      <div class="values-steps" id="valuesSteps">
-        <div class="values-step-card is-on">
-          <button class="values-step on" type="button">
-            <div class="values-bar"><i></i></div>
-            <div class="values-step-top"><span class="values-num">1</span><h3>Brief</h3></div>
-            <p>One piece, one main idea. Save the rest for later.</p>
-          </button>
-          <a class="values-step-link" href="project-setup-video.html">See Setup Video →</a>
-        </div>
-        <div class="values-step-card">
-          <button class="values-step" type="button">
-            <div class="values-bar"><i></i></div>
-            <div class="values-step-top"><span class="values-num">2</span><h3>Plan</h3></div>
-            <p>Map it before you build it. If you can’t point to a detail, drop it.</p>
-          </button>
-          <a class="values-step-link" href="project-campaign-video.html">See Campaign Video →</a>
-        </div>
-        <div class="values-step-card">
-          <button class="values-step" type="button">
-            <div class="values-bar"><i></i></div>
-            <div class="values-step-top"><span class="values-num">3</span><h3>Make</h3></div>
-            <p>Design for the human using it, not the software making it.</p>
-          </button>
-          <a class="values-step-link" href="project-stamp-by-me.html">See Stamp By Me →</a>
-        </div>
-        <div class="values-step-card">
-          <button class="values-step" type="button">
-            <div class="values-bar"><i></i></div>
-            <div class="values-step-top"><span class="values-num">4</span><h3>Deliver</h3></div>
-            <p>Make every detail clear enough to work with the sound off.</p>
-          </button>
-          <a class="values-step-link" href="project-product-listing.html">See Product Listing →</a>
-        </div>
-      </div>
-
-      <div class="values-panel">
-        <img class="values-slide-img" id="valuesSlideImg" src="images/index/rules-work-step-1.jpg" alt="Setup Video — connection modes">
-      </div>
+    <div class="values-grid">
+      <article class="values-card">
+        <i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
+        <h3>Brief</h3>
+        <p>One piece, one main idea. Save the rest for later.</p>
+      </article>
+      <article class="values-card">
+        <i class="fa-solid fa-clipboard-list" aria-hidden="true"></i>
+        <h3>Plan</h3>
+        <p>Map it before you build it. If you can’t point to a detail, drop it.</p>
+      </article>
+      <article class="values-card">
+        <i class="fa-solid fa-pen-ruler" aria-hidden="true"></i>
+        <h3>Make</h3>
+        <p>Design for the human using it, not the software making it.</p>
+      </article>
+      <article class="values-card">
+        <i class="fa-solid fa-file-circle-check" aria-hidden="true"></i>
+        <h3>Deliver</h3>
+        <p>Make every detail clear enough to work with the sound off.</p>
+      </article>
     </div>
   </div>
 </section>
@@ -860,103 +756,6 @@
 <footer>© <span data-year></span> Kimi Chan</footer>
 
 <script>
-(function () {
-  var steps = Array.prototype.slice.call(document.querySelectorAll(".values-step"));
-  var slideImg = document.getElementById("valuesSlideImg");
-  var stepsCol = document.getElementById("valuesSteps");
-  var valuesPanel = document.querySelector(".values-panel");
-  if (!steps.length || !slideImg) return;
-
-  function syncValuesPanelHeight() {
-    if (!stepsCol || !valuesPanel) return;
-    if (window.matchMedia("(max-width: 800px)").matches) {
-      valuesPanel.style.height = "";
-      return;
-    }
-    valuesPanel.style.height = stepsCol.offsetHeight + "px";
-  }
-  syncValuesPanelHeight();
-  window.addEventListener("resize", syncValuesPanelHeight);
-  if (window.ResizeObserver && stepsCol) {
-    new ResizeObserver(syncValuesPanelHeight).observe(stepsCol);
-  }
-  var shownIndex = -1;
-
-  var copy = [
-    ["images/index/rules-work-step-1.jpg", "Setup Video — connection modes"],
-    ["images/index/rules-work-step-2.jpg", "Campaign Video — 5G and eSIM on the road"],
-    ["images/index/rules-work-step-3.jpg", "Stamp By Me — collect stamps at the kiosk"],
-    ["images/index/rules-work-step-4.jpg", "Product listing — Beryl 7 travel router"]
-  ];
-  var i = 0;
-  var timer;
-  var swapToken = 0;
-  var preloaded = Object.create(null);
-  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  copy.forEach(function (row) {
-    var src = row[0];
-    if (preloaded[src]) return;
-    var img = new Image();
-    img.src = src;
-    preloaded[src] = img;
-  });
-
-  function applyPanel(index) {
-    if (index === shownIndex) return;
-    var row = copy[index];
-    slideImg.alt = row[1];
-    if (slideImg.getAttribute("src") !== row[0]) slideImg.src = row[0];
-    if (slideImg.decode) slideImg.decode().catch(function () {});
-    shownIndex = index;
-  }
-
-  function swapPanel(index) {
-    var src = copy[index][0];
-    var token = ++swapToken;
-    var cached = preloaded[src];
-    if (cached && cached.complete && cached.naturalWidth > 0) {
-      applyPanel(index);
-      return;
-    }
-    var loader = new Image();
-    loader.onload = function () {
-      loader.onload = null;
-      preloaded[src] = loader;
-      if (token !== swapToken) return;
-      applyPanel(index);
-    };
-    loader.onerror = function () {
-      if (token !== swapToken) return;
-      applyPanel(index);
-    };
-    loader.src = src;
-  }
-
-  function go(n) {
-    i = n % steps.length;
-    steps.forEach(function (s, idx) {
-      s.classList.toggle("on", idx === i);
-      var card = s.closest(".values-step-card");
-      if (card) card.classList.toggle("is-on", idx === i);
-      var bar = s.querySelector(".values-bar i");
-      if (bar) {
-        bar.style.animation = "none";
-        void bar.offsetWidth;
-        bar.style.animation = "";
-      }
-    });
-    swapPanel(i);
-    clearTimeout(timer);
-    if (!reduce) timer = setTimeout(function () { go(i + 1); }, 5300);
-  }
-
-  steps.forEach(function (s, idx) {
-    s.addEventListener("click", function () { go(idx); });
-  });
-  go(0);
-})();
-
 (function () {
   var track = document.getElementById("bdTrack");
   if (!track) return;
